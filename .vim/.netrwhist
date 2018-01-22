@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/austinbricker/git/Aquobot'
+let g:netrw_dirhist_2='/Users/austinbricker'
+let g:netrw_dirhist_3='/Users/austinbricker/Desktop/Files/Documents/Other'
+let g:netrw_dirhist_4='/Users/austinbricker/git/KND-Rando'
+let g:netrw_dirhist_5='/Users/austinbricker/git'
+let g:netrw_dirhist_6='/Users/austinbricker/git/KA-Rando'
+let g:netrw_dirhist_7='/Users/austinbricker/git/KA-Rando/docs'
+let g:netrw_dirhist_8='/Users/austinbricker/git/KA-Rando'
