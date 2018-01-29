@@ -62,6 +62,10 @@ nnoremap Q @@
 " Map Y from yy to y$. Doesn't grab newline character this way
 nnoremap Y y$
 
+" Easily add empty lines
+nnoremap [<space> :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+nnoremap ]<space> :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+
 " Set leader to ,
 let mapleader=","
 
@@ -72,6 +76,13 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap L L<bar>zz <CR>
 " Same for H
 nnoremap H H<bar>zz <CR>
+
+" Replace typing :noh
+nnoremap <leader><space> :noh<CR>
+
+" % is annoying
+nnoremap <tab> %
+vnoremap <tab> %
 
 " " Allow cursor change in Tmux
 " if exists('$TMUX')

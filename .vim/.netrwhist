@@ -1,10 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/austinbricker/git/Aquobot'
-let g:netrw_dirhist_2='/Users/austinbricker'
-let g:netrw_dirhist_3='/Users/austinbricker/Desktop/Files/Documents/Other'
-let g:netrw_dirhist_4='/Users/austinbricker/git/KND-Rando'
-let g:netrw_dirhist_5='/Users/austinbricker/git'
-let g:netrw_dirhist_6='/Users/austinbricker/git/KA-Rando'
-let g:netrw_dirhist_7='/Users/austinbricker/git/KA-Rando/docs'
-let g:netrw_dirhist_8='/Users/austinbricker/git/KA-Rando'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/austinbricker/git/cse222/assignment-01-bricker-kim'
+let g:netrw_dirhist_2='/Users/austinbricker/git/cse222'
+let g:netrw_dirhist_3='/Users/austinbricker/git'
+let g:netrw_dirhist_4='/Users/austinbricker/git/cse330'
+let g:netrw_dirhist_5='/Users/austinbricker/git/cse330/fall2017-module2-group-450713-451202'
+let g:netrw_dirhist_6='/Users/austinbricker/git/cse222/assignment-01-bricker-kim'
