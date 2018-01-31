@@ -1,8 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/austinbricker/git/cse222/assignment-01-bricker-kim'
-let g:netrw_dirhist_2='/Users/austinbricker/git/cse222'
-let g:netrw_dirhist_3='/Users/austinbricker/git'
-let g:netrw_dirhist_4='/Users/austinbricker/git/cse330'
-let g:netrw_dirhist_5='/Users/austinbricker/git/cse330/fall2017-module2-group-450713-451202'
-let g:netrw_dirhist_6='/Users/austinbricker/git/cse222/assignment-01-bricker-kim'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/austinbricker/git/pretty-weather/pretty-weather.widget'
+let g:netrw_dirhist_2='/Users/austinbricker/git/pretty-weather'
+let g:netrw_dirhist_3='/Users/austinbricker/git/pretty-weather/pretty-weather.widget'
+let g:netrw_dirhist_4='/Users/austinbricker/git/pretty-weather'

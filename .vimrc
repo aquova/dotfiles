@@ -30,6 +30,9 @@ set showmatch           " Highlight matching [{()}]
 set incsearch           " Search as characters are entered
 set hlsearch            " Highlight matches
 
+" Enables the mouse in terminal Vim
+set mouse=a
+
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -135,7 +138,7 @@ autocmd FileType pico8 setlocal shiftwidth=1 tabstop=1 softtabstop=1
 " Airline tab theme settings
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1
-set guifont=Noto\ Mono\ for\ Powerline:h11
+set guifont=Roboto\ Mono\ for\ Powerline:h11
 " Fixes messed up symbols with powerline tab font
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}

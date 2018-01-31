@@ -24,7 +24,4 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PS1="\[\e[35m\]\u\[\e[m\]\[\e[32m\][\[\e[m\]\[\e[32m\]\T\[\e[m\]\[\e[32m\]]\[\e[m\]:\[\e[33m\]\w\[\e[m\]\\$ "
 export CLICOLOR=1
 
-set -o vi
-bind '"jk":vi-movement-mode'
-
 export PATH=/Users/austinbricker/.local/bin/luna-studio:$PATH
