@@ -4,7 +4,7 @@
 # Austin Bricker, 2018
 
 # Checks if git is installed.
-if command -v git >/dev/null; then
+if ! command -v git >/dev/null; then
     echo "git is not installed. Please install git before proceeding.";
     exit 1;
 fi
