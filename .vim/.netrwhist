@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/austinbricker/git/pretty-weather/pretty-weather.widget'
-let g:netrw_dirhist_2='/Users/austinbricker/git/pretty-weather'
-let g:netrw_dirhist_3='/Users/austinbricker/git/pretty-weather/pretty-weather.widget'
-let g:netrw_dirhist_4='/Users/austinbricker/git/pretty-weather'
