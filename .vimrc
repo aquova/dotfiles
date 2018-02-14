@@ -30,11 +30,8 @@ set showmatch           " Highlight matching [{()}]
 set incsearch           " Search as characters are entered
 set hlsearch            " Highlight matches
 
-" Enables the mouse in terminal Vim
-set mouse=a
-
-" All text is shown, nothing is hidden for better formatting
-set conceallevel=0
+set mouse=a             " Enables the mouse in terminal Vim
+set conceallevel=0      " All text is shown
 
 " Enable folding
 set foldmethod=indent
@@ -47,7 +44,9 @@ nnoremap k gk
 
 " Remaps beginning/end of line
 nnoremap B ^
+vnoremap B ^
 nnoremap E $
+vnoremap E $
 
 " Remap J and K to move between non-hidden buffers
 nnoremap J :bp<CR>
@@ -65,9 +64,6 @@ inoremap jk <esc>
 " Q reruns last macro
 nnoremap Q @@
 
-" Map Y from yy to y$. Doesn't grab newline character this way
-nnoremap Y y$
-
 " Easily add empty lines
 nnoremap [<space> :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
 nnoremap ]<space> :<c-u>put =repeat(nr2char(10), v:count1)<cr>
@@ -78,10 +74,11 @@ let mapleader=","
 " Loads vimrc bindings
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-" L jumps to bottom of screen, and scrolls up slightly
+" Center text after jumping to beginning/end of window
 nnoremap L L<bar>zz <CR>
-" Same for H
+vnoremap L L<bar>zz <CR>
 nnoremap H H<bar>zz <CR>
+vnoremap H H<bar>zz <CR>
 
 " Replace typing :noh
 nnoremap <leader><space> :noh<CR>
@@ -89,17 +86,6 @@ nnoremap <leader><space> :noh<CR>
 " % is annoying
 nnoremap <tab> %
 vnoremap <tab> %
-
-" " Allow cursor change in Tmux
-" if exists('$TMUX')
-"     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-"     let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-"     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-" else
-"     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-"     let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-"     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-" endif
 
 " Create function that removes trailing whitespace
 fun! RemoveWhitespace()
