@@ -1,6 +1,6 @@
 " Austin Bricker vimrc
 
-set background=dark
+set background=light
 let &t_Co=256 " Enables true color in Terminal
 colorscheme solarized
 
@@ -55,14 +55,8 @@ nnoremap K :bn<CR>
 " Now remap gJ to the old J function
 nnoremap gJ J <CR>
 
-" ' isn't working for marks by default for some reason
-nnoremap ' `
-
 " jk is escape
 inoremap jk <esc>
-
-" Q reruns last macro
-nnoremap Q @@
 
 " Easily add empty lines
 nnoremap [<space> :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
@@ -123,6 +117,10 @@ autocmd FileType lua setlocal commentstring=--\ %s
 
 " Different tab behavior for different filetype
 autocmd FileType pico8 setlocal shiftwidth=1 tabstop=1 softtabstop=1
+
+" Turn off indentLine for markdown and json as it overrides conceallevel
+autocmd FileType markdown let g:indentLine_enabled=0
+autocmd FileType json let g:indentLine_enabled=0
 
 " Airline tab theme settings
 let g:airline_theme='solarized'
