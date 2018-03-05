@@ -1,8 +1,8 @@
 " Austin Bricker vimrc
 
-set background=light
+set background=dark
 let &t_Co=256 " Enables true color in Terminal
-colorscheme solarized
+colorscheme onedark
 
 " Enables Pathogen plugin helper
 execute pathogen#infect()
@@ -123,7 +123,7 @@ autocmd FileType markdown let g:indentLine_enabled=0
 autocmd FileType json let g:indentLine_enabled=0
 
 " Airline tab theme settings
-let g:airline_theme='solarized'
+let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
 set guifont=Roboto\ Mono\ for\ Powerline:h11
 " Fixes messed up symbols with powerline tab font
