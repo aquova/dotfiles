@@ -30,6 +30,9 @@ set showmatch           " Highlight matching [{()}]
 set incsearch           " Search as characters are entered
 set hlsearch            " Highlight matches
 
+set hidden              " Allows switching buffers without saving
+set nostartofline       " Keeps cursor in same column when switching buffers
+
 set mouse=a             " Enables the mouse in terminal Vim
 set conceallevel=0      " All text is shown
 
@@ -49,8 +52,14 @@ nnoremap E $
 vnoremap E $
 
 " Remap J and K to move between non-hidden buffers
-nnoremap J :bp<CR>
-nnoremap K :bn<CR>
+" In regular Vim, move between buffers, in Oni, move between tabs
+if exists("g:gui_oni")
+    nnoremap K gt
+    nnoremap J gT
+else
+    nnoremap J :bp<CR>
+    nnoremap K :bn<CR>
+endif
 
 " Now remap gJ to the old J function
 nnoremap gJ J <CR>
@@ -81,6 +90,15 @@ nnoremap <leader><space> :noh<CR>
 nnoremap <tab> %
 vnoremap <tab> %
 
+" Set Y to be the same as y$
+nnoremap Y y$
+vnoremap Y y$
+
+" Other Oni commands
+if exists("g:gui_oni")
+    nnoremap <c-w>x :tabclose<CR>
+endif
+
 " Create function that removes trailing whitespace
 fun! RemoveWhitespace()
     let l:save = winsaveview()
@@ -96,7 +114,6 @@ command! RemoveWhitespace call RemoveWhitespace
 
 " Calls RemoveWhitespace when buffer is written
 autocmd BufWritePre * :call RemoveWhitespace()
-
 
 " Vim plugin configs:
 " Enables vim-airline buffer list by default

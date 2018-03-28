@@ -9,6 +9,7 @@ export ZSH=/Users/austinbricker/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
+# ZSH_THEME="TheOne"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -99,21 +100,5 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias la='ls -a'
-alias lh='ls -lh'
-alias raspi='ssh pi@abricker-pi.local'
-alias radio='ssh pi@abricker-radio.local'
-alias eos='ssh aquova@aquova.ddns.net -p 50912'
-alias wine32="WINEPREFIX='/Users/austinbricker/.wine32' wine"
-alias winsteam="wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe"
-alias ..='cd ..'
-alias gittree='git log --graph --pretty=oneline --abbrev-commit'
-alias love="/Applications/love.app/Contents/MacOS/love"
-alias 361ssh="ssh abricker@shell.cec.wustl.edu"
-
-mvim () { /Applications/MacVim.app/Contents/bin/mvim "$1"; }
-scpi () { scp "$1" pi@abricker-pi.local:~; }
-gbdk-build () { /opt/gbdk/bin/lcc -o "$2" "$1"; }
-cs () { cd "$1"; ls; }
-tmuxa () { tmux a -t "$1"; }
-gitup () { git add -A; git commit -m "$1"; git push; }
+# Load in from .aliases file
+source $HOME/.aliases
