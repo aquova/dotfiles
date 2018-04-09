@@ -53,13 +53,20 @@ vnoremap E $
 
 " Remap J and K to move between non-hidden buffers
 " In regular Vim, move between buffers, in Oni, move between tabs
+" if exists("g:gui_oni")
+"     nnoremap K gt
+"     nnoremap J gT
+" else
+"     nnoremap J :bp<CR>
+"     nnoremap K :bn<CR>
+" endif
+
 if exists("g:gui_oni")
-    nnoremap K gt
-    nnoremap J gT
-else
-    nnoremap J :bp<CR>
-    nnoremap K :bn<CR>
+    nnoremap <D-w> :bd<CR>
 endif
+
+nnoremap J :bp<CR>
+nnoremap K :bn<CR>
 
 " Now remap gJ to the old J function
 nnoremap gJ J <CR>
@@ -115,6 +122,12 @@ command! RemoveWhitespace call RemoveWhitespace
 " Calls RemoveWhitespace when buffer is written
 autocmd BufWritePre * :call RemoveWhitespace()
 
+" Hex edit
+nmap <Leader>he :%!xxd<CR> :set filetype=xxd<CR>
+
+" Hex return
+nmap <Leader>hr :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>
+
 " Vim plugin configs:
 " Enables vim-airline buffer list by default
 let g:airline#extensions#tabline#enabled = 1
@@ -142,7 +155,9 @@ autocmd FileType json let g:indentLine_enabled=0
 " Airline tab theme settings
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
-set guifont=Roboto\ Mono\ for\ Powerline:h11
+set guifont=Roboto\ Mono\ for\ Powerline:h10
+let g:airline_left_sep='▓▒░'
+let g:airline_right_sep='░▒▓'
 " Fixes messed up symbols with powerline tab font
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
