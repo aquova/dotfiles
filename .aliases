@@ -8,6 +8,7 @@ alias wine32="WINEPREFIX='/Users/austinbricker/.wine32' wine"
 alias winsteam="wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe"
 alias vimcolor='~/go/bin/vixl44'
 alias ..='cd ..'
+alias ...='cd ../..'
 alias gittree='git log --graph --pretty=oneline --abbrev-commit'
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias 361ssh="ssh abricker@shell.cec.wustl.edu"
