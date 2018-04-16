@@ -3,6 +3,7 @@ alias la='ls -a'
 alias lh='ls -lh'
 alias raspi='ssh pi@abricker-pi.local'
 alias radio='ssh pi@abricker-radio.local'
+alias inky='ssh pi@abricker-screen.local'
 alias ubuntu='ssh aquova@aquova.ddns.net -p 50912'
 alias wine32="WINEPREFIX='/Users/austinbricker/.wine32' wine"
 alias winsteam="wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe"

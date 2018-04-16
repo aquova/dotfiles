@@ -51,16 +51,6 @@ vnoremap B ^
 nnoremap E $
 vnoremap E $
 
-" Remap J and K to move between non-hidden buffers
-" In regular Vim, move between buffers, in Oni, move between tabs
-" if exists("g:gui_oni")
-"     nnoremap K gt
-"     nnoremap J gT
-" else
-"     nnoremap J :bp<CR>
-"     nnoremap K :bn<CR>
-" endif
-
 if exists("g:gui_oni")
     nnoremap <D-w> :bd<CR>
 endif
@@ -128,6 +118,20 @@ nmap <Leader>he :%!xxd<CR> :set filetype=xxd<CR>
 " Hex return
 nmap <Leader>hr :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>
 
+" Disable error beeping
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+" Change cursor color to match airline tab color
+" Made for the One Dark color scheme
+
+" Default Colors for CursorLine (Normal mode)
+highlight Cursor guibg=#98c379
+
+" Change Color when entering Insert Mode, revert when leaving
+autocmd InsertEnter * highlight  Cursor guibg=#61afef
+autocmd InsertLeave * highlight  Cursor guibg=#98c379
+
 " Vim plugin configs:
 " Enables vim-airline buffer list by default
 let g:airline#extensions#tabline#enabled = 1
@@ -155,9 +159,11 @@ autocmd FileType json let g:indentLine_enabled=0
 " Airline tab theme settings
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
-set guifont=Roboto\ Mono\ for\ Powerline:h10
+set guifont=Roboto\ Mono\ for\ Powerline:h11
+
 let g:airline_left_sep='▓▒░'
 let g:airline_right_sep='░▒▓'
+
 " Fixes messed up symbols with powerline tab font
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
