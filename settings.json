@@ -1,0 +1,82 @@
+{
+    "workbench.editor.enablePreview": false,
+    "vim.hlsearch": true,
+    "vim.leader": ",",
+    "vim.insertModeKeyBindings": [
+        {
+            "before":["j", "k"],
+            "after":["<Esc>"]
+        }
+    ],
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["z", "c"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.fold",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["z", "o"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.unfold",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["B"],
+            "after": ["^"]
+        },
+        {
+            "before": ["E"],
+            "after": ["$"]
+        },
+        {
+            "before": ["Y"],
+            "after": ["y", "$"]
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
+        {
+            "before": ["L"],
+            "after": ["L", "z", "z"]
+        },
+        {
+            "before": ["H"],
+            "after": ["H", "z", "z"]
+        },
+        {
+            "before": ["K"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.nextEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["J"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.previousEditor",
+                    "args": []
+                }
+            ]
+        },
+    ],
+    "editor.minimap.enabled": false
+}
