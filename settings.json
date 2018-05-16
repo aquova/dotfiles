@@ -8,6 +8,15 @@
             "after":["<Esc>"]
         }
     ],
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors": {
+        "normal":"#98c379",
+        "insert":"#61afef",
+        "visual":"#c678dd",
+        "visualline":"#c678dd",
+        "visualblock":"#c678dd",
+        "replace":"#e06c75",
+    },
     "vim.otherModesKeyBindingsNonRecursive": [
         {
             "before": ["z", "c"],
@@ -78,5 +87,10 @@
             ]
         },
     ],
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#61afef",
+        "statusBar.noFolderBackground": "#61afef",
+        "statusBar.debuggingBackground": "#61afef"
+    }
 }
