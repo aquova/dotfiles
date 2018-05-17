@@ -36,6 +36,11 @@ set nostartofline       " Keeps cursor in same column when switching buffers
 set mouse=a             " Enables the mouse in terminal Vim
 set conceallevel=0      " All text is shown
 
+set splitright          " Opens new vertical splits on the right
+set splitbelow          " Opens new horizontal splits below
+
+set guioptions=         " Removes all scrollbars
+
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -148,8 +153,13 @@ autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType htmldjango setlocal commentstring=<!--\ %s\ -->
 autocmd FileType pico8 setlocal commentstring=--\ %s
 autocmd FileType lua setlocal commentstring=--\ %s
+autocmd FileType arduino setlocal commentstring=//\ %s
+
+" Set syntax highlighting for unknown file extension
+autocmd BufNewFile,BufRead *.tic set syntax=lua
 
 " Different tab behavior for different filetype
+autocmd FileType pico8 setlocal shiftwidth=1 tabstop=1 softtabstop=1
 autocmd FileType pico8 setlocal shiftwidth=1 tabstop=1 softtabstop=1
 
 " Turn off indentLine for markdown and json as it overrides conceallevel

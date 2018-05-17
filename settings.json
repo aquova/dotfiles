@@ -1,7 +1,12 @@
 {
+    "python.pythonPath": "/usr/local/bin/python3",
+    "terminal.external.osxExec": "iTerm2.app",
+    "editor.wordWrap":"on",
+    "python.linting.enabled": false,
     "workbench.editor.enablePreview": false,
     "vim.hlsearch": true,
     "vim.leader": ",",
+    "vim.visualstar": true,
     "vim.insertModeKeyBindings": [
         {
             "before":["j", "k"],
@@ -89,8 +94,8 @@
     ],
     "editor.minimap.enabled": false,
     "workbench.colorCustomizations": {
-        "statusBar.background": "#61afef",
-        "statusBar.noFolderBackground": "#61afef",
-        "statusBar.debuggingBackground": "#61afef"
+        "statusBar.background": "#98c379",
+        "statusBar.noFolderBackground": "#98c379",
+        "statusBar.debuggingBackground": "#98c379"
     }
 }
