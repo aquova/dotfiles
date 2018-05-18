@@ -91,6 +91,16 @@
                 }
             ]
         },
+        {
+            "before": ["<leader>", "<space>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": ":noh",
+                    "args": []
+                }
+            ]
+        }
     ],
     "editor.minimap.enabled": false,
     "workbench.colorCustomizations": {
