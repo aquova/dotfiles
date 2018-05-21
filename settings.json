@@ -7,6 +7,7 @@
     "vim.hlsearch": true,
     "vim.leader": ",",
     "vim.visualstar": true,
+    "vim.cmdLineInitialColon": true,
     "vim.insertModeKeyBindings": [
         {
             "before":["j", "k"],
