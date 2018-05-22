@@ -9,6 +9,7 @@
     "vim.visualstar": true,
     "vim.cmdLineInitialColon": true,
     "vim.useCtrlKeys": false,
+    "editor.parameterHints": false,
     "vim.insertModeKeyBindings": [
         {
             "before":["j", "k"],
