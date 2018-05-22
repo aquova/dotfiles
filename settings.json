@@ -8,6 +8,7 @@
     "vim.leader": ",",
     "vim.visualstar": true,
     "vim.cmdLineInitialColon": true,
+    "vim.useCtrlKeys": false,
     "vim.insertModeKeyBindings": [
         {
             "before":["j", "k"],
@@ -23,7 +24,33 @@
         "visualblock":"#c678dd",
         "replace":"#e06c75",
     },
+    // Requires the "Settings Cycler" extension
+    "editor.lineNumbers": "on",
+    "settings.cycle": [
+        {
+            "id": "lineNumber",
+            "overrideWorkspaceSettings": false,
+            "values": [
+                {
+                    "editor.lineNumbers": "relative",
+                },
+                {
+                    "editor.lineNumbers": "on"
+                }
+            ]
+        },
+    ],
     "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["g", "l"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "settings.cycle.lineNumber",
+                    "args": []
+                }
+            ]
+        },  
         {
             "before": ["z", "c"],
             "after": [],
