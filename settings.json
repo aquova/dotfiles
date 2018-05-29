@@ -53,6 +53,16 @@
             ]
         },  
         {
+            "before": ["g", "p"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.debug.action.toggleBreakpoint",
+                    "args": []
+                }
+            ]
+        },
+        {
             "before": ["z", "c"],
             "after": [],
             "commands": [
