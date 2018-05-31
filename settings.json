@@ -4,6 +4,9 @@
     "editor.wordWrap":"on",
     "python.linting.enabled": false,
     "workbench.editor.enablePreview": false,
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": false,
+    "editor.selectionHighlight": false,
     "vim.hlsearch": true,
     "vim.leader": ",",
     "vim.visualstar": true,
@@ -141,7 +144,6 @@
             ]
         }
     ],
-    "editor.minimap.enabled": false,
     "workbench.colorCustomizations": {
         "statusBar.background": "#98c379",
         "statusBar.noFolderBackground": "#98c379",
