@@ -150,10 +150,13 @@ autocmd FileType html setlocal commentstring=<!--\ %s\ -->
 autocmd FileType vim setlocal commentstring=\"\ %s
 autocmd FileType javascript setlocal commentstring=//\ %s
 autocmd FileType c setlocal commentstring=//\ %s
+autocmd FileType cpp setlocal commentstring=//\ %s
 autocmd FileType htmldjango setlocal commentstring=<!--\ %s\ -->
 autocmd FileType pico8 setlocal commentstring=--\ %s
 autocmd FileType lua setlocal commentstring=--\ %s
 autocmd FileType arduino setlocal commentstring=//\ %s
+autocmd FileType make setlocal commentstring=#\ %s
+autocmd FileType coffee setlocal commentstring=#\ %s
 
 " Set syntax highlighting for unknown file extension
 autocmd BufNewFile,BufRead *.tic set syntax=lua
@@ -161,6 +164,7 @@ autocmd BufNewFile,BufRead *.tic set syntax=lua
 " Different tab behavior for different filetype
 autocmd FileType pico8 setlocal shiftwidth=1 tabstop=1 softtabstop=1
 autocmd FileType pico8 setlocal shiftwidth=1 tabstop=1 softtabstop=1
+autocmd FileType make setlocal noexpandtab
 
 " Turn off indentLine for markdown and json as it overrides conceallevel
 autocmd FileType markdown let g:indentLine_enabled=0

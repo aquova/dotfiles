@@ -5,7 +5,9 @@ update
 
 # Binaries
 brew 'brainfuck'
-brew 'fceux'
+brew 'chunkwm'
+brew 'cmus'
+brew 'gdb'
 brew 'irssi'
 brew 'lua'
 brew 'ruby'
@@ -19,7 +21,6 @@ brew 'tmux'
 brew 'vim'
 brew 'wine'
 brew 'winetools'
-brew 'zsh'
 
 # Casks
 cask 'daisydisk'
@@ -31,5 +32,7 @@ cask 'karabiner-elements'
 cask 'macvim'
 cask 'texmaker'
 cask 'thunderbird'
+cask 'transmission'
 cask 'twitch'
+cask 'visual-studio-code'
 cask 'vlc'

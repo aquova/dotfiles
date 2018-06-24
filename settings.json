@@ -44,7 +44,7 @@
             ]
         },
     ],
-    "vim.otherModesKeyBindingsNonRecursive": [
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": ["g", "l"],
             "after": [],
@@ -54,7 +54,7 @@
                     "args": []
                 }
             ]
-        },  
+        },
         {
             "before": ["g", "p"],
             "after": [],
@@ -145,8 +145,10 @@
         }
     ],
     "workbench.colorCustomizations": {
-        "statusBar.background": "#98c379",
-        "statusBar.noFolderBackground": "#98c379",
-        "statusBar.debuggingBackground": "#98c379"
-    }
+        "statusBar.background": "#c678dd",
+        "statusBar.noFolderBackground": "#c678dd",
+        "statusBar.debuggingBackground": "#c678dd"
+    },
+    "workbench.colorTheme": "One Dark Pro"
 }
+
