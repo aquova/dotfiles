@@ -17,37 +17,43 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim;
 
 echo "Installing Vim plugins";
 #VimCompletesMe
+echo "Installing VimCompletesMe";
 git clone git://github.com/ajh17/VimCompletesMe.git ~/.vim/bundle/VimCompletesMe;
-echo "11% completed";
 # AutoPairs
+echo "Installing auto-pairs";
 git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs;
-echo "22% completed";
 # Indent Line
+echo "Installing indentLine";
 git clone git://github.com/Yggdroot/indentLine ~/.vim/bundle/indentLine;
-echo "33% completed";
 # Vim-Airline
+echo "Installing vim-airline";
 git clone git://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline;
-echo "44% completed";
 # Vim-Airline-Themes (Probably could just install desired theme)
+echo "Installing vim-airline-themes";
 git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes;
-echo "55% completed";
 # Vim-Commentary
+echo "Installing vim-commentary";
 git clone git://github.com/tpope/vim-commentary ~/.vim/bundle/vim-commentary;
-echo "66% completed";
 # Vim-Repeat
+echo "Installing vim-repeat";
 git clone git://github.com/tpope/vim-repeat ~/.vim/bundle/vim-repeat;
-echo "77% completed";
 # Vim-Surround
+echo "Installing vim-surround";
 git clone git://github.com/tpope/vim-surround ~/.vim/bundle/vim-surround;
-echo "88% completed";
 # Vim-unimpaired
+echo "Installing vim-unimpared";
 git clone git://github.com/tpope/vim-unimpaired ~/.vim/bundle/vim-unimpaired;
-echo "100% completed";
+# Vim-easymotion
+echo "Installing vim-easymotion"
+git clone https://github.com/easymotion/vim-easymotion;
+# Vim-highlightedyank
+echo "Installing vim-highlightedyank"
+git clone https://github.com/machakann/vim-highlightedyank;
 
 echo "Installing colorscheme";
-git clone https://github.com/altercation/vim-colors-solarized;
-mv vim-colors-solarized/colors/solarized.vim ~/.vim/colors;
-rm -rf vim-colors-solarized;
+git clone https://github.com/joshdick/onedark.vim;
+mv onedark.vim/colors/onedark.vim ~/.vim/colors;
+rm -rf onedark.vim;
 
 echo "Moving vimrc into place"
 cp .vimrc ~;
