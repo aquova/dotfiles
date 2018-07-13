@@ -45,10 +45,10 @@ echo "Installing vim-unimpared";
 git clone git://github.com/tpope/vim-unimpaired ~/.vim/bundle/vim-unimpaired;
 # Vim-easymotion
 echo "Installing vim-easymotion"
-git clone https://github.com/easymotion/vim-easymotion;
+git clone https://github.com/easymotion/vim-easymotion ~/.vim/bundle/vim-easymotion;
 # Vim-highlightedyank
 echo "Installing vim-highlightedyank"
-git clone https://github.com/machakann/vim-highlightedyank;
+git clone https://github.com/machakann/vim-highlightedyank ~/.vim/bundle/vim-highlightedyank;
 
 echo "Installing colorscheme";
 git clone https://github.com/joshdick/onedark.vim;
