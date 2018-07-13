@@ -28,9 +28,6 @@ git clone git://github.com/Yggdroot/indentLine ~/.vim/bundle/indentLine;
 # Vim-Airline
 echo "Installing vim-airline";
 git clone git://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline;
-# Vim-Airline-Themes (Probably could just install desired theme)
-echo "Installing vim-airline-themes";
-git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes;
 # Vim-Commentary
 echo "Installing vim-commentary";
 git clone git://github.com/tpope/vim-commentary ~/.vim/bundle/vim-commentary;
@@ -53,6 +50,7 @@ git clone https://github.com/machakann/vim-highlightedyank ~/.vim/bundle/vim-hig
 echo "Installing colorscheme";
 git clone https://github.com/joshdick/onedark.vim;
 mv onedark.vim/colors/onedark.vim ~/.vim/colors;
+mv onedark.vim/autoload/* ~/.vim/autoload;
 rm -rf onedark.vim;
 
 echo "Moving vimrc into place"
