@@ -64,6 +64,22 @@
             "before": ["H"],
             "after": ["H", "z", "z"]
         },
+        {
+            "before": ["[", "["],
+            "after": ["[", "[", "z", "z"]
+        },
+        {
+            "before": ["]", "]"],
+            "after": ["]", "]", "z", "z"]
+        },
+        {
+            "before": ["[", "]"],
+            "after": ["[", "]", "z", "z"]
+        },
+        {
+            "before": ["]", "["],
+            "after": ["]", "[", "z", "z"]
+        },
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -93,6 +109,14 @@
         {
             "before": ["]", "]"],
             "after": ["]", "]", "z", "z"]
+        },
+        {
+            "before": ["[", "]"],
+            "after": ["[", "]", "z", "z"]
+        },
+        {
+            "before": ["]", "["],
+            "after": ["]", "[", "z", "z"]
         },
         {
             "before": ["B"],
