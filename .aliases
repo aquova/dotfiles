@@ -1,15 +1,12 @@
-alias starwars='telnet towel.blinkenlights.nl'
 alias la='ls -a'
 alias lh='ls -lh'
 alias wine32="WINEPREFIX='/Users/austinbricker/.wine32' wine"
 alias winsteam="wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe"
-alias vimcolor='~/go/bin/vixl44'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias gittree='git log --graph --pretty=oneline --abbrev-commit'
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias schism="python3 ~/git/schism/schism.py"
-alias build-rando="pandoc -s -V geometry:margin=1in -o rando.pdf Rando-Guide.md"
 
 mvim () { /Applications/MacVim.app/Contents/bin/mvim "$1"; }
 scpi () { scp "$1" pi@abricker-pi.local:~; }
