@@ -7,6 +7,8 @@ alias ...='cd ../..'
 alias gittree='git log --graph --pretty=oneline --abbrev-commit'
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias schism="python3 ~/git/schism/schism.py"
+alias clera="clear"
+alias fall='cd /Users/austinbricker/Desktop/Dropbox/WashU/Year\ III/Fall\ 2018'
 
 mvim () { /Applications/MacVim.app/Contents/bin/mvim "$1"; }
 scpi () { scp "$1" pi@abricker-pi.local:~; }
@@ -14,4 +16,7 @@ gbdk-build () { /opt/gbdk/bin/lcc -o "$2" "$1"; }
 cs () { cd "$1"; ls; }
 tmuxa () { tmux a -t "$1"; }
 gitup () { git add -A; git commit -m "$1"; git push; }
-alias clera="clear"
+md2pdf () {
+    fname="${1%.*}"
+    pandoc -s -V geometry:margin=1in -o "$fname".pdf "$fname".md
+}

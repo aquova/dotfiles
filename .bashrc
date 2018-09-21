@@ -6,6 +6,10 @@ if [ -f ~/.ssh_aliases ]; then
     . ~/.ssh_aliases
 fi
 
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin/pyls:$PATH
 
 source $HOME/git-prompt.sh

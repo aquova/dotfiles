@@ -9,7 +9,10 @@
     "editor.occurrencesHighlight": false,
     "editor.selectionHighlight": false,
     "workbench.editor.enablePreview": false,
-    "editor.parameterHints": false,
+    "editor.parameterHints.enabled": false,
+    "files.associations": {
+        "*.p8": "lua"
+    },
     "window.titleBarStyle": "custom",
     // Requires the "Settings Cycler" extension
     "editor.lineNumbers": "on",
@@ -39,14 +42,12 @@
         }
     ],
     "vim.statusBarColorControl": true,
-    "vim.statusBarColors": {
-        "normal":"#98c379",
-        "insert":"#61afef",
-        "visual":"#c678dd",
-        "visualline":"#c678dd",
-        "visualblock":"#c678dd",
-        "replace":"#e06c75",
-    },
+    "vim.statusBarColors.normal":"#98c379",
+    "vim.statusBarColors.insert":"#61afef",
+    "vim.statusBarColors.visual":"#c678dd",
+    "vim.statusBarColors.visualline":"#c678dd",
+    "vim.statusBarColors.visualblock":"#c678dd",
+    "vim.statusBarColors.replace":"#e06c75",
     "vim.visualModeKeyBindingsNonRecursive": [
         {
             "before": ["B"],
@@ -178,9 +179,11 @@
         },
     ],
     "workbench.colorCustomizations": {
-        "statusBar.background": "#c678dd",
-        "statusBar.noFolderBackground": "#c678dd",
-        "statusBar.debuggingBackground": "#c678dd"
+        "statusBar.background": "#98c379",
+        "statusBar.noFolderBackground": "#98c379",
+        "statusBar.debuggingBackground": "#98c379"
     },
-    "workbench.colorTheme": "One Dark Pro"
+    "workbench.colorTheme": "One Dark Pro",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false
 }

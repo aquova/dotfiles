@@ -14,7 +14,7 @@ echo "Arch Installation";
 echo "Updating pacman packages";
 sudo pacman -Syu;
 echo "Installing new packages";
-sudo pacman -S cmus ffmpeg irssi lua neofetch pandoc ranger sqlite tmux vim wine youtube-dl yaourt gimp handbrake thunderbird vlc;
+sudo pacman -S neofetch pandoc tmux vim yaourt;
 
 echo "Moving dotfiles into place";
 cp .bashrc ~;

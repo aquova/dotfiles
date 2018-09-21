@@ -14,7 +14,7 @@ echo "Debian-based installation";
 echo "Updating apt packages";
 sudo apt update && sudo apt upgrade;
 echo "Installing new packages";
-sudo apt-get install cmus ffmpeg irssi lua neofetch pandoc ranger sqlite tmux vim wine youtube-dl gimp handbrake thunderbird vlc;
+sudo apt-get install neofetch lolcat tmux vim;
 
 echo "Moving dotfiles into place";
 cp .bashrc ~;
