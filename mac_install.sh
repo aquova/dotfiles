@@ -20,10 +20,10 @@ brew tap homebrew/bundle;
 brew bundle;
 
 echo "Moving dotfiles into place";
-cp .bashrc ~;
-cp .bash_profile ~;
-cp .aliases ~;
-cp .tmux.conf ~;
+cp .bashrc $HOME;
+cp .bash_profile $HOME;
+cp .aliases $HOME;
+cp .tmux.conf $HOME;
 
 source $HOME/.bash_profile;
 
