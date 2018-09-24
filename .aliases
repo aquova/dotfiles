@@ -9,6 +9,7 @@ alias love="/Applications/love.app/Contents/MacOS/love"
 alias schism="python3 ~/git/schism/schism.py"
 alias clera="clear"
 alias fall='cd /Users/austinbricker/Desktop/Dropbox/WashU/Year\ III/Fall\ 2018'
+alias python36='~/.pyenv/versions/3.6.5/bin/python3'
 
 mvim () { /Applications/MacVim.app/Contents/bin/mvim "$1"; }
 scpi () { scp "$1" pi@abricker-pi.local:~; }
@@ -20,3 +21,4 @@ md2pdf () {
     fname="${1%.*}"
     pandoc -s -V geometry:margin=1in -o "$fname".pdf "$fname".md
 }
+qemu () { qemu-system-x86_64 "$1"; }

@@ -11,6 +11,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin/pyls:$PATH
+export TERM=screen-256color
 
 source $HOME/git-prompt.sh
 export PS1="\[\e[35m\]\u\[\e[m\]\[\e[32m\][\[\e[m\]\[\e[32m\]\T\[\e[m\]\[\e[32m\]]\[\e[m\]:\[\e[33m\]\w\[\e[m\]\[\e[36m\]\$(__git_ps1)\[\e[m\]$ "

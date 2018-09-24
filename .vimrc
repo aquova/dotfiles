@@ -128,6 +128,16 @@ nmap <Leader>hr :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
+" Change cursor type in different modes
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[4 q"
+
+" optional reset cursor on start:
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[4 q"
+augroup END
+
 " Change cursor color to match airline tab color
 " Made for the One Dark color scheme
 
@@ -158,6 +168,8 @@ autocmd FileType lua setlocal commentstring=--\ %s
 autocmd FileType arduino setlocal commentstring=//\ %s
 autocmd FileType make setlocal commentstring=#\ %s
 autocmd FileType coffee setlocal commentstring=#\ %s
+autocmd FileType asm setlocal commentstring=;\ %s
+autocmd FileType sh setlocal commentstring=#\ %s
 
 " Set syntax highlighting for unknown file extension
 autocmd BufNewFile,BufRead *.tic set syntax=lua
