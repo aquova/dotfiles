@@ -129,13 +129,20 @@ set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
 " Change cursor type in different modes
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[4 q"
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\e[6 q\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\e[1 q\<Esc>\\"
+    let &t_SR = "\<Esc>Ptmux;\<Esc>\e[4 q\<Esc>\\"
+else
+    let &t_SI = "\e[6 q" " Insert mode
+    let &t_EI = "\e[1 q" " Normal mode
+    let &t_SR = "\e[4 q" " Replace mode
+endif
 
 " optional reset cursor on start:
 augroup myCmds
 au!
-autocmd VimEnter * silent !echo -ne "\e[4 q"
+autocmd VimEnter * silent !echo -ne "\e[1 q"
 augroup END
 
 " Change cursor color to match airline tab color
@@ -170,9 +177,11 @@ autocmd FileType make setlocal commentstring=#\ %s
 autocmd FileType coffee setlocal commentstring=#\ %s
 autocmd FileType asm setlocal commentstring=;\ %s
 autocmd FileType sh setlocal commentstring=#\ %s
+autocmd FileType applescript setlocal commentstring=--\ %s
 
 " Set syntax highlighting for unknown file extension
 autocmd BufNewFile,BufRead *.tic set syntax=lua
+autocmd BufNewFile,BufRead *.command set syntax=sh
 
 " Different tab behavior for different filetype
 autocmd FileType pico8 setlocal shiftwidth=1 tabstop=1 softtabstop=1

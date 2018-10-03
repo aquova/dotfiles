@@ -183,7 +183,8 @@
         "statusBar.noFolderBackground": "#98c379",
         "statusBar.debuggingBackground": "#98c379"
     },
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.colorTheme": "Dracula",
     "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "editor.acceptSuggestionOnCommitCharacter": false
 }
