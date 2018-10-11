@@ -27,6 +27,6 @@ source $HOME/.bash_profile;
 # Install vim presets
 if ! command -v vim >/dev/null; then
     sh ./vim_install.sh;
-if
+fi
 
 echo "Your installation is complete!";
