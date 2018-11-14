@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copies config files from around my machine into the dotfiles repo, then commits to git
+# Copies config files from around my machine into the dotfiles repo
 
 DOTFILES="${HOME}/git/dotfiles"
 
