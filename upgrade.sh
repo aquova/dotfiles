@@ -14,3 +14,5 @@ cp .vimrc ${HOME}
 
 # Tmux config
 cp .tmux.conf ${HOME}
+
+echo "Files successfully copied"

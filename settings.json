@@ -1,6 +1,6 @@
 {
     "python.pythonPath": "/usr/local/bin/python3",
-    "terminal.external.osxExec": "iTerm2.app",
+    "terminal.external.osxExec": "kitty.app",
     "editor.wordWrap":"on",
     "python.linting.enabled": false,
        "files.insertFinalNewline": true,
@@ -183,8 +183,9 @@
         "statusBar.noFolderBackground": "#98c379",
         "statusBar.debuggingBackground": "#98c379"
     },
-    "workbench.colorTheme": "Dracula",
+    "workbench.colorTheme": "One Dark Pro",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "editor.acceptSuggestionOnCommitCharacter": false
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "workbench.startupEditor": "none"
 }

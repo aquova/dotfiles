@@ -57,10 +57,6 @@ vnoremap B ^
 nnoremap E $
 vnoremap E $
 
-if exists("g:gui_oni")
-    nnoremap <D-w> :bd<CR>
-endif
-
 nnoremap J :bp<CR>
 nnoremap K :bn<CR>
 
@@ -96,11 +92,6 @@ vnoremap <tab> %
 " Set Y to be the same as y$
 nnoremap Y y$
 vnoremap Y y$
-
-" Other Oni commands
-if exists("g:gui_oni")
-    nnoremap <c-w>x :tabclose<CR>
-endif
 
 " Create function that removes trailing whitespace
 fun! RemoveWhitespace()
@@ -178,6 +169,7 @@ autocmd FileType coffee setlocal commentstring=#\ %s
 autocmd FileType asm setlocal commentstring=;\ %s
 autocmd FileType sh setlocal commentstring=#\ %s
 autocmd FileType applescript setlocal commentstring=--\ %s
+autocmd FileType rust setlocal commentstring=//\ %s
 
 " Set syntax highlighting for unknown file extension
 autocmd BufNewFile,BufRead *.tic set syntax=lua

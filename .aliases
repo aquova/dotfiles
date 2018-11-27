@@ -10,6 +10,7 @@ alias schism="python3 ~/git/schism/schism.py"
 alias clera="clear"
 alias fall='cd /Users/austinbricker/Desktop/Dropbox/WashU/Year\ III/Fall\ 2018'
 alias python36='~/.pyenv/versions/3.6.5/bin/python3'
+alias startenv='source bin/activate'
 
 mvim () { /Applications/MacVim.app/Contents/bin/mvim "$1"; }
 scpi () { scp "$1" pi@abricker-pi.local:~; }
