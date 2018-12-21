@@ -104,6 +104,16 @@
             ]
         },
         {
+            "before": ["g", "m"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "markdown.showPreviewToSide",
+                    "args": []
+                }
+            ]
+        },
+        {
             "before": ["[", "["],
             "after": ["[", "[", "z", "z"]
         },
@@ -187,5 +197,9 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "editor.acceptSuggestionOnCommitCharacter": false,
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "gitlens.blame.avatars": false,
+    "gitlens.advanced.telemetry.enabled": false,
+    "gitlens.currentLine.format": "${authorAgoOrDate}",
+    "vim.sneak": true
 }

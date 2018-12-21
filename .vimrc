@@ -42,6 +42,8 @@ set splitbelow          " Opens new horizontal splits below
 
 set guioptions=         " Removes all scrollbars
 
+set diffopt=vertical    " Open Vimdiff operations in vertical windows
+
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -155,10 +157,10 @@ let g:airline_section_y = 'Buf: %{bufnr("%")}'
 
 " Commenting codes for commentary.vim:
 autocmd FileType python setlocal commentstring=#\ %s
+autocmd FileType ruby setlocal commentstring=#\ %s
 autocmd FileType html setlocal commentstring=<!--\ %s\ -->
 autocmd FileType vim setlocal commentstring=\"\ %s
 autocmd FileType javascript setlocal commentstring=//\ %s
-autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType cpp setlocal commentstring=//\ %s
 autocmd FileType htmldjango setlocal commentstring=<!--\ %s\ -->
 autocmd FileType pico8 setlocal commentstring=--\ %s

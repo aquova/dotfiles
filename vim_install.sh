@@ -41,11 +41,14 @@ git clone git://github.com/tpope/vim-surround ~/.vim/bundle/vim-surround;
 echo "Installing vim-unimpared";
 git clone git://github.com/tpope/vim-unimpaired ~/.vim/bundle/vim-unimpaired;
 # Vim-easymotion
-echo "Installing vim-easymotion"
+echo "Installing vim-easymotion";
 git clone https://github.com/easymotion/vim-easymotion ~/.vim/bundle/vim-easymotion;
 # Vim-highlightedyank
-echo "Installing vim-highlightedyank"
+echo "Installing vim-highlightedyank";
 git clone https://github.com/machakann/vim-highlightedyank ~/.vim/bundle/vim-highlightedyank;
+# Vim-sneak
+echo "Installing vim-sneak";
+git clone git://github.com/justinmk/vim-sneak.git ~/.vim/bundle/vim-sneak;
 
 echo "Installing colorscheme";
 git clone https://github.com/joshdick/onedark.vim;
@@ -53,7 +56,7 @@ mv onedark.vim/colors/onedark.vim ~/.vim/colors;
 mv onedark.vim/autoload/* ~/.vim/autoload;
 rm -rf onedark.vim;
 
-echo "Moving vimrc into place"
+echo "Moving vimrc into place";
 cp .vimrc ~;
 
-echo "Complete! Your Vim installation (should) be complete! Enjoy!"
+echo "Complete! Your Vim installation (should) be complete! Enjoy!";

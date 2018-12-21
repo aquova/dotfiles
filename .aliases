@@ -6,6 +6,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias gittree='git log --graph --pretty=oneline --abbrev-commit'
 alias love="/Applications/love.app/Contents/MacOS/love"
+alias pico8="/Applications/PICO-8.app/Contents/MacOS/pico8"
 alias schism="python3 ~/git/schism/schism.py"
 alias clera="clear"
 alias fall='cd /Users/austinbricker/Desktop/Dropbox/WashU/Year\ III/Fall\ 2018'
