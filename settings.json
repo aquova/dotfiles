@@ -189,9 +189,9 @@
         },
     ],
     "workbench.colorCustomizations": {
-        "statusBar.background": "#98c379",
-        "statusBar.noFolderBackground": "#98c379",
-        "statusBar.debuggingBackground": "#98c379"
+        "statusBar.background": "#61afef",
+        "statusBar.noFolderBackground": "#61afef",
+        "statusBar.debuggingBackground": "#61afef"
     },
     "workbench.colorTheme": "One Dark Pro",
     "explorer.confirmDragAndDrop": false,
@@ -201,5 +201,11 @@
     "gitlens.blame.avatars": false,
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.currentLine.format": "${authorAgoOrDate}",
-    "vim.sneak": true
+    "vim.sneak": true,
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.replace": "underline",
+    "vim.cursorStylePerMode.visual": "block",
+    "vim.cursorStylePerMode.visualblock": "block",
+    "vim.cursorStylePerMode.visualline": "block"
 }
