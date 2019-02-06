@@ -189,11 +189,10 @@
         },
     ],
     "workbench.colorCustomizations": {
-        "statusBar.background": "#61afef",
-        "statusBar.noFolderBackground": "#61afef",
-        "statusBar.debuggingBackground": "#61afef"
+        "statusBar.background": "#98c379",
+        "statusBar.noFolderBackground": "#98c379",
+        "statusBar.debuggingBackground": "#98c379"
     },
-    "workbench.colorTheme": "One Dark Pro",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "editor.acceptSuggestionOnCommitCharacter": false,
@@ -205,7 +204,7 @@
     "vim.cursorStylePerMode.normal": "block",
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.replace": "underline",
-    "vim.cursorStylePerMode.visual": "block",
-    "vim.cursorStylePerMode.visualblock": "block",
-    "vim.cursorStylePerMode.visualline": "block"
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "material-icon-theme",
+    "java.configuration.checkProjectSettingsExclusions": false
 }

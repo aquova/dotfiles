@@ -34,6 +34,7 @@ set hidden              " Allows switching buffers without saving
 set nostartofline       " Keeps cursor in same column when switching buffers
 
 set mouse=a             " Enables the mouse in terminal Vim
+set backspace=2         " Makes backspace behave as expected
 set conceallevel=0      " All text is shown
 set notimeout           " Removes timeout on leader key
 
@@ -178,7 +179,6 @@ autocmd BufNewFile,BufRead *.tic set syntax=lua
 autocmd BufNewFile,BufRead *.command set syntax=sh
 
 " Different tab behavior for different filetype
-autocmd FileType pico8 setlocal shiftwidth=1 tabstop=1 softtabstop=1
 autocmd FileType pico8 setlocal shiftwidth=1 tabstop=1 softtabstop=1
 autocmd FileType make setlocal noexpandtab
 
