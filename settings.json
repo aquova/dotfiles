@@ -197,7 +197,6 @@
     "explorer.confirmDelete": false,
     "editor.acceptSuggestionOnCommitCharacter": false,
     "workbench.startupEditor": "none",
-    "gitlens.blame.avatars": false,
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.currentLine.format": "${authorAgoOrDate}",
     "vim.sneak": true,
@@ -206,5 +205,13 @@
     "vim.cursorStylePerMode.replace": "underline",
     "workbench.colorTheme": "One Dark Pro",
     "workbench.iconTheme": "material-icon-theme",
-    "java.configuration.checkProjectSettingsExclusions": false
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "material-icon-theme.files.associations": {
+        "*.moon": "lua"
+    },
+    "java.test.report.position": "currentView",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.autoBuild.onSave.enabled": false,
+    "material-icon-theme.folders.color": "#42a5f5"
+
 }

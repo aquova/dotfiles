@@ -177,6 +177,7 @@ autocmd FileType rust setlocal commentstring=//\ %s
 " Set syntax highlighting for unknown file extension
 autocmd BufNewFile,BufRead *.tic set syntax=lua
 autocmd BufNewFile,BufRead *.command set syntax=sh
+autocmd BufNewFile,BufRead *.cr set syntax=ruby
 
 " Different tab behavior for different filetype
 autocmd FileType pico8 setlocal shiftwidth=1 tabstop=1 softtabstop=1
