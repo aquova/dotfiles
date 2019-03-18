@@ -2,7 +2,7 @@
 
 # Installation script for new OS installs
 # Installs my setup for OS X
-# Austin Bricker, 2018
+# Austin Bricker, 2018-2019
 
 # Checks if git is installed
 if ! [ -x "$(command -v git)" ]; then
@@ -27,10 +27,5 @@ cp .tmux.conf $HOME;
 cp git-prompt.sh $HOME;
 
 source $HOME/.bash_profile;
-
-# Install vim presets
-if ! command -v vim >/dev/null; then
-    sh ./vim_install.sh;
-fi
 
 echo "Your installation is complete!";

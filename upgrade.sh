@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # Gets my most recent dotfiles and places them in the appropriate locations
-
 git pull
 
 # bash configurations
@@ -11,6 +10,9 @@ cp .aliases ${HOME}
 
 # Vim config
 cp .vimrc ${HOME}
+
+# Emacs config
+cp .emacs ${HOME}
 
 # Tmux config
 cp .tmux.conf ${HOME}

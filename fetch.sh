@@ -12,6 +12,9 @@ cp "${HOME}/.aliases" $DOTFILES
 # Vim config
 cp "${HOME}/.vimrc" $DOTFILES
 
+# Emacs config
+cp "${HOME}/.emacs" $DOTFILES
+
 # Terminal config
 cp "${HOME}/.config/kitty/kitty.conf" $DOTFILES
 

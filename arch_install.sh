@@ -14,7 +14,7 @@ echo "Arch Installation";
 echo "Updating pacman packages";
 sudo pacman -Syu;
 echo "Installing new packages";
-sudo pacman -S neofetch lolcat tmux vim yaourt;
+sudo pacman -S neofetch tmux vim yaourt;
 
 echo "Moving dotfiles into place";
 cp .bashrc $HOME;
@@ -24,10 +24,5 @@ cp .tmux.conf $HOME;
 cp git-prompt.sh $HOME;
 
 source $HOME/.bash_profile;
-
-# Install vim presets
-if ! command -v vim >/dev/null; then
-    sh ./vim_install.sh;
-fi
 
 echo "Your installation is complete!";

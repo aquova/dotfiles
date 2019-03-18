@@ -212,6 +212,7 @@
     "java.test.report.position": "currentView",
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.latex.autoBuild.onSave.enabled": false,
-    "material-icon-theme.folders.color": "#42a5f5"
+    "material-icon-theme.folders.color": "#42a5f5",
+    "breadcrumbs.enabled": true
 
 }
