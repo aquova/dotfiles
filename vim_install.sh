@@ -49,6 +49,9 @@ git clone https://github.com/machakann/vim-highlightedyank ~/.vim/bundle/vim-hig
 # Vim-sneak
 echo "Installing vim-sneak";
 git clone git://github.com/justinmk/vim-sneak.git ~/.vim/bundle/vim-sneak;
+# Undotree
+echo "Installing undotree"
+git clone https://github.com/mbbill/undotree.git ~/.vim/bundle/undotree;
 
 echo "Installing colorscheme";
 git clone https://github.com/joshdick/onedark.vim;
