@@ -2,7 +2,7 @@
 
 # Copies config files from around my machine into the dotfiles repo
 
-DOTFILES="${HOME}/git/dotfiles"
+DOTFILES="${HOME}/git/dotfiles" # Should this just be . ?
 
 # bash configurations
 cp "${HOME}/.bashrc" $DOTFILES
@@ -23,3 +23,6 @@ cp "${HOME}/.tmux.conf" $DOTFILES
 
 # VSCode config
 cp "${HOME}/Library/Application Support/Code/User/settings.json" $DOTFILES
+
+# Global gitignore
+cp "${HOME}/.gitignore_global" $DOTFILES

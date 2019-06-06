@@ -198,7 +198,7 @@
     "editor.acceptSuggestionOnCommitCharacter": false,
     "workbench.startupEditor": "none",
     "gitlens.advanced.telemetry.enabled": false,
-    "gitlens.currentLine.format": "${authorAgoOrDate}",
+    "gitlens.currentLine.format": "${author}, ${agoOrDate}",
     "vim.sneak": true,
     "vim.cursorStylePerMode.normal": "block",
     "vim.cursorStylePerMode.insert": "line",
@@ -210,9 +210,7 @@
         "*.moon": "lua"
     },
     "java.test.report.position": "currentView",
-    "latex-workshop.view.pdf.viewer": "tab",
-    "latex-workshop.latex.autoBuild.onSave.enabled": false,
     "material-icon-theme.folders.color": "#42a5f5",
-    "breadcrumbs.enabled": true
-
+    "breadcrumbs.enabled": true,
+    "debug.allowBreakpointsEverywhere": true
 }

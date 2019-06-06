@@ -60,6 +60,6 @@ mv onedark.vim/autoload/* ~/.vim/autoload;
 rm -rf onedark.vim;
 
 echo "Moving vimrc into place";
-cp .vimrc ~;
+cp ../.vimrc ~;
 
 echo "Complete! Your Vim installation (should) be complete! Enjoy!";

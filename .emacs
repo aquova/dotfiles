@@ -23,6 +23,7 @@
 (require 'evil-commentary)
 (require 'evil-snipe)
 (require 'key-chord)
+(require 'org)
 
 ;; Activate
 (evil-mode 1)
@@ -37,3 +38,6 @@
 (tool-bar-mode 0) ;; Turn off terrible GUI buttons
 (toggle-frame-maximized) ;; Start with window maximized
 (global-display-line-numbers-mode 1) ;; Show line numbers
+
+;; Org Mode settings
+(setq org-log-done t)

@@ -17,11 +17,11 @@ echo "Installing new packages";
 sudo apt-get install neofetch tmux vim;
 
 echo "Moving dotfiles into place";
-cp .bashrc $HOME;
-cp .bash_profile $HOME;
-cp .aliases $HOME;
-cp .tmux.conf $HOME;
-cp git-prompt.sh $HOME;
+cp ../.bashrc $HOME;
+cp ../.bash_profile $HOME;
+cp ../.aliases $HOME;
+cp ../.tmux.conf $HOME;
+cp ../git-prompt.sh $HOME;
 
 source $HOME/.bash_profile;
 
