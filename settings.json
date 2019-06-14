@@ -35,6 +35,8 @@
     "vim.hlsearch": true,
     "vim.leader": ",",
     "vim.visualstar": true,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.duration": 500,
     "vim.insertModeKeyBindings": [
         {
             "before":["j", "k"],
