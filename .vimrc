@@ -96,6 +96,9 @@ vnoremap <tab> %
 nnoremap Y y$
 vnoremap Y y$
 
+" Modified version of bd that doesn't delete window splits
+command! Bd bp|bd #
+
 " Create function that removes trailing whitespace
 fun! RemoveWhitespace()
     let l:save = winsaveview()
