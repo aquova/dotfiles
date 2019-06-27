@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Installs Vim plugins and configurations
-# Austin Bricker, 2018
+# Austin Bricker, 2018-2019
 
 # Checks if git is installed.
 if ! command -v git >/dev/null; then
@@ -9,49 +9,36 @@ if ! command -v git >/dev/null; then
     exit 1;
 fi
 
-# Install Pathogen, place into autoload folder
+#Install Pathogen, place into autoload folder
 echo "Installing Pathogen";
 mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors;
-# Might need to specify that curl needs to be installed too
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim;
 
+BUNDLE_DIR="$HOME/.vim/bundle/"
+
+PLUGINS=(
+    ajh17/VimCompletesMe
+    jiangmiao/auto-pairs
+    Yggdroot/indentLine
+    vim-airline/vim-airline
+    tpope/vim-commentary
+    tpope/vim-repeat
+    tpope/vim-surround
+    tpope/vim-unimpaired
+    easymotion/vim-easymotion
+    machakann/vim-highlightedyank
+    justinmk/vim-sneak
+    mhinz/vim-signify
+)
+
 echo "Installing Vim plugins";
-#VimCompletesMe
-echo "Installing VimCompletesMe";
-git clone git://github.com/ajh17/VimCompletesMe.git ~/.vim/bundle/VimCompletesMe;
-# AutoPairs
-echo "Installing auto-pairs";
-git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs;
-# Indent Line
-echo "Installing indentLine";
-git clone git://github.com/Yggdroot/indentLine ~/.vim/bundle/indentLine;
-# Vim-Airline
-echo "Installing vim-airline";
-git clone git://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline;
-# Vim-Commentary
-echo "Installing vim-commentary";
-git clone git://github.com/tpope/vim-commentary ~/.vim/bundle/vim-commentary;
-# Vim-Repeat
-echo "Installing vim-repeat";
-git clone git://github.com/tpope/vim-repeat ~/.vim/bundle/vim-repeat;
-# Vim-Surround
-echo "Installing vim-surround";
-git clone git://github.com/tpope/vim-surround ~/.vim/bundle/vim-surround;
-# Vim-unimpaired
-echo "Installing vim-unimpared";
-git clone git://github.com/tpope/vim-unimpaired ~/.vim/bundle/vim-unimpaired;
-# Vim-easymotion
-echo "Installing vim-easymotion";
-git clone https://github.com/easymotion/vim-easymotion ~/.vim/bundle/vim-easymotion;
-# Vim-highlightedyank
-echo "Installing vim-highlightedyank";
-git clone https://github.com/machakann/vim-highlightedyank ~/.vim/bundle/vim-highlightedyank;
-# Vim-sneak
-echo "Installing vim-sneak";
-git clone git://github.com/justinmk/vim-sneak.git ~/.vim/bundle/vim-sneak;
-# Undotree
-echo "Installing undotree"
-git clone https://github.com/mbbill/undotree.git ~/.vim/bundle/undotree;
+
+for p in "${PLUGINS[@]}"; do
+    REPO_NAME=$(echo "$p" | cut -d'/' -f2-);
+
+    echo "Installing $REPO_NAME";
+    git clone "https://github.com/$p" "$BUNDLE_DIR$REPO_NAME";
+done
 
 echo "Installing colorscheme";
 git clone https://github.com/joshdick/onedark.vim;
@@ -60,6 +47,6 @@ mv onedark.vim/autoload/* ~/.vim/autoload;
 rm -rf onedark.vim;
 
 echo "Moving vimrc into place";
-cp ../.vimrc ~;
+cp ../.vimrc $HOME;
 
 echo "Complete! Your Vim installation (should) be complete! Enjoy!";

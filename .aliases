@@ -1,21 +1,15 @@
 alias la='ls -a'
 alias lh='ls -lh'
-alias wine32="WINEPREFIX='/Users/austinbricker/.wine32' wine"
-alias winsteam="wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias gittree='git log --graph --pretty=oneline --abbrev-commit'
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias pico8="/Applications/PICO-8.app/Contents/MacOS/pico8"
-alias schism="python3 ~/git/schism/schism.py"
 alias clera="clear"
-alias fall='cd /Users/austinbricker/Desktop/Dropbox/WashU/Year\ III/Fall\ 2018'
 alias python36='~/.pyenv/versions/3.6.5/bin/python3'
-alias startenv='source bin/activate'
+alias activate='source bin/activate'
 
 mvim () { /Applications/MacVim.app/Contents/bin/mvim "$1"; }
-scpi () { scp "$1" pi@abricker-pi.local:~; }
-gbdk-build () { /opt/gbdk/bin/lcc -o "$2" "$1"; }
 cs () { cd "$1"; ls; }
 tmuxa () { tmux a -t "$1"; }
 gitup () { git add -A; git commit -m "$1"; git push; }
@@ -23,4 +17,3 @@ md2pdf () {
     fname="${1%.*}"
     pandoc -s -V geometry:margin=1in -o "$fname".pdf "$fname".md
 }
-qemu () { qemu-system-x86_64 "$1"; }
