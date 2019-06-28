@@ -116,6 +116,36 @@
             ]
         },
         {
+            "before": ["g", "s"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.toggleSidebarVisibility",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["]", "c"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.editor.nextChange",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["[", "c"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.editor.previousChange",
+                    "args": []
+                }
+            ]
+        },
+        {
             "before": ["[", "["],
             "after": ["[", "[", "z", "z"]
         },
