@@ -1,19 +1,36 @@
 {
-    "python.pythonPath": "/usr/local/bin/python3",
+    // OS Specific
     "terminal.external.osxExec": "kitty.app",
-    "editor.wordWrap":"on",
+
+    // Language specific
+    "python.pythonPath": "/usr/local/bin/python3",
     "python.linting.enabled": false,
-       "files.insertFinalNewline": true,
-    "files.trimTrailingWhitespace": true,
-    "editor.minimap.enabled": false,
-    "editor.occurrencesHighlight": false,
-    "editor.selectionHighlight": false,
-    "workbench.editor.enablePreview": false,
-    "editor.parameterHints.enabled": false,
     "files.associations": {
         "*.p8": "lua"
     },
+
+    // VSCode sesttings
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "breadcrumbs.enabled": true,
+    "debug.allowBreakpointsEverywhere": true,
+    "editor.wordWrap":"on",
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": false,
+    "editor.selectionHighlight": false,
+    "editor.parameterHints.enabled": false,
+    "workbench.editor.enablePreview": false,
     "window.titleBarStyle": "custom",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#98c379",
+        "statusBar.noFolderBackground": "#98c379",
+        "statusBar.debuggingBackground": "#98c379"
+    },
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "workbench.startupEditor": "none",
+
     // Requires the "Settings Cycler" extension
     "editor.lineNumbers": "on",
     "settings.cycle": [
@@ -30,6 +47,7 @@
             ]
         }
     ],
+
     // Vim settings
     "vim.easymotion": true,
     "vim.hlsearch": true,
@@ -37,12 +55,10 @@
     "vim.visualstar": true,
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.duration": 500,
-    "vim.insertModeKeyBindings": [
-        {
-            "before":["j", "k"],
-            "after":["<Esc>"]
-        }
-    ],
+    "vim.sneak": true,
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.replace": "underline",
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.normal":"#98c379",
     "vim.statusBarColors.insert":"#61afef",
@@ -50,6 +66,13 @@
     "vim.statusBarColors.visualline":"#c678dd",
     "vim.statusBarColors.visualblock":"#c678dd",
     "vim.statusBarColors.replace":"#e06c75",
+    // Vim Keybindings
+    "vim.insertModeKeyBindings": [
+        {
+            "before":["j", "k"],
+            "after":["<Esc>"]
+        }
+    ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
             "before": ["B"],
@@ -220,29 +243,14 @@
             ]
         },
     ],
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#98c379",
-        "statusBar.noFolderBackground": "#98c379",
-        "statusBar.debuggingBackground": "#98c379"
-    },
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "editor.acceptSuggestionOnCommitCharacter": false,
-    "workbench.startupEditor": "none",
+
+    // Other extension settings
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.currentLine.format": "${author}, ${agoOrDate}",
-    "vim.sneak": true,
-    "vim.cursorStylePerMode.normal": "block",
-    "vim.cursorStylePerMode.insert": "line",
-    "vim.cursorStylePerMode.replace": "underline",
     "workbench.colorTheme": "One Dark Pro",
     "workbench.iconTheme": "material-icon-theme",
-    "java.configuration.checkProjectSettingsExclusions": false,
     "material-icon-theme.files.associations": {
         "*.moon": "lua"
     },
-    "java.test.report.position": "currentView",
     "material-icon-theme.folders.color": "#42a5f5",
-    "breadcrumbs.enabled": true,
-    "debug.allowBreakpointsEverywhere": true
 }
