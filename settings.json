@@ -23,6 +23,9 @@
     "workbench.editor.enablePreview": false,
     "window.titleBarStyle": "custom",
     "workbench.colorCustomizations": {
+        "statusBar": {
+            "foreground": "#fff"
+        },
         "statusBar.background": "#98c379",
         "statusBar.noFolderBackground": "#98c379",
         "statusBar.debuggingBackground": "#98c379"
