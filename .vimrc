@@ -202,5 +202,3 @@ let g:airline_right_sep='░▒▓'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-
-nnoremap <leader>u :UndotreeToggle<CR>

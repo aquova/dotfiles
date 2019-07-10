@@ -19,6 +19,7 @@
     "editor.occurrencesHighlight": false,
     "editor.selectionHighlight": false,
     "editor.parameterHints.enabled": false,
+    "editor.cursorBlinking": "phase",
     "workbench.editor.enablePreview": false,
     "window.titleBarStyle": "custom",
     "workbench.colorCustomizations": {
@@ -242,12 +243,22 @@
                 }
             ]
         },
+        {
+            "before": ["<leader>", "b", "d"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        }
     ],
 
     // Other extension settings
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.currentLine.format": "${author}, ${agoOrDate}",
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.colorTheme": "Dracula",
     "workbench.iconTheme": "material-icon-theme",
     "material-icon-theme.files.associations": {
         "*.moon": "lua"
