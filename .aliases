@@ -6,7 +6,7 @@ alias gittree='git log --graph --pretty=oneline --abbrev-commit'
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias pico8="/Applications/PICO-8.app/Contents/MacOS/pico8"
 alias clera="clear"
-alias python36='~/.pyenv/versions/3.6.5/bin/python3'
+alias cls="clear"
 alias activate='source bin/activate'
 
 mvim () { /Applications/MacVim.app/Contents/bin/mvim "$1"; }
