@@ -150,6 +150,10 @@
             ]
         },
         {
+            "before": ["Tab"],
+            "after": ["%"]
+        },
+        {
             "before": ["]", "c"],
             "after": [],
             "commands": [
