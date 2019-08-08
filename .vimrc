@@ -4,6 +4,7 @@ set background=dark
 let &t_Co=256 " Enables true color in Terminal
 colorscheme onedark
 
+""" Vim settings """
 " Enables Pathogen plugin helper
 execute pathogen#infect()
 
@@ -45,9 +46,15 @@ set guioptions=         " Removes all scrollbars
 
 set diffopt=vertical    " Open Vimdiff operations in vertical windows
 
-" Enable folding
-set foldmethod=indent
+set foldmethod=indent   " Enable folding
 set foldlevel=99
+
+" Disable error beeping
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+""" Custom keybindings """
+" Toggle folding with space
 nnoremap <space> za
 
 " Moves vertically by visual line, not literal
@@ -60,6 +67,7 @@ vnoremap B ^
 nnoremap E $
 vnoremap E $
 
+" J/K changes tabs
 nnoremap J :bp<CR>
 nnoremap K :bn<CR>
 
@@ -99,6 +107,7 @@ vnoremap Y y$
 " Modified version of bd that doesn't delete window splits
 command! Bd bp|bd #
 
+""" Custom functions """
 " Create function that removes trailing whitespace
 fun! RemoveWhitespace()
     let l:save = winsaveview()
@@ -115,16 +124,7 @@ command! RemoveWhitespace call RemoveWhitespace
 " Calls RemoveWhitespace when buffer is written
 autocmd BufWritePre * :call RemoveWhitespace()
 
-" Hex edit
-nmap <Leader>he :%!xxd<CR> :set filetype=xxd<CR>
-
-" Hex return
-nmap <Leader>hr :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>
-
-" Disable error beeping
-set noerrorbells visualbell t_vb=
-autocmd GUIEnter * set visualbell t_vb=
-
+""" Cosmetics """
 " Change cursor type in different modes
 if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\e[6 q\<Esc>\\"
@@ -136,7 +136,7 @@ else
     let &t_SR = "\e[4 q" " Replace mode
 endif
 
-" optional reset cursor on start:
+" Optional reset cursor on start:
 augroup myCmds
 au!
 autocmd VimEnter * silent !echo -ne "\e[1 q"
@@ -152,12 +152,22 @@ highlight Cursor guibg=#98c379
 autocmd InsertEnter * highlight  Cursor guibg=#61afef
 autocmd InsertLeave * highlight  Cursor guibg=#98c379
 
-" Vim plugin configs:
+""" Vim plugin configs """
 " Enables vim-airline buffer list by default
 let g:airline#extensions#tabline#enabled = 1
-" Custom tabline settings
+" Custom airline settings
 let g:airline_section_b = '%{strftime("%c")}'
-let g:airline_section_y = 'Buf: %{bufnr("%")}'
+
+" Have airline show current git branch, if it exists
+function! Current_git_branch()
+    let l:branch = split(fugitive#statusline(), '[()]')
+    if len(l:branch) > 1
+        return remove(l:branch, 1)
+    endif
+    return ""
+endfunction
+
+let g:airline_section_y = '%{Current_git_branch()}'
 
 " Commenting codes for commentary.vim:
 autocmd FileType python setlocal commentstring=#\ %s
