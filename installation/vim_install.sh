@@ -20,7 +20,6 @@ PLUGINS=(
     ajh17/VimCompletesMe
     easymotion/vim-easymotion
     jiangmiao/auto-pairs
-    justinmk/vim-sneak
     machakann/vim-highlightedyank
     mhinz/vim-signify
     tpope/vim-commentary
