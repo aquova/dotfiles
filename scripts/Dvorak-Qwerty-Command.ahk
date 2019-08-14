@@ -1,11 +1,12 @@
 ; AutoHotKey Script to mimick the 'Dvorak-Qwerty-Command' option on Mac
 ; Dvorak is toggled via right control
+; Based upon this script: https://autohotkey.com/board/topic/25093-mac-style-dvorak-qwerty-command-layout-switcher-for-windows/
 
 SendMode Input
 #NoEnv
 Menu, Tray, Icon, main.cpl, 8
 
-;----------- REMAP TO DVORAK
+; REMAP TO DVORAK
 
 -::[
 =::]
@@ -48,7 +49,7 @@ m::m
 /::z
 
 
-;----------- RELEASE KEYS FROM REMAP WHEN MODIFIER DOWN
+; RELEASE KEYS FROM REMAP WHEN MODIFIER DOWN
 
 *LCtrl::
 SetKeyDelay -1
@@ -83,9 +84,9 @@ SetKeyDelay -1
 Send {Blind}{LWin Up}
 return
 
-;----------- TOGGLE DVORAK-QWERTY WITH RIGHT WINDOWS KEY
+; TOGGLE DVORAK-QWERTY WITH ALT + SPACE
 
-*RCtrl::
+Alt & Space::
 Suspend, Permit
 Suspend, toggle
 Hotkey, *LCtrl, toggle
