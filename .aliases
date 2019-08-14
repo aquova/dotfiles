@@ -8,7 +8,7 @@ alias pico8="/Applications/PICO-8.app/Contents/MacOS/pico8"
 alias clera="clear"
 alias cls="clear"
 alias activate='source bin/activate'
-alias fuck='sudo !!'
+alias grep="grep -Hn"
 
 mvim () { /Applications/MacVim.app/Contents/bin/mvim "$1"; }
 cs () { cd "$1"; ls; }
