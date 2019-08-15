@@ -1,8 +1,6 @@
 alias la='ls -a'
 alias lh='ls -lh'
 alias gittree='git log --graph --pretty=oneline --abbrev-commit'
-alias love="/Applications/love.app/Contents/MacOS/love"
-alias pico8="/Applications/PICO-8.app/Contents/MacOS/pico8"
 alias clera="clear"
 alias cls="clear"
 alias activate='source bin/activate'
@@ -20,7 +18,13 @@ done
 unset CMD
 unset DOT
 
-mvim () { /Applications/MacVim.app/Contents/bin/mvim "$1"; }
+# Some aliases are only for Mac
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias love="/Applications/love.app/Contents/MacOS/love"
+    alias pico8="/Applications/PICO-8.app/Contents/MacOS/pico8"
+    mvim () { /Applications/MacVim.app/Contents/bin/mvim "$1"; }
+fi
+
 cs () { cd "$1"; ls; }
 tmuxa () { tmux a -t "$1"; }
 gitup () { git add -A; git commit -m "$1"; git push; }
