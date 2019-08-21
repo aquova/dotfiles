@@ -12,7 +12,7 @@ function prompt {
 
     "$ESC[31mPS " +                                                 # Red 'PS' to show this is PowerShell
     "$ESC[36m$env:USERNAME$ESC[35m@$ESC[36m$env:COMPUTERNAME" +     # USERNAME @ HOSTNAME
-    "$ESC[32m[$(Get-Date -UFormat '%m/%d/%Y')] " +                  # Current time
+    "$ESC[32m[$(Get-Date -UFormat '%T')] " +                        # Current time
     "$ESC[33m$(get-location)$ESC[0m> "                              # Current directory
 }
 
