@@ -9,11 +9,18 @@
 ### Set prompt to mimic my bash PS1 ###
 function prompt {
     $ESC = [char]27                                                 # Define escape character for ANSI colors
+    $GIT_BRANCH = git rev-parse --abbrev-ref HEAD                   # Get git branch name
+    $FORMATTED_NAME = ''
+    if ($GIT_BRANCH -ne $NULL) {                                    # If git branch exists, format nicely
+        $FORMATTED_NAME = " $ESC[36m($GIT_BRANCH)"
+    }
 
     "$ESC[31mPS " +                                                 # Red 'PS' to show this is PowerShell
     "$ESC[36m$env:USERNAME$ESC[35m@$ESC[36m$env:COMPUTERNAME" +     # USERNAME @ HOSTNAME
-    "$ESC[32m[$(Get-Date -UFormat '%T')] " +                        # Current time
-    "$ESC[33m$(get-location)$ESC[0m> "                              # Current directory
+    "$ESC[32m[$(Get-Date -UFormat '%T')]$ESC[0m-" +                 # Current time
+    "$ESC[33m$(get-location)" +                                     # Current directory
+    "$FORMATTED_NAME" +                                             # Add formatted git branch name
+    "$ESC[0m> "                                                     # End
 }
 
 ### Mimic behaviors from my Unix configs ###
