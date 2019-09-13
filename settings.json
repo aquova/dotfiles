@@ -29,6 +29,7 @@
     },
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
+    "explorer.autoReveal": false,
     "editor.acceptSuggestionOnCommitCharacter": false,
     "workbench.startupEditor": "none",
 
@@ -56,7 +57,7 @@
     "vim.visualstar": true,
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.duration": 500,
-    "vim.sneak": true,
+    "vim.sneak": false,
     "vim.cursorStylePerMode.normal": "block",
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.replace": "underline",
