@@ -1,15 +1,7 @@
+// Austin Bricker VSCode Settings
+
 {
-    // OS Specific
-    "terminal.external.osxExec": "kitty.app",
-
-    // Language specific
-    "python.pythonPath": "/usr/local/bin/python3",
-    "python.linting.enabled": false,
-    "files.associations": {
-        "*.p8": "lua"
-    },
-
-    // VSCode sesttings
+    // General settings
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "breadcrumbs.enabled": true,
@@ -23,15 +15,13 @@
     "workbench.editor.enablePreview": false,
     "window.titleBarStyle": "custom",
     "workbench.colorCustomizations": {
-        "statusBar.background": "#98c379",
-        "statusBar.noFolderBackground": "#98c379",
-        "statusBar.debuggingBackground": "#98c379"
+        "statusBar.foreground": "#fff",
     },
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "explorer.autoReveal": false,
     "editor.acceptSuggestionOnCommitCharacter": false,
     "workbench.startupEditor": "none",
+    "explorer.autoReveal": false,
 
     // Requires the "Settings Cycler" extension
     "editor.lineNumbers": "on",
@@ -40,233 +30,103 @@
             "id": "lineNumber",
             "overrideWorkspaceSettings": false,
             "values": [
-                {
-                    "editor.lineNumbers": "relative",
-                },
-                {
-                    "editor.lineNumbers": "on"
-                }
+                { "editor.lineNumbers": "relative", },
+                { "editor.lineNumbers": "on" }
             ]
         }
     ],
 
     // Vim settings
-    "vim.easymotion": true,
-    "vim.hlsearch": true,
-    "vim.leader": ",",
-    "vim.visualstar": true,
-    "vim.highlightedyank.enable": true,
+    "vim.easymotion": true,                                             // EasyMotion behavior enabled
+    "vim.hlsearch": true,                                               // Highlighted Search enabled
+    "vim.visualstar": true,                                             // * toggles search
+    "vim.leader": ",",                                                  // Set leader to ,
+    "vim.highlightedyank.enable": true,                                 // Highlighted Yank enabled
     "vim.highlightedyank.duration": 500,
-    "vim.sneak": false,
     "vim.cursorStylePerMode.normal": "block",
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.replace": "underline",
-    "vim.statusBarColorControl": true,
+    "vim.statusBarColorControl": false,
     "vim.statusBarColors.normal":"#98c379",
     "vim.statusBarColors.insert":"#61afef",
     "vim.statusBarColors.visual":"#c678dd",
     "vim.statusBarColors.visualline":"#c678dd",
     "vim.statusBarColors.visualblock":"#c678dd",
     "vim.statusBarColors.replace":"#e06c75",
+
     // Vim Keybindings
+    // Insert mode
     "vim.insertModeKeyBindings": [
-        {
-            "before":["j", "k"],
-            "after":["<Esc>"]
-        }
+        // jk is escape
+        { "before":["j", "k"], "after":["<Esc>"] }
     ],
+    // Visual mode
     "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before": ["B"],
-            "after": ["^"]
-        },
-        {
-            "before": ["E"],
-            "after": ["$"]
-        },
-        {
-            "before": ["L"],
-            "after": ["L", "z", "z"]
-        },
-        {
-            "before": ["H"],
-            "after": ["H", "z", "z"]
-        },
-        {
-            "before": ["[", "["],
-            "after": ["[", "[", "z", "z"]
-        },
-        {
-            "before": ["]", "]"],
-            "after": ["]", "]", "z", "z"]
-        },
-        {
-            "before": ["[", "]"],
-            "after": ["[", "]", "z", "z"]
-        },
-        {
-            "before": ["]", "["],
-            "after": ["]", "[", "z", "z"]
-        },
+        // Remaps beginning/end of line
+        { "before": ["B"], "after": ["^"] },
+        { "before": ["E"], "after": ["$"] },
+        // Center text after jumping half-screen
+        { "before": ["L"], "after": ["L", "z", "z"] },
+        { "before": ["H"], "after": ["H", "z", "z"] },
+        // Center text after jumping to functions
+        { "before": ["[", "["], "after": ["[", "[", "z", "z"] },
+        { "before": ["]", "]"], "after": ["]", "]", "z", "z"] },
+        { "before": ["[", "]"], "after": ["[", "]", "z", "z"] },
+        { "before": ["]", "["], "after": ["]", "[", "z", "z"] },
     ],
+    // Normal mode
     "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": ["g", "r"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "settings.cycle.lineNumber",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["g", "p"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "editor.debug.action.toggleBreakpoint",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["g", "m"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "markdown.showPreviewToSide",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["g", "s"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.toggleSidebarVisibility",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["Tab"],
-            "after": ["%"]
-        },
-        {
-            "before": ["]", "c"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.editor.nextChange",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["[", "c"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.editor.previousChange",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["[", "["],
-            "after": ["[", "[", "z", "z"]
-        },
-        {
-            "before": ["]", "]"],
-            "after": ["]", "]", "z", "z"]
-        },
-        {
-            "before": ["[", "]"],
-            "after": ["[", "]", "z", "z"]
-        },
-        {
-            "before": ["]", "["],
-            "after": ["]", "[", "z", "z"]
-        },
-        {
-            "before": ["B"],
-            "after": ["^"]
-        },
-        {
-            "before": ["E"],
-            "after": ["$"]
-        },
-        {
-            "before": ["Y"],
-            "after": ["y", "$"]
-        },
-        {
-            "before": ["j"],
-            "after": ["g", "j"]
-        },
-        {
-            "before": ["k"],
-            "after": ["g", "k"]
-        },
-        {
-            "before": ["L"],
-            "after": ["L", "z", "z"]
-        },
-        {
-            "before": ["H"],
-            "after": ["H", "z", "z"]
-        },
-        {
-            "before": ["J"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.previousEditor",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["K"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.nextEditor",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["<leader>", "<space>"],
-            "after": [],
-            "commands": [
-                {
-                    "command": ":noh",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["<leader>", "b", "d"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.closeActiveEditor",
-                    "args": []
-                }
-            ]
-        }
+        // gr toggles relative line numbers (requires Settings Cycler)
+        { "before": ["g", "r"], "after": [], "commands": [ { "command": "settings.cycle.lineNumber", "args": [] } ] },
+        // gp toggles breakpoint
+        { "before": ["g", "p"], "after": [], "commands": [ { "command": "editor.debug.action.toggleBreakpoint", "args": [] } ] },
+        // gP toggles conditional breakpoint
+        { "before": ["g", "P"], "after": [], "commands": [ { "command": "editor.debug.action.conditionalBreakpoint", "args": [] } ] },
+        // gm opens Markdown preview
+        { "before": ["g", "m"], "after": [], "commands": [ { "command": "markdown.showPreviewToSide", "args": [] } ] },
+        // gs toggles sidebar
+        { "before": ["g", "s"], "after": [], "commands": [ { "command": "workbench.action.toggleSidebarVisibility", "args": [] } ] },
+        { "before": ["Tab"], "after": ["%"] },                          // Tab is %
+        // Toggle folding with space
+        // TODO: Replace this with Space is za once VSCode Vim implements it
+        { "before": ["Space"], "after": [], "commands": [ { "command": "editor.toggleFold", "args": [] } ] },
+        // ,bd closes current file
+        { "before": ["<leader>", "b", "d"], "after": [], "commands": [ { "command": "workbench.action.closeActiveEditor", "args": [] } ] },
+        // ]c / [c jumps to Git changes
+        { "before": ["]", "c"], "after": [], "commands": [ { "command": "workbench.action.editor.nextChange", "args": [] } ] },
+        { "before": ["[", "c"], "after": [], "commands": [ { "command": "workbench.action.editor.previousChange", "args": [] } ] },
+        // Center text after jumping to functions
+        { "before": ["[", "["], "after": ["[", "[", "z", "z"] },
+        { "before": ["]", "]"], "after": ["]", "]", "z", "z"] },
+        { "before": ["[", "]"], "after": ["[", "]", "z", "z"] },
+        { "before": ["]", "["], "after": ["]", "[", "z", "z"] },
+        // Remaps beginning/end of line
+        { "before": ["B"], "after": ["^"] },
+        { "before": ["E"], "after": ["$"] },
+        // Set Y to be the same as y$
+        { "before": ["Y"], "after": ["y", "$"] },
+        // Move vertically by visual line, not literal size
+        { "before": ["j"], "after": ["g", "j"] },
+        { "before": ["k"], "after": ["g", "k"] },
+        { "before": ["L"], "after": ["L", "z", "z"] },
+        { "before": ["H"], "after": ["H", "z", "z"] },
+        // J/K changes tabs
+        { "before": ["J"], "after": [], "commands": [ { "command": "workbench.action.previousEditor", "args": [] } ] },
+        { "before": ["K"], "after": [], "commands": [ { "command": "workbench.action.nextEditor", "args": [] } ] },
+        // Replace typing :noh
+        { "before": ["<leader>", "<space>"], "after": [], "commands": [ { "command": ":noh", "args": [] } ] },
     ],
 
     // Other extension settings
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.currentLine.format": "${author}, ${agoOrDate}",
-    "workbench.colorTheme": "Dracula",
     "workbench.iconTheme": "material-icon-theme",
     "material-icon-theme.files.associations": {
         "*.moon": "lua"
     },
     "material-icon-theme.folders.color": "#42a5f5",
+    "material-icon-theme.activeIconPack": "angular",
+    "workbench.colorTheme": "One Dark Pro",
+    "extensions.ignoreRecommendations": true,
+    "window.zoomLevel": 0,
 }
