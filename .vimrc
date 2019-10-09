@@ -93,6 +93,16 @@ vnoremap L L<bar>zz <CR>
 nnoremap H H<bar>zz <CR>
 vnoremap H H<bar>zz <CR>
 
+" Center text after jumping to functions
+nnoremap [[ [[<bar>zz <CR>
+nnoremap ]] ]]<bar>zz <CR>
+nnoremap [] []<bar>zz <CR>
+nnoremap ][ ][<bar>zz <CR>
+vnoremap [[ [[<bar>zz <CR>
+vnoremap ]] ]]<bar>zz <CR>
+vnoremap [] []<bar>zz <CR>
+vnoremap ][ ][<bar>zz <CR>
+
 " Replace typing :noh
 nnoremap <leader><space> :noh<CR>
 
