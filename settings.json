@@ -30,7 +30,7 @@
             "id": "lineNumber",
             "overrideWorkspaceSettings": false,
             "values": [
-                { "editor.lineNumbers": "relative", },
+                { "editor.lineNumbers": "relative" },
                 { "editor.lineNumbers": "on" }
             ]
         }
@@ -76,6 +76,42 @@
     ],
     // Normal mode
     "vim.normalModeKeyBindingsNonRecursive": [
+        // Remaps beginning/end of line
+        { "before": ["B"], "after": ["^"] },
+        { "before": ["E"], "after": ["$"] },
+        // Move vertically by visual line, not literal line
+        { "before": ["j"], "after": ["g", "j"] },
+        { "before": ["k"], "after": ["g", "k"] },
+        // Center text after jumping half-screen
+        { "before": ["L"], "after": ["L", "z", "z"] },
+        { "before": ["H"], "after": ["H", "z", "z"] },
+        // Tab is %
+        { "before": ["<tab>"], "after": ["%"] },
+        // Set Y to be the same as y$
+        { "before": ["Y"], "after": ["y", "$"] },
+        // Center text after jumping to functions
+        { "before": ["[", "["], "after": ["[", "[", "z", "z"] },
+        { "before": ["]", "]"], "after": ["]", "]", "z", "z"] },
+        { "before": ["[", "]"], "after": ["[", "]", "z", "z"] },
+        { "before": ["]", "["], "after": ["]", "[", "z", "z"] },
+
+        // Toggle folding with space
+        // TODO: Replace this with Space is za once VSCode Vim implements it
+        { "before": ["<space>"], "after": [], "commands": [ { "command": "editor.toggleFold", "args": [] } ] },
+        // ,bd closes current file
+        { "before": ["<leader>", "b", "d"], "after": [], "commands": [ { "command": "workbench.action.closeActiveEditor", "args": [] } ] },
+        // [c / ]c jumps between
+        { "before": ["[", "c"], "after": [], "commands": [ { "command": "workbench.action.editor.previousChange", "args": [] } ] },
+        { "before": ["]", "c"], "after": [], "commands": [ { "command": "workbench.action.editor.nextChange", "args": [] } ] },
+        // [p / ]p jumps between breakpoints
+        { "before": ["[", "p"], "after": [], "commands": [ { "command": "editor.debug.action.goToPreviousBreakpoint", "args": [] } ] },
+        { "before": ["]", "p"], "after": [], "commands": [ { "command": "editor.debug.action.goToNextBreakpoint", "args": [] } ] },
+        // J/K changes tabs
+        { "before": ["J"], "after": [], "commands": [ { "command": "workbench.action.previousEditor", "args": [] } ] },
+        { "before": ["K"], "after": [], "commands": [ { "command": "workbench.action.nextEditor", "args": [] } ] },
+        // Replace typing :noh
+        { "before": ["<leader>", "<space>"], "after": [], "commands": [ { "command": ":noh", "args": [] } ] },
+
         // gr toggles relative line numbers (requires Settings Cycler)
         { "before": ["g", "r"], "after": [], "commands": [ { "command": "settings.cycle.lineNumber", "args": [] } ] },
         // gp toggles breakpoint
@@ -86,35 +122,6 @@
         { "before": ["g", "m"], "after": [], "commands": [ { "command": "markdown.showPreviewToSide", "args": [] } ] },
         // gs toggles sidebar
         { "before": ["g", "s"], "after": [], "commands": [ { "command": "workbench.action.toggleSidebarVisibility", "args": [] } ] },
-        { "before": ["Tab"], "after": ["%"] },                          // Tab is %
-        // Toggle folding with space
-        // TODO: Replace this with Space is za once VSCode Vim implements it
-        { "before": ["Space"], "after": [], "commands": [ { "command": "editor.toggleFold", "args": [] } ] },
-        // ,bd closes current file
-        { "before": ["<leader>", "b", "d"], "after": [], "commands": [ { "command": "workbench.action.closeActiveEditor", "args": [] } ] },
-        // ]c / [c jumps to Git changes
-        { "before": ["]", "c"], "after": [], "commands": [ { "command": "workbench.action.editor.nextChange", "args": [] } ] },
-        { "before": ["[", "c"], "after": [], "commands": [ { "command": "workbench.action.editor.previousChange", "args": [] } ] },
-        // Center text after jumping to functions
-        { "before": ["[", "["], "after": ["[", "[", "z", "z"] },
-        { "before": ["]", "]"], "after": ["]", "]", "z", "z"] },
-        { "before": ["[", "]"], "after": ["[", "]", "z", "z"] },
-        { "before": ["]", "["], "after": ["]", "[", "z", "z"] },
-        // Remaps beginning/end of line
-        { "before": ["B"], "after": ["^"] },
-        { "before": ["E"], "after": ["$"] },
-        // Set Y to be the same as y$
-        { "before": ["Y"], "after": ["y", "$"] },
-        // Move vertically by visual line, not literal size
-        { "before": ["j"], "after": ["g", "j"] },
-        { "before": ["k"], "after": ["g", "k"] },
-        { "before": ["L"], "after": ["L", "z", "z"] },
-        { "before": ["H"], "after": ["H", "z", "z"] },
-        // J/K changes tabs
-        { "before": ["J"], "after": [], "commands": [ { "command": "workbench.action.previousEditor", "args": [] } ] },
-        { "before": ["K"], "after": [], "commands": [ { "command": "workbench.action.nextEditor", "args": [] } ] },
-        // Replace typing :noh
-        { "before": ["<leader>", "<space>"], "after": [], "commands": [ { "command": ":noh", "args": [] } ] },
     ],
 
     // Other extension settings
@@ -122,7 +129,8 @@
     "gitlens.currentLine.format": "${author}, ${agoOrDate}",
     "workbench.iconTheme": "material-icon-theme",
     "material-icon-theme.files.associations": {
-        "*.moon": "lua"
+        "*.moon": "lua",
+        "*.p8": "lua"
     },
     "material-icon-theme.folders.color": "#42a5f5",
     "material-icon-theme.activeIconPack": "angular",
