@@ -77,10 +77,6 @@ nnoremap gJ J <CR>
 " jk is escape
 inoremap jk <esc>
 
-" Easily add empty lines
-nnoremap [<space> :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
-nnoremap ]<space> :<c-u>put =repeat(nr2char(10), v:count1)<cr>
-
 " Set leader to ,
 let mapleader=","
 
