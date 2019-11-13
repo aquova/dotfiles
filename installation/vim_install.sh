@@ -11,11 +11,12 @@ fi
 
 #Install Pathogen, place into autoload folder
 echo "Installing Pathogen";
-mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle $HOME/vim/colors;
+mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle $HOME/.vim/colors;
 curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim;
 
 BUNDLE_DIR="$HOME/.vim/bundle/"
 
+# Plugin names are GitHub Username/RepoName
 PLUGINS=(
     ajh17/VimCompletesMe
     easymotion/vim-easymotion
