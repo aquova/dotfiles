@@ -4,22 +4,22 @@
 # Austin Bricker, 2018-2019
 
 # Determine OS, setup install commands
-OS = ""
-INSTALL_COMMAND = ""
-UPDATE_UPGRADE_COMMAND = ""
+OS=""
+INSTALL_COMMAND=""
+UPDATE_UPGRADE_COMMAND=""
 
 case "$OSTYPE" in
     linux*)
         if [ -x "$(command -v apt)" ]; then
             echo "Debian/Ubuntu-based OS detected";
-            OS = "Debian";
-            INSTALL_COMMAND = "sudo apt install";
-            UPDATE_UPGRADE_COMMAND = "sudo apt update & sudo apt upgrade";
+            OS="Debian";
+            INSTALL_COMMAND="sudo apt install";
+            UPDATE_UPGRADE_COMMAND="sudo apt update & sudo apt upgrade";
         elif [ -x "$(command -v pacman)" ]; then
             echo "Arch-based OS detected";
-            OS = "Arch";
-            INSTALL_COMMAND = "sudo pacman -S";
-            UPDATE_UPGRADE_COMMAND = "sudo pacman -Syu";
+            OS="Arch";
+            INSTALL_COMMAND="sudo pacman -S";
+            UPDATE_UPGRADE_COMMAND="sudo pacman -Syu";
         else
             echo "Unknown Linux distro, exiting";
             exit 1;
@@ -27,12 +27,13 @@ case "$OSTYPE" in
         ;;
     darwin*)
         echo "MacOS detected.";
-        OS = "Mac";
-        COMMAND = "brew";
+        OS="Mac";
+        INSTALL_COMMAND="brew";
         if ! [-x "$(command -v brew)" ]; then
             echo "Homebrew not installed, installing now.";
             /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
         fi
+        UPDATE_UPGRADE_COMMAND="brew update & brew upgrade"
         ;;
     *)
         echo "Unknown OS. Exiting."
@@ -51,14 +52,9 @@ if ! [ -x "$(command -v git)" ]; then
 fi
 
 # Installs commonly used programs
+# TODO: May want to add other programs here
 echo "Installing programs";
 $INSTALL_COMMAND neofetch tldr tmux vim;
-
-# TODO: Install bat/other sharkdp programs
-# Homebrew has bat, but others have to install from releases
-if $OS == "Mac"; then
-    brew install bat;
-fi
 
 echo "Moving dotfiles into place";
 cp .bashrc $HOME;
