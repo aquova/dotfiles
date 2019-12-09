@@ -42,10 +42,10 @@
     "vim.visualstar": true,                                             // * toggles search
     "vim.leader": ",",                                                  // Set leader to ,
     "vim.highlightedyank.enable": true,                                 // Highlighted Yank enabled
-    "vim.highlightedyank.duration": 500,
-    "vim.cursorStylePerMode.normal": "block",
-    "vim.cursorStylePerMode.insert": "line",
-    "vim.cursorStylePerMode.replace": "underline",
+    "vim.highlightedyank.duration": 500,                                // Highlight yank for 500 ms
+    "vim.cursorStylePerMode.normal": "block",                           // Use block cursor style for normal mode
+    "vim.cursorStylePerMode.insert": "line",                            // Use line cursor style for insert mode
+    "vim.cursorStylePerMode.replace": "underline",                      // Use underline cursor sytle for replace mode
     "vim.statusBarColorControl": false,
     "vim.statusBarColors.normal":"#98c379",
     "vim.statusBarColors.insert":"#61afef",
@@ -65,6 +65,9 @@
         // Remaps beginning/end of line
         { "before": ["B"], "after": ["^"] },
         { "before": ["E"], "after": ["$"] },
+        // Move vertically by visual line, not literal line
+        { "before": ["j"], "after": ["g", "j"] },
+        { "before": ["k"], "after": ["g", "k"] },
         // Center text after jumping half-screen
         { "before": ["L"], "after": ["L", "z", "z"] },
         { "before": ["H"], "after": ["H", "z", "z"] },
@@ -96,8 +99,7 @@
         { "before": ["]", "["], "after": ["]", "[", "z", "z"] },
 
         // Toggle folding with space
-        // TODO: Replace this with Space is za once VSCode Vim implements it
-        { "before": ["<space>"], "after": [], "commands": [ { "command": "editor.toggleFold", "args": [] } ] },
+        { "before": ["<space>"], "after": ["z", "a"] },
         // ,bd closes current file
         { "before": ["<leader>", "b", "d"], "after": [], "commands": [ { "command": "workbench.action.closeActiveEditor", "args": [] } ] },
         // [c / ]c jumps between
@@ -111,6 +113,9 @@
         { "before": ["K"], "after": [], "commands": [ { "command": "workbench.action.nextEditor", "args": [] } ] },
         // Replace typing :noh
         { "before": ["<leader>", "<space>"], "after": [], "commands": [ { "command": ":noh", "args": [] } ] },
+        // [<space> / ]<space> inserts blank line before/after cursor
+        { "before": ["[", "<space>"], "after": [], "commands": [ { "command": "editor.action.insertLineBefore", "args": [] } ] },
+        { "before": ["]", "<space>"], "after": [], "commands": [ { "command": "editor.action.insertLineAfter", "args": [] } ] },
 
         // gr toggles relative line numbers (requires Settings Cycler)
         { "before": ["g", "r"], "after": [], "commands": [ { "command": "settings.cycle.lineNumber", "args": [] } ] },
@@ -129,12 +134,13 @@
     "gitlens.currentLine.format": "${author}, ${agoOrDate}",
     "workbench.iconTheme": "material-icon-theme",
     "material-icon-theme.files.associations": {
-        "*.moon": "lua",
-        "*.p8": "lua"
+        "*.p8": "lua",
+        "*.vim": "vim"
     },
     "material-icon-theme.folders.color": "#42a5f5",
     "material-icon-theme.activeIconPack": "angular",
     "workbench.colorTheme": "One Dark Pro",
     "extensions.ignoreRecommendations": true,
     "window.zoomLevel": 0,
+    "workbench.sideBar.location": "left",
 }
