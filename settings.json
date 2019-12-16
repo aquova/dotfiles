@@ -1,5 +1,5 @@
 // Austin Bricker VSCode Settings
-
+// 2018-2019
 {
     // General settings
     "files.insertFinalNewline": true,
@@ -46,7 +46,7 @@
     "vim.cursorStylePerMode.normal": "block",                           // Use block cursor style for normal mode
     "vim.cursorStylePerMode.insert": "line",                            // Use line cursor style for insert mode
     "vim.cursorStylePerMode.replace": "underline",                      // Use underline cursor sytle for replace mode
-    "vim.statusBarColorControl": false,
+    "vim.statusBarColorControl": false,                                 // Custom colors tend to lag system, but here are the ones I used to use
     "vim.statusBarColors.normal":"#98c379",
     "vim.statusBarColors.insert":"#61afef",
     "vim.statusBarColors.visual":"#c678dd",
@@ -63,70 +63,73 @@
     // Visual mode
     "vim.visualModeKeyBindingsNonRecursive": [
         // Remaps beginning/end of line
-        { "before": ["B"], "after": ["^"] },
-        { "before": ["E"], "after": ["$"] },
+        { "before": ["B"],                  "after": ["^"] },
+        { "before": ["E"],                  "after": ["$"] },
         // Move vertically by visual line, not literal line
-        { "before": ["j"], "after": ["g", "j"] },
-        { "before": ["k"], "after": ["g", "k"] },
+        { "before": ["j"],                  "after": ["g", "j"] },
+        { "before": ["k"],                  "after": ["g", "k"] },
         // Center text after jumping half-screen
-        { "before": ["L"], "after": ["L", "z", "z"] },
-        { "before": ["H"], "after": ["H", "z", "z"] },
+        { "before": ["L"],                  "after": ["L", "z", "z"] },
+        { "before": ["H"],                  "after": ["H", "z", "z"] },
         // Center text after jumping to functions
-        { "before": ["[", "["], "after": ["[", "[", "z", "z"] },
-        { "before": ["]", "]"], "after": ["]", "]", "z", "z"] },
-        { "before": ["[", "]"], "after": ["[", "]", "z", "z"] },
-        { "before": ["]", "["], "after": ["]", "[", "z", "z"] },
+        { "before": ["[", "["],             "after": ["[", "[", "z", "z"] },
+        { "before": ["]", "]"],             "after": ["]", "]", "z", "z"] },
+        { "before": ["[", "]"],             "after": ["[", "]", "z", "z"] },
+        { "before": ["]", "["],             "after": ["]", "[", "z", "z"] },
     ],
     // Normal mode
     "vim.normalModeKeyBindingsNonRecursive": [
         // Remaps beginning/end of line
-        { "before": ["B"], "after": ["^"] },
-        { "before": ["E"], "after": ["$"] },
+        { "before": ["B"],                  "after": ["^"] },
+        { "before": ["E"],                  "after": ["$"] },
         // Move vertically by visual line, not literal line
-        { "before": ["j"], "after": ["g", "j"] },
-        { "before": ["k"], "after": ["g", "k"] },
+        { "before": ["j"],                  "after": ["g", "j"] },
+        { "before": ["k"],                  "after": ["g", "k"] },
         // Center text after jumping half-screen
-        { "before": ["L"], "after": ["L", "z", "z"] },
-        { "before": ["H"], "after": ["H", "z", "z"] },
-        // Tab is %
-        { "before": ["<tab>"], "after": ["%"] },
-        // Set Y to be the same as y$
-        { "before": ["Y"], "after": ["y", "$"] },
+        { "before": ["L"],                  "after": ["L", "z", "z"] },
+        { "before": ["H"],                  "after": ["H", "z", "z"] },
+        // Use tab to jump between matching ([{}])
+        { "before": ["<tab>"],              "after": ["%"] },
+        // Set Y to yank to end of line
+        { "before": ["Y"],                  "after": ["y", "$"] },
         // Center text after jumping to functions
-        { "before": ["[", "["], "after": ["[", "[", "z", "z"] },
-        { "before": ["]", "]"], "after": ["]", "]", "z", "z"] },
-        { "before": ["[", "]"], "after": ["[", "]", "z", "z"] },
-        { "before": ["]", "["], "after": ["]", "[", "z", "z"] },
-
+        { "before": ["[", "["],             "after": ["[", "[", "z", "z"] },
+        { "before": ["]", "]"],             "after": ["]", "]", "z", "z"] },
+        { "before": ["[", "]"],             "after": ["[", "]", "z", "z"] },
+        { "before": ["]", "["],             "after": ["]", "[", "z", "z"] },
         // Toggle folding with space
-        { "before": ["<space>"], "after": ["z", "a"] },
-        // ,bd closes current file
-        { "before": ["<leader>", "b", "d"], "after": [], "commands": [ { "command": "workbench.action.closeActiveEditor", "args": [] } ] },
-        // [c / ]c jumps between
-        { "before": ["[", "c"], "after": [], "commands": [ { "command": "workbench.action.editor.previousChange", "args": [] } ] },
-        { "before": ["]", "c"], "after": [], "commands": [ { "command": "workbench.action.editor.nextChange", "args": [] } ] },
-        // [p / ]p jumps between breakpoints
-        { "before": ["[", "p"], "after": [], "commands": [ { "command": "editor.debug.action.goToPreviousBreakpoint", "args": [] } ] },
-        { "before": ["]", "p"], "after": [], "commands": [ { "command": "editor.debug.action.goToNextBreakpoint", "args": [] } ] },
-        // J/K changes tabs
-        { "before": ["J"], "after": [], "commands": [ { "command": "workbench.action.previousEditor", "args": [] } ] },
-        { "before": ["K"], "after": [], "commands": [ { "command": "workbench.action.nextEditor", "args": [] } ] },
-        // Replace typing :noh
-        { "before": ["<leader>", "<space>"], "after": [], "commands": [ { "command": ":noh", "args": [] } ] },
-        // [<space> / ]<space> inserts blank line before/after cursor
-        { "before": ["[", "<space>"], "after": [], "commands": [ { "command": "editor.action.insertLineBefore", "args": [] } ] },
-        { "before": ["]", "<space>"], "after": [], "commands": [ { "command": "editor.action.insertLineAfter", "args": [] } ] },
+        { "before": ["<space>"],            "after": ["z", "a"] },
 
+        // A 'bug' in VSCode Vim doesn't mark files as clean after using u for undo. This fixes that behavior.
+        // If this is ever resolved, delete
+        { "before": ["u"],                  "commands": [ "undo" ] },
+        { "before": ["<C-r>"],              "commands": [ "redo" ] },
+        // ,bd closes current file
+        { "before": ["<leader>", "b", "d"], "commands": [ "workbench.action.closeActiveEditor" ] },
+        // [c / ]c jumps between
+        { "before": ["[", "c"],             "commands": [ "workbench.action.editor.previousChange" ] },
+        { "before": ["]", "c"],             "commands": [ "workbench.action.editor.nextChange" ] },
+        // [p / ]p jumps between breakpoints
+        { "before": ["[", "p"],             "commands": [ "editor.debug.action.goToPreviousBreakpoint" ] },
+        { "before": ["]", "p"],             "commands": [ "editor.debug.action.goToNextBreakpoint" ] },
+        // J/K changes tabs
+        { "before": ["J"],                  "commands": [ "workbench.action.previousEditor" ] },
+        { "before": ["K"],                  "commands": [ "workbench.action.nextEditor" ] },
+        // Replace typing :noh
+        { "before": ["<leader>", "<space>"], "commands": [ ":noh" ] },
+        // [<space> / ]<space> inserts blank line before/after cursor
+        { "before": ["[", "<space>"],       "commands": [ "editor.action.insertLineBefore" ] },
+        { "before": ["]", "<space>"],       "commands": [ "editor.action.insertLineAfter" ] },
         // gr toggles relative line numbers (requires Settings Cycler)
-        { "before": ["g", "r"], "after": [], "commands": [ { "command": "settings.cycle.lineNumber", "args": [] } ] },
+        { "before": ["g", "r"],             "commands": [ "settings.cycle.lineNumber" ] },
         // gp toggles breakpoint
-        { "before": ["g", "p"], "after": [], "commands": [ { "command": "editor.debug.action.toggleBreakpoint", "args": [] } ] },
+        { "before": ["g", "p"],             "commands": [ "editor.debug.action.toggleBreakpoint" ] },
         // gP toggles conditional breakpoint
-        { "before": ["g", "P"], "after": [], "commands": [ { "command": "editor.debug.action.conditionalBreakpoint", "args": [] } ] },
+        { "before": ["g", "P"],             "commands": [ "editor.debug.action.conditionalBreakpoint" ] },
         // gm opens Markdown preview
-        { "before": ["g", "m"], "after": [], "commands": [ { "command": "markdown.showPreviewToSide", "args": [] } ] },
+        { "before": ["g", "m"],             "commands": [ "markdown.showPreviewToSide" ] },
         // gs toggles sidebar
-        { "before": ["g", "s"], "after": [], "commands": [ { "command": "workbench.action.toggleSidebarVisibility", "args": [] } ] },
+        { "before": ["g", "s"],             "commands": [ "workbench.action.toggleSidebarVisibility" ] },
     ],
 
     // Other extension settings
