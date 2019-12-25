@@ -1,0 +1,3 @@
+[submodule "vimars"]
+	path = vimars
+	url = https://github.com/aquova/vimars
