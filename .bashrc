@@ -11,7 +11,7 @@ if [ -f ~/z.lua ]; then
 fi
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin/pyls:$PATH
-export TERM=screen-256color
+export TERM=xterm-kitty
 export EDITOR=vim
 
 source $HOME/git-prompt.sh

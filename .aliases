@@ -23,6 +23,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias love="/Applications/love.app/Contents/MacOS/love"
     alias pico8="/Applications/PICO-8.app/Contents/MacOS/pico8"
     mvim () { /Applications/MacVim.app/Contents/bin/mvim "$1"; }
+# Some aliases are only for Ubuntu
+elif [ -n "&(uname -a | grep Ubuntu)" ]; then
+    alias open="nautilus ."
+    alias fd="fdfind"
 fi
 
 cs () { cd "$1"; ls; }

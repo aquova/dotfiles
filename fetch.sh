@@ -10,7 +10,7 @@ cp "${HOME}/.bash_profile" $DOTFILES
 cp "${HOME}/.aliases" $DOTFILES
 
 # Vim config
-cp "${HOME}/vimars/.vimrc" $DOTFILES
+cp "${HOME}/.vimrc" "$DOTFILES/vimars"
 
 # Emacs config
 cp "${HOME}/.emacs" $DOTFILES
