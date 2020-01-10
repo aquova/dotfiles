@@ -1,28 +1,6 @@
 // Austin Bricker VSCode Settings
-// 2018-2019
+// 2018-2020
 {
-    // General settings
-    "files.insertFinalNewline": true,
-    "files.trimTrailingWhitespace": true,
-    "breadcrumbs.enabled": true,
-    "debug.allowBreakpointsEverywhere": true,
-    "editor.wordWrap":"on",
-    "editor.minimap.enabled": false,
-    "editor.occurrencesHighlight": false,
-    "editor.selectionHighlight": false,
-    "editor.parameterHints.enabled": false,
-    "editor.cursorBlinking": "phase",
-    "workbench.editor.enablePreview": false,
-    "window.titleBarStyle": "custom",
-    "workbench.colorCustomizations": {
-        "statusBar.foreground": "#fff",
-    },
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "editor.acceptSuggestionOnCommitCharacter": false,
-    "workbench.startupEditor": "none",
-    "explorer.autoReveal": false,
-
     // Requires the "Settings Cycler" extension
     "editor.lineNumbers": "on",
     "settings.cycle": [
@@ -130,9 +108,43 @@
         { "before": ["g", "m"],             "commands": [ "markdown.showPreviewToSide" ] },
         // gs toggles sidebar
         { "before": ["g", "s"],             "commands": [ "workbench.action.toggleSidebarVisibility" ] },
+
+        // Display different sidebars with ,s and other key
+        // Explorer
+        { "before": ["<leader>", "s", "e"], "commands": [ "workbench.view.explorer", "workbench.action.focusActiveEditorGroup" ] },
+        // Find
+        { "before": ["<leader>", "s", "f"], "commands": [ "workbench.view.search", "workbench.action.focusActiveEditorGroup" ] },
+        // Git
+        { "before": ["<leader>", "s", "g"], "commands": [ "workbench.view.scm", "workbench.action.focusActiveEditorGroup" ] },
+        // Debug
+        { "before": ["<leader>", "s", "d"], "commands": [ "workbench.view.debug", "workbench.action.focusActiveEditorGroup" ] },
+        // Extensions
+        { "before": ["<leader>", "s", "x"], "commands": [ "workbench.view.extensions", "workbench.action.focusActiveEditorGroup" ] },
     ],
 
-    // Other extension settings
+    // General settings
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "breadcrumbs.enabled": true,
+    "debug.allowBreakpointsEverywhere": true,
+    "editor.wordWrap":"on",
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": false,
+    "editor.selectionHighlight": false,
+    "editor.parameterHints.enabled": false,
+    "editor.cursorBlinking": "phase",
+    "workbench.editor.enablePreview": false,
+    "window.titleBarStyle": "custom",
+    "workbench.colorCustomizations": {
+        "statusBar.foreground": "#ffffff",
+    },
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "workbench.startupEditor": "none",
+    "explorer.autoReveal": false,
+    "search.useIgnoreFiles": false,
+
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.currentLine.format": "${author}, ${agoOrDate}",
     "workbench.iconTheme": "material-icon-theme",
