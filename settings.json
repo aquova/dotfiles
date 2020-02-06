@@ -84,6 +84,8 @@
         { "before": ["<C-r>"],              "commands": [ "redo" ] },
         // ,bd closes current file
         { "before": ["<leader>", "b", "d"], "commands": [ "workbench.action.closeActiveEditor" ] },
+        // ,on closes all other files
+        { "before": ["<leader>", "o", "n"], "commands": [ "workbench.action.closeOtherEditors" ] },
         // [c / ]c jumps between
         { "before": ["[", "c"],             "commands": [ "workbench.action.editor.previousChange" ] },
         { "before": ["]", "c"],             "commands": [ "workbench.action.editor.nextChange" ] },
@@ -98,6 +100,8 @@
         // [<space> / ]<space> inserts blank line before/after cursor
         { "before": ["[", "<space>"],       "commands": [ "editor.action.insertLineBefore" ] },
         { "before": ["]", "<space>"],       "commands": [ "editor.action.insertLineAfter" ] },
+        // gd is the built-in 'jump to definition'. Add gD to jump to declaration
+        { "before": ["g", "D"],             "commands": [ "editor.action.revealDeclaration" ] },
         // gr toggles relative line numbers (requires Settings Cycler)
         { "before": ["g", "r"],             "commands": [ "settings.cycle.lineNumber" ] },
         // gp toggles breakpoint
@@ -106,10 +110,9 @@
         { "before": ["g", "P"],             "commands": [ "editor.debug.action.conditionalBreakpoint" ] },
         // gm opens Markdown preview
         { "before": ["g", "m"],             "commands": [ "markdown.showPreviewToSide" ] },
-        // gs toggles sidebar
-        { "before": ["g", "s"],             "commands": [ "workbench.action.toggleSidebarVisibility" ] },
 
         // Display different sidebars with ,s and other key
+        { "before": ["<leader>", "s", "s"], "commands": [ "workbench.action.toggleSidebarVisibility" ] },
         // Explorer
         { "before": ["<leader>", "s", "e"], "commands": [ "workbench.view.explorer", "workbench.action.focusActiveEditorGroup" ] },
         // Find
@@ -158,4 +161,7 @@
     "extensions.ignoreRecommendations": true,
     "window.zoomLevel": 0,
     "workbench.sideBar.location": "left",
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideTabs": false,
+    "zenMode.hideActivityBar": false,
 }
