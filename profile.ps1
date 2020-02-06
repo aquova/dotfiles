@@ -32,15 +32,34 @@ function prompt {
 }
 
 ### Mimic behaviors from my Unix configs ###
+# TODO: See if you can iterate to generate these, as we do for bash
+function .. { cd .. }
+function ... { cd ../.. }
+function .... { cd ../../.. }
+function ..... { cd ../../../.. }
+function .2 { cd .. }
+function .3 { cd ../.. }
+function .4 { cd ../../.. }
+function .5 { cd ../../../.. }
 
-function .. { cd .. }               # alias ..='cd ..'
-function ... { cd ../.. }           # alias ...='cd ../..'
 function gittree { git log --graph --pretty=oneline --abbrev-commit }
 function gitsha { git rev-parse HEAD }
 
-### Windows-specific functions ###
+# Activate Python virtualenv
+# Assuming we are in root of virtualenv directory
+function activate { .\Scripts\activate.ps1 
 
+### Windows-specific functions ###
 # Compute file hashes
 function md5    { Get-FileHash -Algorithm MD5 $args }
 function sha1   { Get-FileHash -Algorithm SHA1 $args }
 function sha256 { Get-FileHash -Algorithm SHA256 $args }
+
+### Additional programs in PATH ###
+
+# bat: https://github.com/sharkdp/bat
+$env:PATH += "C:\Program Files (x86)\bat;"
+# lazygit: https://github.com/jesseduffield/lazygit
+$env:PATH += "C:\Program Files (x86)\lazygit;"
+# ripgrep: https://github.com/BurntSushi/ripgrep
+$env:PATH += "C:\Program Files (x86)\ripgrep;"
