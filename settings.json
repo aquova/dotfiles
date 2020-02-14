@@ -85,8 +85,8 @@
         // ,bd closes current file
         { "before": ["<leader>", "b", "d"], "commands": [ "workbench.action.closeActiveEditor" ] },
         // ,on closes all other files
-        { "before": ["<leader>", "o", "n"], "commands": [ "workbench.action.closeOtherEditors" ] },
-        // [c / ]c jumps between
+        { "before": ["<leader>", "o", "n"], "commands": [ "workbench.action.closeEditorsInOtherGroups", "workbench.action.closeOtherEditors" ] },
+        // [c / ]c jumps between git changes
         { "before": ["[", "c"],             "commands": [ "workbench.action.editor.previousChange" ] },
         { "before": ["]", "c"],             "commands": [ "workbench.action.editor.nextChange" ] },
         // [p / ]p jumps between breakpoints
@@ -100,6 +100,7 @@
         // [<space> / ]<space> inserts blank line before/after cursor
         { "before": ["[", "<space>"],       "commands": [ "editor.action.insertLineBefore" ] },
         { "before": ["]", "<space>"],       "commands": [ "editor.action.insertLineAfter" ] },
+
         // gd is the built-in 'jump to definition'. Add gD to jump to declaration
         { "before": ["g", "D"],             "commands": [ "editor.action.revealDeclaration" ] },
         // gr toggles relative line numbers (requires Settings Cycler)
@@ -123,6 +124,13 @@
         { "before": ["<leader>", "s", "d"], "commands": [ "workbench.view.debug", "workbench.action.focusActiveEditorGroup" ] },
         // Extensions
         { "before": ["<leader>", "s", "x"], "commands": [ "workbench.view.extensions", "workbench.action.focusActiveEditorGroup" ] },
+
+        // Move tabs between splits
+        // Note: If you have a horizontal split and want to switch to vertical, need to shift to no splits first (or vice versa)
+        { "before": ["<C-w>", "L"],         "commands": [ "workbench.action.moveEditorToNextGroup" ] },
+        { "before": ["<C-w>", "H"],         "commands": [ "workbench.action.moveEditorToPreviousGroup" ] },
+        { "before": ["<C-w>", "K"],         "commands": [ "workbench.action.moveEditorToAboveGroup" ] },
+        { "before": ["<C-w>", "J"],         "commands": [ "workbench.action.moveEditorToBelowGroup" ] },
     ],
 
     // General settings
@@ -164,4 +172,5 @@
     "zenMode.hideLineNumbers": false,
     "zenMode.hideTabs": false,
     "zenMode.hideActivityBar": false,
+    "gitlens.advanced.blame.customArguments": [],
 }
