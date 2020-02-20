@@ -49,7 +49,7 @@
         // Center text after jumping half-screen
         { "before": ["L"],                  "after": ["L", "z", "z"] },
         { "before": ["H"],                  "after": ["H", "z", "z"] },
-        // Center text after jumping to functions
+        // Center text after jumping between sections
         { "before": ["[", "["],             "after": ["[", "[", "z", "z"] },
         { "before": ["]", "]"],             "after": ["]", "]", "z", "z"] },
         { "before": ["[", "]"],             "after": ["[", "]", "z", "z"] },
@@ -68,15 +68,15 @@
         { "before": ["H"],                  "after": ["H", "z", "z"] },
         // Use tab to jump between matching ([{}])
         { "before": ["<tab>"],              "after": ["%"] },
+        // Toggle folding with space
+        { "before": ["<space>"],            "after": ["z", "a"] },
         // Set Y to yank to end of line
         { "before": ["Y"],                  "after": ["y", "$"] },
-        // Center text after jumping to functions
+        // Center text after jumping between sections
         { "before": ["[", "["],             "after": ["[", "[", "z", "z"] },
         { "before": ["]", "]"],             "after": ["]", "]", "z", "z"] },
         { "before": ["[", "]"],             "after": ["[", "]", "z", "z"] },
         { "before": ["]", "["],             "after": ["]", "[", "z", "z"] },
-        // Toggle folding with space
-        { "before": ["<space>"],            "after": ["z", "a"] },
 
         // A 'bug' in VSCode Vim doesn't mark files as clean after using u for undo. This fixes that behavior.
         // If this is ever resolved, delete
@@ -111,6 +111,8 @@
         { "before": ["g", "P"],             "commands": [ "editor.debug.action.conditionalBreakpoint" ] },
         // gm opens Markdown preview
         { "before": ["g", "m"],             "commands": [ "markdown.showPreviewToSide" ] },
+        // Revert git change at cursor
+        { "before": ["<leader>", "g"],      "commands": [ "git.revertSelectedRanges"] },
 
         // Display different sidebars with ,s and other key
         { "before": ["<leader>", "s", "s"], "commands": [ "workbench.action.toggleSidebarVisibility" ] },
@@ -131,6 +133,7 @@
         { "before": ["<C-w>", "H"],         "commands": [ "workbench.action.moveEditorToPreviousGroup" ] },
         { "before": ["<C-w>", "K"],         "commands": [ "workbench.action.moveEditorToAboveGroup" ] },
         { "before": ["<C-w>", "J"],         "commands": [ "workbench.action.moveEditorToBelowGroup" ] },
+        { "before": ["<C-w>", "o"],         "commands": [ "workbench.action.joinAllGroups" ] },
     ],
 
     // General settings
