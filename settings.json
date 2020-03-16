@@ -95,6 +95,8 @@
         // J/K changes tabs
         { "before": ["J"],                  "commands": [ "workbench.action.previousEditor" ] },
         { "before": ["K"],                  "commands": [ "workbench.action.nextEditor" ] },
+        // Map gJ to the old J functionality
+        { "before": ["g", "J"],             "commands": ["editor.action.joinLines"]},
         // Replace typing :noh
         { "before": ["<leader>", "<space>"], "commands": [ ":noh" ] },
         // [<space> / ]<space> inserts blank line before/after cursor
