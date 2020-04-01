@@ -57,10 +57,12 @@ echo "Installing programs";
 $INSTALL_COMMAND neofetch tldr tmux vim;
 
 echo "Moving dotfiles into place";
-cp .bashrc $HOME;
-cp .bash_profile $HOME;
-cp .aliases $HOME;
-cp .tmux.conf $HOME;
+# These assume that you are running this in the installation directory
+# TODO: Make this more generic
+cp ../conf/.bashrc $HOME;
+cp ../conf/.bash_profile $HOME;
+cp ../conf/.aliases $HOME;
+cp ../conf/.tmux.conf $HOME;
 cp git-prompt.sh $HOME;
 
 source $HOME/.bash_profile;
