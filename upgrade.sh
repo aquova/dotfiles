@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Gets my most recent dotfiles and places them in the appropriate locations
 git pull
