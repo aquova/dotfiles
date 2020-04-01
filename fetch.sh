@@ -2,7 +2,7 @@
 
 # Copies config files from around my machine into the dotfiles repo
 
-DOTFILES="${HOME}/git/dotfiles" # Should this just be . ?
+DOTFILES="${HOME}/git/dotfiles/conf"
 
 # bash configurations
 cp "${HOME}/.bashrc" $DOTFILES

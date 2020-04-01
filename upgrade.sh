@@ -4,18 +4,18 @@
 git pull
 git submodule update
 
+# Vim config
+cp vimars/.vimrc ${HOME}
+
+pushd conf
 # bash configurations
+cp .aliases ${HOME}
 cp .bashrc ${HOME}
 cp .bash_profile ${HOME}
-cp .aliases ${HOME}
 
-# Vim config
-cp ./vimars/.vimrc ${HOME}
+cp .emacs ${HOME} # Emacs config
+cp .tmux.conf ${HOME} # Tmux config
+cp kitty.conf ${HOME} # Kitty config
 
-# Emacs config
-cp .emacs ${HOME}
-
-# Tmux config
-cp .tmux.conf ${HOME}
-
+popd
 echo "Files successfully copied"

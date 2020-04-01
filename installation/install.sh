@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Unified installation script for new OS installs
-# Austin Bricker, 2018-2019
+# Austin Bricker, 2018-2020
 
 # Determine OS, setup install commands
 OS=""

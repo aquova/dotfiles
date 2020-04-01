@@ -1,6 +1,7 @@
 alias la='ls -a'
 alias lh='ls -lh'
 alias gittree='git log --graph --pretty=oneline --abbrev-commit'
+alias gitsha="git rev-parse HEAD"
 alias clera="clear"
 alias cls="clear"
 alias activate='source bin/activate'
@@ -32,7 +33,3 @@ fi
 cs () { cd "$1"; ls; }
 tmuxa () { tmux a -t "$1"; }
 gitup () { git add -A; git commit -m "$1"; git push; }
-md2pdf () {
-    fname="${1%.*}"
-    pandoc -s -V geometry:margin=1in -o "$fname".pdf "$fname".md
-}
