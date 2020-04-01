@@ -95,6 +95,8 @@
         // J/K changes tabs
         { "before": ["J"],                  "commands": [ "workbench.action.previousEditor" ] },
         { "before": ["K"],                  "commands": [ "workbench.action.nextEditor" ] },
+        // Map gJ to the old J functionality
+        { "before": ["g", "J"],             "commands": ["editor.action.joinLines"]},
         // Replace typing :noh
         { "before": ["<leader>", "<space>"], "commands": [ ":noh" ] },
         // [<space> / ]<space> inserts blank line before/after cursor
@@ -103,7 +105,7 @@
 
         // gd is the built-in 'jump to definition'. Add gD to jump to declaration
         { "before": ["g", "D"],             "commands": [ "editor.action.revealDeclaration" ] },
-        // gr toggles relative line numbers (requires Settings Cycler)
+        // gr toggles relative line numbers (requires Settings Cycler extension)
         { "before": ["g", "r"],             "commands": [ "settings.cycle.lineNumber" ] },
         // gp toggles breakpoint
         { "before": ["g", "p"],             "commands": [ "editor.debug.action.toggleBreakpoint" ] },
@@ -113,6 +115,15 @@
         { "before": ["g", "m"],             "commands": [ "markdown.showPreviewToSide" ] },
         // Revert git change at cursor
         { "before": ["<leader>", "g"],      "commands": [ "git.revertSelectedRanges"] },
+
+        // Bookmarks Extension keybindings
+        // ,m toggles bookmark at current line
+        { "before": ["<leader>", "m"],      "commands": [ "bookmarks.toggle" ] },
+        // ,' jumps to named bookmark
+        { "before": ["<leader>", "'"],      "commands": [ "bookmarks.list" ] },
+        // Jump between bookmarks with [b / ]b
+        { "before": ["[", "b"],             "commands": [ "bookmarks.jumpToPrevious" ] },
+        { "before": ["]", "b"],             "commands": [ "bookmarks.jumpToNext" ] },
 
         // Display different sidebars with ,s and other key
         { "before": ["<leader>", "s", "s"], "commands": [ "workbench.action.toggleSidebarVisibility" ] },
@@ -126,6 +137,9 @@
         { "before": ["<leader>", "s", "d"], "commands": [ "workbench.view.debug", "workbench.action.focusActiveEditorGroup" ] },
         // Extensions
         { "before": ["<leader>", "s", "x"], "commands": [ "workbench.view.extensions", "workbench.action.focusActiveEditorGroup" ] },
+        // Bookmarks (requires the Bookmarks extension)
+        { "before": ["<leader>", "s", "b"], "commands": [ "workbench.view.extension.bookmarks", "workbench.action.focusActiveEditorGroup" ] },
+
 
         // Move tabs between splits
         // Note: If you have a horizontal split and want to switch to vertical, need to shift to no splits first (or vice versa)
