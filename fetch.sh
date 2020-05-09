@@ -2,6 +2,7 @@
 
 # Copies config files from around my machine into the dotfiles repo
 
+# This works because I always use same filepath. Should make more generic
 DOTFILES="${HOME}/git/dotfiles/conf"
 
 # bash configurations
@@ -19,8 +20,9 @@ cp "${HOME}/.config/kitty/kitty.conf" $DOTFILES
 cp "${HOME}/.tmux.conf" $DOTFILES
 
 # VSCode config
-# Need to make this platform-agnostic
-# cp "${HOME}/Library/Application Support/Code/User/settings.json" $DOTFILES
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    cp "${HOME}/Library/Application Support/Code/User/settings.json" $DOTFILES
+elif [ -n "&(uname -a | grep Ubuntu)" ]; then
+    echo "Need to set VSCode settings path on Ubuntu"
+fi
 
-# Global gitignore
-cp "${HOME}/.gitignore_global" $DOTFILES

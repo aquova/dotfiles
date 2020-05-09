@@ -1,13 +1,16 @@
+# Keep aliases in their own file
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
+# Sensitive aliases will go into .ssh_aliases, hidden from version control
 if [ -f ~/.ssh_aliases ]; then
     . ~/.ssh_aliases
 fi
 
-if [ -f ~/z.lua ]; then
-    eval "$(lua ~/z.lua --init bash)"
+# Other items, such as computer specific PATH changes, will go into .localrc, which won't be in version control
+if [ -f ~/.localrc ]; then
+    . ~/.localrc
 fi
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin/pyls:$PATH

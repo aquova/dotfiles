@@ -1,1 +1,3 @@
 *.code-workspace
+.ssh_aliases
+.localrc

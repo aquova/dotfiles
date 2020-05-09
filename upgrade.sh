@@ -17,5 +17,12 @@ cp .emacs ${HOME} # Emacs config
 cp .tmux.conf ${HOME} # Tmux config
 cp kitty.conf ${HOME} # Kitty config
 
+# Copy VSCode settings, based on OS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    cp settings.json ${HOME}/Library/Application\ Support/Code/User/
+elif [ -n "&(uname -a | grep Ubuntu)" ]; then
+    echo "Need to set VSCode settings path on Ubuntu"
+fi
+
 popd
 echo "Files successfully copied"
