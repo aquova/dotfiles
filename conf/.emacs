@@ -7,7 +7,10 @@
 ;; Package list
 (setq package-list '(evil
 		     evil-commentary
+		     evil-easymotion
+		     evil-goggles
 		     evil-leader
+		     evil-org
 		     evil-surround
 		     evil-visualstar
 		     key-chord
@@ -26,21 +29,32 @@
 ;;;
 
 ;;; Load packages
+(require 'evil-commentary)
+(evil-commentary-mode t)
+
 (require 'evil-leader)
 (global-evil-leader-mode 1)
-(evil-leader/set-leader ",")
 
-(require 'evil-visualstar)
-(global-evil-visualstar-mode 1)
+(require 'evil-goggles)
+(evil-goggles-mode t)
+
+(require 'evil-org)
+(add-hook 'org-mode-hook 'evil-org-mode)
+(evil-org-set-key-theme '(navigation insert textobjects additional calendar))
+(require 'evil-org-agenda)
+(evil-org-agenda-set-keys)
 
 (require 'evil-surround)
 (global-evil-surround-mode 1)
 
-(require 'evil-commentary)
-(evil-commentary-mode t)
+(require 'evil-visualstar)
+(global-evil-visualstar-mode 1)
 
 (require 'evil)
 (evil-mode t)
+
+;; Needs to be required after evil
+(require 'evil-easymotion)
 
 (require 'key-chord)
 (key-chord-mode t)
@@ -52,20 +66,24 @@
 ;; jk is escape
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 
-;; Remap B/E to 
+;; Set evil leader to be ,
+(evil-leader/set-leader ",")
+
+;; Remap B/E to
 (define-key evil-normal-state-map (kbd "B") 'evil-first-non-blank)
 (define-key evil-normal-state-map (kbd "E") 'evil-end-of-line)
 
 ;; Jump between bracket pairs with Tab
-(define-key evil-normal-state-map (kbd "<tab>") 'evil-jump-item)
+;; (define-key evil-normal-state-map (kbd "<tab>") 'evil-jump-item)
 
-;; J/K changes tabs (buffers
+;; J/K changes tabs (buffers)
 (define-key evil-normal-state-map (kbd "J") 'previous-buffer)
 (define-key evil-normal-state-map (kbd "K") 'next-buffer)
 
 ;; Replace typing :noh
 (evil-leader/set-key "<SPC>" 'evil-ex-nohighlight)
 
+;; Set Y to yank to end of line
 (define-key evil-normal-state-map (kbd "Y") (kbd "y$"))
 
 ;; Center on cursor after jumping to top/bottom of screen
@@ -80,10 +98,17 @@
     (interactive)
     (call-interactively 'evil-window-bottom)
     (call-interactively 'evil-scroll-line-to-center)))
+
+(evilem-default-keybindings "SPC")
 ;;;
 
 ;;; General settings
 (tool-bar-mode 0) ;; Turn off terrible GUI buttons
 (toggle-frame-maximized) ;; Start with window maximized
 (global-display-line-numbers-mode 1) ;; Show line numbers
+;;;
+
+;;; Org Mode settings
+(setq org-todo-keywords '((sequence "TODO" "IN PROGRESS" "IDEA" "HIATUS" "|" "DONE")))
+(setq org-log-done 'time)
 ;;;
