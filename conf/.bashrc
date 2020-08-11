@@ -13,8 +13,7 @@ if [ -f ~/.localrc ]; then
     . ~/.localrc
 fi
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin/pyls:$PATH
-export TERM=xterm-kitty
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=vim
 
 source $HOME/git-prompt.sh

@@ -15,7 +15,7 @@ cp .bash_profile ${HOME}
 
 cp .emacs ${HOME} # Emacs config
 cp .tmux.conf ${HOME} # Tmux config
-cp kitty.conf ${HOME} # Kitty config
+cp .alacritty.yml ${HOME} # Kitty config
 
 # Copy VSCode settings, based on OS
 if [[ "$OSTYPE" == "darwin"* ]]; then

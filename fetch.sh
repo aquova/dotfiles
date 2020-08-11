@@ -14,7 +14,7 @@ cp "${HOME}/.aliases" $DOTFILES
 cp "${HOME}/.emacs" $DOTFILES
 
 # Terminal config
-cp "${HOME}/.config/kitty/kitty.conf" $DOTFILES
+cp "${HOME}/.alacritty.yml" $DOTFILES
 
 # Tmux config
 cp "${HOME}/.tmux.conf" $DOTFILES
