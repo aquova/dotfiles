@@ -13,9 +13,11 @@ if [ -f ~/.localrc ]; then
     . ~/.localrc
 fi
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=vim
-
 source $HOME/git-prompt.sh
 export PS1="\[\e[36m\]\u\[\e[35m\]@\[\e[36m\]\h\[\e[32m\][\t]\[\e[m\]:\[\e[33m\]\w\[\e[36m\]\$(__git_ps1)\[\e[m\]$ "
 export CLICOLOR=1
+
+if [ -f ~/scripts/welcome.sh ]; then
+    . ~/scripts/welcome.sh
+fi
