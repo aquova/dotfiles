@@ -47,7 +47,7 @@ function gitsha { git rev-parse HEAD }
 
 # Activate Python virtualenv
 # Assuming we are in root of virtualenv directory
-function activate { .\Scripts\activate.ps1 
+function activate { .\Scripts\activate.ps1 }
 
 ### Windows-specific functions ###
 # Compute file hashes
