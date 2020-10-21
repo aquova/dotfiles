@@ -116,15 +116,6 @@
         // Revert git change at cursor
         { "before": ["<leader>", "g"],      "commands": [ "git.revertSelectedRanges"] },
 
-        // Bookmarks Extension keybindings
-        // ,m toggles bookmark at current line
-        { "before": ["<leader>", "m"],      "commands": [ "bookmarks.toggle" ] },
-        // ,' jumps to named bookmark
-        { "before": ["<leader>", "'"],      "commands": [ "bookmarks.list" ] },
-        // Jump between bookmarks with [b / ]b
-        { "before": ["[", "b"],             "commands": [ "bookmarks.jumpToPrevious" ] },
-        { "before": ["]", "b"],             "commands": [ "bookmarks.jumpToNext" ] },
-
         // Display different sidebars with ,s and other key
         { "before": ["<leader>", "s", "s"], "commands": [ "workbench.action.toggleSidebarVisibility" ] },
         // Explorer
@@ -137,9 +128,6 @@
         { "before": ["<leader>", "s", "d"], "commands": [ "workbench.view.debug", "workbench.action.focusActiveEditorGroup" ] },
         // Extensions
         { "before": ["<leader>", "s", "x"], "commands": [ "workbench.view.extensions", "workbench.action.focusActiveEditorGroup" ] },
-        // Bookmarks (requires the Bookmarks extension)
-        { "before": ["<leader>", "s", "b"], "commands": [ "workbench.view.extension.bookmarks", "workbench.action.focusActiveEditorGroup" ] },
-
 
         // Move tabs between splits
         // Note: If you have a horizontal split and want to switch to vertical, need to shift to no splits first (or vice versa)
@@ -172,7 +160,18 @@
     "workbench.startupEditor": "none",
     "explorer.autoReveal": false,
     "search.useIgnoreFiles": false,
+    "extensions.ignoreRecommendations": true,
+    "workbench.colorTheme": "One Dark Pro",
+    "window.zoomLevel": 0,
+    "workbench.sideBar.location": "left",
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideTabs": false,
+    "zenMode.hideActivityBar": false,
+    "task.problemMatchers.neverPrompt": {
+        "shell": true
+    },
 
+    // Other extension settings
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.currentLine.format": "${author}, ${agoOrDate}",
     "workbench.iconTheme": "material-icon-theme",
@@ -182,12 +181,9 @@
     },
     "material-icon-theme.folders.color": "#42a5f5",
     "material-icon-theme.activeIconPack": "angular",
-    "workbench.colorTheme": "One Dark Pro",
-    "extensions.ignoreRecommendations": true,
-    "window.zoomLevel": 0,
-    "workbench.sideBar.location": "left",
-    "zenMode.hideLineNumbers": false,
-    "zenMode.hideTabs": false,
-    "zenMode.hideActivityBar": false,
     "gitlens.advanced.blame.customArguments": [],
+    "rust-analyzer.inlayHints.typeHints": false,
+    "rust-analyzer.inlayHints.parameterHints": false,
+    "rust-analyzer.inlayHints.chainingHints": false,
+    "python.showStartPage": false,
 }
