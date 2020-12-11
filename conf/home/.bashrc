@@ -14,6 +14,7 @@ if [ -f ~/.localrc ]; then
 fi
 
 export EDITOR=vim
+export TERM=linux
 source $HOME/git-prompt.sh
 export PS1="\[\e[36m\]\u\[\e[35m\]@\[\e[36m\]\h\[\e[32m\][\t]\[\e[m\]:\[\e[33m\]\w\[\e[36m\]\$(__git_ps1)\[\e[m\]$ "
 export CLICOLOR=1
