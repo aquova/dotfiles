@@ -2,6 +2,18 @@ source $HOME/.aliases
 source $HOME/.ssh_aliases
 source $HOME/scripts/welcome.sh
 
+if [ -f $HOME/.aliases ]; then
+    source $HOME/.aliases
+fi
+
+if [ -f $HOME/.ssh_aliases ]; then
+    source $HOME/.ssh_aliases
+fi
+
+if [ -f $HOME/.localrc ]; then
+    source $HOME/.localrc
+fi
+
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=vim
 
