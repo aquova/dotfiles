@@ -10,6 +10,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function Complete                # Autocomple
 Set-PSReadlineOption -BellStyle None                                # Turn off bell
 
 ### Set prompt to mimic my bash PS1 ###
+# Note: This requires git for Windows to be installed
 function prompt {
     $ESC = [char]27                                                 # Define escape character for ANSI colors
     $FORMATTED_NAME = ''
@@ -55,11 +56,3 @@ function md5    { Get-FileHash -Algorithm MD5 $args }
 function sha1   { Get-FileHash -Algorithm SHA1 $args }
 function sha256 { Get-FileHash -Algorithm SHA256 $args }
 
-### Additional programs in PATH ###
-
-# bat: https://github.com/sharkdp/bat
-$env:PATH += "C:\Program Files (x86)\bat;"
-# lazygit: https://github.com/jesseduffield/lazygit
-$env:PATH += "C:\Program Files (x86)\lazygit;"
-# ripgrep: https://github.com/BurntSushi/ripgrep
-$env:PATH += "C:\Program Files (x86)\ripgrep;"
