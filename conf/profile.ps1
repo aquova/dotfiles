@@ -1,4 +1,5 @@
 # Austin Bricker PowerShell profile
+# 2019-2021
 
 ### Installation ###
 # Needs to go into directory $PROFILE.CurrentUserAllHosts
@@ -9,10 +10,18 @@
 Set-PSReadlineKeyHandler -Key Tab -Function Complete                # Autocomplete bash style
 Set-PSReadlineOption -BellStyle None                                # Turn off bell
 
+$ESC = [char]27                                                     # Define escape character for ANSI colors
+# ANSI colors
+$RED = "$ESC[31m"
+$YELLOW = "$ESC[33m"
+$GREEN = "$ESC[32m"
+$BLUE = "$ESC[36m"
+$PURPLE = "$ESC[35m"
+$WHITE = "$ESC[0m"
+
 ### Set prompt to mimic my bash PS1 ###
 # Note: This requires git for Windows to be installed
 function prompt {
-    $ESC = [char]27                                                 # Define escape character for ANSI colors
     $FORMATTED_NAME = ''
     $GIT_BRANCH = git rev-parse --abbrev-ref HEAD                   # Get git branch name
 
@@ -24,13 +33,19 @@ function prompt {
         $FORMATTED_NAME = " $ESC[36m($GIT_BRANCH)"
     }
 
-    "$ESC[31mPS " +                                                 # Red 'PS' to show this is PowerShell™
-    "$ESC[36m$env:USERNAME$ESC[35m@$ESC[36m$env:COMPUTERNAME" +     # USERNAME @ HOSTNAME
-    "$ESC[32m[$(Get-Date -UFormat '%T')]$ESC[0m: " +                # Current time
-    "$ESC[33m$(get-location)" +                                     # Current directory
-    "$FORMATTED_NAME" +                                             # Add formatted git branch name
-    "$ESC[0m> "                                                     # End
+    $RED + "PS " +                                                  # Red 'PS' to show this is PowerShell™
+    $BLUE + "$env:USERNAME" +                                       # USERNAME
+    $PURPLE + "@" +                                                 # Separator
+    $BLUE + "$env:COMPUTERNAME" +                                   # HOSTNAME
+    $GREEN + "[$(Get-Date -UFormat '%T')]" +                        # Current time
+    $WHITE + ": " +                                                 # Separator
+    $YELLOW + "$(get-location)" +                                   # Current directory
+    $FORMATTED_NAME +                                               # Add formatted git branch name
+    $WHITE + "> "                                                   # End
 }
+
+### Aliases to mimic Unix commands ###
+New-Alias which Get-Command
 
 ### Mimic behaviors from my Unix configs ###
 # TODO: See if you can iterate to generate these, as we do for bash
@@ -55,4 +70,3 @@ function activate { .\Scripts\activate.ps1 }
 function md5    { Get-FileHash -Algorithm MD5 $args }
 function sha1   { Get-FileHash -Algorithm SHA1 $args }
 function sha256 { Get-FileHash -Algorithm SHA256 $args }
-
