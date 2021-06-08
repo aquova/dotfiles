@@ -55,7 +55,7 @@
         { "before": ["[", "]"],             "after": ["[", "]", "z", "z"] },
         { "before": ["]", "["],             "after": ["]", "[", "z", "z"] },
         // Send highlighted text to Search sidebar
-        { "before": ["<leader>", "f"]       "commands": ["workbench.action.findInFiles"] },
+        { "before": ["<leader>", "f"],      "commands": ["workbench.action.findInFiles"] },
     ],
     // Normal mode
     "vim.normalModeKeyBindingsNonRecursive": [
