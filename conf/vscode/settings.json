@@ -1,5 +1,5 @@
 // Austin Bricker VSCode Settings
-// 2018-2020
+// 2018-2021
 {
     // Requires the "Settings Cycler" extension
     "editor.lineNumbers": "on",
@@ -24,7 +24,7 @@
     "vim.cursorStylePerMode.normal": "block",                           // Use block cursor style for normal mode
     "vim.cursorStylePerMode.insert": "line",                            // Use line cursor style for insert mode
     "vim.cursorStylePerMode.replace": "underline",                      // Use underline cursor sytle for replace mode
-    "vim.statusBarColorControl": false,                                 // Custom colors tend to lag system, but here are the ones I used to use
+    "vim.statusBarColorControl": true,                                  // Warning: Custom colors used to lag system
     "vim.statusBarColors.normal":"#98c379",
     "vim.statusBarColors.insert":"#61afef",
     "vim.statusBarColors.visual":"#c678dd",
@@ -54,6 +54,8 @@
         { "before": ["]", "]"],             "after": ["]", "]", "z", "z"] },
         { "before": ["[", "]"],             "after": ["[", "]", "z", "z"] },
         { "before": ["]", "["],             "after": ["]", "[", "z", "z"] },
+        // Send highlighted text to Search sidebar
+        { "before": ["<leader>", "f"]       "commands": ["workbench.action.findInFiles"] },
     ],
     // Normal mode
     "vim.normalModeKeyBindingsNonRecursive": [
