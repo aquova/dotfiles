@@ -33,6 +33,9 @@ case $HOSTNAME in
     "venus")
         END="♀"
         ;;
+    "earth")
+        END="🜨"
+        ;;
     "mars")
         END="♂"
         ;;
@@ -47,6 +50,15 @@ case $HOSTNAME in
         ;;
     "neptune")
         END="♆"
+        ;;
+    "pluto")
+        END="♇"
+        ;;
+    "luna")
+        END="☾"
+        ;;
+    "ceres")
+        END="⚳"
         ;;
 esac
 
