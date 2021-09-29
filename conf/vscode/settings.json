@@ -145,7 +145,7 @@
     "files.trimTrailingWhitespace": true,
     "breadcrumbs.enabled": true,
     "debug.allowBreakpointsEverywhere": true,
-    "editor.wordWrap":"on",
+    "editor.wordWrap":"off",
     "editor.minimap.enabled": false,
     "editor.occurrencesHighlight": false,
     "editor.selectionHighlight": false,
@@ -153,8 +153,12 @@
     "editor.cursorBlinking": "phase",
     "workbench.editor.enablePreview": false,
     "window.titleBarStyle": "custom",
+    "editor.bracketPairColorization.enabled": true,
     "workbench.colorCustomizations": {
         "statusBar.foreground": "#ffffff",
+        "statusBar.background": "#98c379",
+        "statusBar.noFolderBackground": "#98c379",
+        "statusBar.debuggingBackground": "#98c379"
     },
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
@@ -174,7 +178,6 @@
     },
 
     // Other extension settings
-    "gitlens.advanced.telemetry.enabled": false,
     "gitlens.currentLine.format": "${author}, ${agoOrDate}",
     "workbench.iconTheme": "material-icon-theme",
     "material-icon-theme.files.associations": {
@@ -186,6 +189,16 @@
     "gitlens.advanced.blame.customArguments": [],
     "rust-analyzer.inlayHints.typeHints": false,
     "rust-analyzer.inlayHints.parameterHints": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "git.ignoreMissingGitWarning": true,
+    "GENDEV": "/opt/gendev",
+    "gens.path": "blastem",
+    "rust-analyzer.notifications.cargoTomlNotFound": false,
     "rust-analyzer.inlayHints.chainingHints": false,
-    "python.showStartPage": false,
+    "editor.cursorStyle": "line",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.detectIndentation": false,
+    "security.workspace.trust.untrustedFiles": "open",
 }
