@@ -22,7 +22,7 @@ if [ -f $HOME/git-prompt.sh ]; then
 fi
 
 export EDITOR=vim
-export TERM=linux
+export TERM=screen-256color
 export CLICOLOR=1
 
 END="$";
