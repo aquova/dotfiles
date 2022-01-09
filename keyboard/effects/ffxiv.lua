@@ -8,6 +8,8 @@ logs = keyleds.groups[keyleds.config.logs] or keyleds.db
 modifier_keys = keyleds.groups[keyleds.config.modifiers] or keyleds.db
 misc_keys = keyleds.groups[keyleds.config.misc] or keyleds.db
 
+num_modifiers = 0
+
 function init()
     buffer = RenderTarget:new()
     buffer:fill(black)
@@ -30,7 +32,15 @@ end
 function onKeyEvent(key, isPress)
     if group_contains(key, modifier_keys) then
         if isPress then
+            num_modifiers = num_modifiers + 1
+        else
+            num_modifiers = num_modifiers - 1
+        end
+
+        if num_modifiers == 2 then
             set_group(hotkeys, tocolor('tomato'))
+        elseif num_modifiers == 1 then
+            set_group(hotkeys, tocolor('orangered'))
         else
             set_group(hotkeys, tocolor('red'))
         end
