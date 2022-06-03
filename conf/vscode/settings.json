@@ -1,5 +1,5 @@
 // Austin Bricker VSCode Settings
-// 2018-2021
+// 2018-2022
 {
     // Requires the "Settings Cycler" extension
     "editor.lineNumbers": "on",
@@ -141,8 +141,6 @@
     ],
 
     // General settings
-    "files.insertFinalNewline": true,
-    "files.trimTrailingWhitespace": true,
     "breadcrumbs.enabled": true,
     "debug.allowBreakpointsEverywhere": true,
     "editor.wordWrap":"off",
@@ -152,30 +150,35 @@
     "editor.parameterHints.enabled": false,
     "editor.cursorBlinking": "phase",
     "workbench.editor.enablePreview": false,
-    "window.titleBarStyle": "custom",
+    "workbench.editor.wrapTabs": true,
     "editor.bracketPairColorization.enabled": true,
-    "workbench.colorCustomizations": {
-        "statusBar.foreground": "#ffffff",
-        "statusBar.background": "#98c379",
-        "statusBar.noFolderBackground": "#98c379",
-        "statusBar.debuggingBackground": "#98c379"
-    },
+    "editor.cursorStyle": "line",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.detectIndentation": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "editor.acceptSuggestionOnCommitCharacter": false,
-    "workbench.startupEditor": "none",
     "explorer.autoReveal": false,
-    "search.useIgnoreFiles": false,
     "extensions.ignoreRecommendations": true,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "search.useIgnoreFiles": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "task.problemMatchers.neverPrompt": {
+        "shell": true
+    },
+    "workbench.colorCustomizations": {
+        "statusBar.foreground": "#ffffff",
+        "statusBar.background": "#c678dd",
+        "statusBar.noFolderBackground": "#c678dd",
+        "statusBar.debuggingBackground": "#c678dd"
+    },
+    "workbench.startupEditor": "none",
     "workbench.colorTheme": "One Dark Pro",
-    "window.zoomLevel": 0,
     "workbench.sideBar.location": "left",
     "zenMode.hideLineNumbers": false,
     "zenMode.hideTabs": false,
     "zenMode.hideActivityBar": false,
-    "task.problemMatchers.neverPrompt": {
-        "shell": true
-    },
 
     // Other extension settings
     "gitlens.currentLine.format": "${author}, ${agoOrDate}",
@@ -193,12 +196,6 @@
         "*.ipynb": "jupyter-notebook"
     },
     "git.ignoreMissingGitWarning": true,
-    "GENDEV": "/opt/gendev",
-    "gens.path": "blastem",
     "rust-analyzer.notifications.cargoTomlNotFound": false,
     "rust-analyzer.inlayHints.chainingHints": false,
-    "editor.cursorStyle": "line",
-    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-    "editor.detectIndentation": false,
-    "security.workspace.trust.untrustedFiles": "open",
 }
