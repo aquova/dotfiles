@@ -21,7 +21,7 @@ if [ -f $HOME/git-prompt.sh ]; then
     source $HOME/git-prompt.sh
 fi
 
-export EDITOR=vim
+export EDITOR=nvim
 export TERM=screen-256color
 export CLICOLOR=1
 
