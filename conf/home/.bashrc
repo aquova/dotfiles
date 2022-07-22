@@ -24,6 +24,7 @@ fi
 export EDITOR=nvim
 export TERM=screen-256color
 export CLICOLOR=1
+export HISTSIZE=9999
 
 END="$";
 case $HOSTNAME in
