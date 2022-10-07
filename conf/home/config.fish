@@ -6,7 +6,26 @@ set fish_greeting ""
 
 function fish_prompt
     set -l prompt_symbol '$ '
-    fish_is_root_user; and set prompt_symbol '# '
+    switch (hostname)
+        case "mercury"
+            set prompt_symbol "☿ "
+        case "venus"
+            set prompt_symbol "♀ "
+        case "earth"
+            set prompt_symbol "🜨 "
+        case "mars"
+            set prompt_symbol "♂ "
+        case "jupiter"
+            set prompt_symbol "♃ "
+        case "saturn"
+            set prompt_symbol "♄ "
+        case "uranus"
+            set prompt_symbol "⛢ "
+        case "neptune"
+            set prompt_symbol "♆ "
+        case "pluto"
+            set prompt_symbol "♇ "
+    end
 
     echo -s (set_color cyan; whoami) \
     (set_color magenta)@ \
