@@ -3,6 +3,7 @@ if status is-interactive
 end
 
 set -gx EDITOR nvim
+set -gx TERM xterm-256color
 
 set fish_greeting ""
 
@@ -47,6 +48,15 @@ function lh
     ls -lh $argv
 end
 
+# From here: https://github.com/fish-shell/fish-shell/releases/tag/3.6.0
+function multicd
+    echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+end
+abbr --add dotdot --regex '^\.\.+$' --function multicd
+
+function last_history_item; echo $history[1]; end
+abbr -a !! --position anywhere --function last_history_item
+
 function gittree
     git log --graph --pretty=oneline --abbrev-commit
 end
@@ -62,12 +72,4 @@ end
 function cs
     cd $argv
     ls
-end
-
-function ..
-    cd ..
-end
-
-function ...
-    cd ../..
 end
