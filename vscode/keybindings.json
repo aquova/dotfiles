@@ -1,10 +1,4 @@
-// Place your key bindings in this file to override the defaults
 [
-    {
-        "key": "ctrl+t",
-        "command": "-extension.vim_ctrl+t",
-        "when": "editorTextFocus && vim.active && vim.use<C-t> && !inDebugRepl"
-    },
     {
         "key": "ctrl+t",
         "command": "-workbench.action.showAllSymbols"
@@ -20,5 +14,17 @@
     {
         "key": "ctrl+shift+`",
         "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "command": "vscode-neovim.compositeEscape1",
+        "key": "j",
+        "when": "neovim.mode == insert && editorTextFocus",
+        "args": "j"
+    },
+    {
+        "command": "vscode-neovim.compositeEscape2",
+        "key": "k",
+        "when": "neovim.mode == insert && editorTextFocus",
+        "args": "k"
     }
 ]
