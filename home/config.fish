@@ -4,7 +4,7 @@ end
 
 set -gx EDITOR nvim
 set -gx TERM xterm-256color
-set fish_vi_key_bindings
+set fish_key_bindings fish_user_key_bindings
 
 set fish_greeting ""
 
