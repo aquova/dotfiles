@@ -32,7 +32,6 @@ require("lazy").setup({
     {'sheerun/vim-polyglot', cond = not vim.g.vscode},
     {'sindrets/diffview.nvim', cond = not vim.g.vscode},
     {'tpope/vim-commentary'},
-    {'tpope/vim-fugitive', cond = not vim.g.vscode},
     {'tpope/vim-repeat'},
     {'tpope/vim-surround'},
     {'VonHeikemen/lsp-zero.nvim', cond = not vim.g.vscode, dependencies = {
