@@ -42,12 +42,15 @@ require("lazy").setup({
         'hrsh7th/cmp-nvim-lsp',
         'L3MON4D3/LuaSnip'
     }},
-    {'windwp/nvim-autopairs', event = "InsertEnter"},
+    {'windwp/nvim-autopairs', event = "InsertEnter", opts = {}},
 })
 
 require("hop").setup()
 
 if not vim.g.vscode then
+    require("barbar").setup{
+        insert_at_end = true,
+    }
     require("diffview").setup()
     require("gitsigns").setup()
     require("nvim-tree").setup()
