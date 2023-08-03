@@ -1,7 +1,3 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
-
 set -gx EDITOR nvim
 set -gx TERM xterm-256color
 set fish_key_bindings fish_user_key_bindings
@@ -9,28 +5,6 @@ set fish_key_bindings fish_user_key_bindings
 set fish_greeting ""
 
 function fish_prompt
-    set -l prompt_symbol '$ '
-    switch (hostname)
-        case "mercury"
-            set prompt_symbol "☿ "
-        case "venus"
-            set prompt_symbol "♀ "
-        case "earth"
-            set prompt_symbol "🜨 "
-        case "mars"
-            set prompt_symbol "♂ "
-        case "jupiter"
-            set prompt_symbol "♃ "
-        case "saturn"
-            set prompt_symbol "♄ "
-        case "uranus"
-            set prompt_symbol "⛢ "
-        case "neptune"
-            set prompt_symbol "♆ "
-        case "pluto"
-            set prompt_symbol "♇ "
-    end
-
     echo -s (set_color cyan; whoami) \
     (set_color magenta)@ \
     (set_color cyan; prompt_hostname) \
@@ -38,7 +12,7 @@ function fish_prompt
     (set_color normal): \
     (set_color yellow; pwd) \
     (set_color red) (fish_git_prompt) \
-    (set_color normal)$prompt_symbol
+    (set_color normal)'$ '
 end
 
 function la
