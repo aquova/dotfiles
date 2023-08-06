@@ -67,6 +67,8 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  hardware.bluetooth.enable = true;
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -172,9 +174,8 @@
     bat
     btop
     difftastic
+    distrobox
     doas
-    docker
-    docker-compose
     fd
     firefox
     fzf
@@ -186,6 +187,8 @@
     nim
     ripgrep
     rsync
+    podman
+    podman-compose
     python311
     tldr
     wget
@@ -209,6 +212,15 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # Set up Podman
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
