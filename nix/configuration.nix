@@ -97,6 +97,7 @@
     packages = with pkgs; [
       # General
       discord
+      gcc
       gimp
       mpv
       obsidian
@@ -110,6 +111,7 @@
       bitwarden
       filelight
       foot
+      libsForQt5.kdeconnect-kde
       krename
       mullvad-vpn
       obs-studio
@@ -122,10 +124,10 @@
       qbittorrent
       qpwgraph
       syncthing
-      syncthingtray
       ventoy
       virt-manager
       yt-dlp
+      zellij
 
       # Gaming
       heroic
@@ -158,6 +160,7 @@
 
       # Theming
       bibata-cursors
+      nerdfonts
       papirus-icon-theme
     ];
   };
@@ -167,6 +170,17 @@
 
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
+  programs.steam.enable = true; # Required for "glXChooseVisual failed" bug.
+
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+	libsForQt5.xdg-desktop-portal-kde
+        xdg-desktop-portal-wlr
+      ];
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -177,6 +191,7 @@
     distrobox
     doas
     fd
+    ffmpeg
     firefox
     fzf
     git
@@ -184,14 +199,17 @@
     ncdu
     neofetch
     neovim
-    nim
     ripgrep
     rsync
     podman
     podman-compose
     python311
+    tailscale
     tldr
+    unzip
     wget
+    wl-clipboard
+    zip
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -209,6 +227,8 @@
     dataDir = "/home/aquova/sync";
     configDir = "/home/aquova/.config/syncthing";
   };
+
+  services.tailscale.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
