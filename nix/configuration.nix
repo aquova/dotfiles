@@ -64,9 +64,6 @@
     xkbVariant = "";
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   hardware.bluetooth.enable = true;
 
   # Enable sound with pipewire.
@@ -86,9 +83,6 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.aquova = {
     isNormalUser = true;
@@ -97,14 +91,13 @@
     packages = with pkgs; [
       # General
       discord
+      element-desktop
       gcc
       gimp
       mpv
       obsidian
       signal-desktop
-      thunderbird
-      vivaldi
-      vivaldi-ffmpeg-codecs
+      teams-for-linux
       vscodium
 
       # Utilities
@@ -117,8 +110,6 @@
       obs-studio
       okteta
       partition-manager
-      protonmail-bridge
-      protonup-qt
       python311Packages.mkdocs
       python311Packages.mkdocs-material
       qbittorrent
@@ -152,6 +143,7 @@
       pcsx2
       ppsspp-sdl-wayland
       punes
+      (callPackage ./rmg.nix {})
       rpcs3
       ryujinx
       sameboy
@@ -181,6 +173,8 @@
       ];
     };
   };
+
+  environment.sessionVariables.PATH = [ "$HOME/.local/bin" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -228,10 +222,9 @@
     configDir = "/home/aquova/.config/syncthing";
   };
 
-  services.tailscale.enable = true;
-
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  # services.printing.enable = true;
+  services.tailscale.enable = true;
 
   # Set up Podman
   virtualisation = {
