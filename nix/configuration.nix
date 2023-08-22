@@ -92,13 +92,18 @@
       # General
       discord
       element-desktop
-      gcc
       gimp
+      libreoffice-qt
       mpv
       obsidian
       signal-desktop
       teams-for-linux
+
+      # Development
+      gcc
+      love
       vscodium
+      zellij
 
       # Utilities
       bitwarden
@@ -107,6 +112,7 @@
       libsForQt5.kdeconnect-kde
       krename
       mullvad-vpn
+      (callPackage ./mqtt-explorer.nix {})
       obs-studio
       okteta
       partition-manager
@@ -118,7 +124,6 @@
       ventoy
       virt-manager
       yt-dlp
-      zellij
 
       # Gaming
       heroic
