@@ -1,12 +1,11 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# NixOS Configuration
+# aquova, 2023
 
 { config, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
     ];
 
@@ -15,7 +14,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nyx"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -23,6 +21,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -103,8 +102,9 @@
       # Development
       gcc
       love
-      nim2
-      nimble-unwrapped # IDK what 'unwrapped' refers to. Maybe use nim-unwrapped-2?
+      luajit
+      nim-unwrapped-2
+      nimble-unwrapped
       vscodium
       zellij
 
@@ -183,10 +183,12 @@
     };
   };
 
-  environment.sessionVariables.PATH = [ "$HOME/.local/bin" ];
+  environment.sessionVariables.PATH = [ 
+    "$HOME/.local/bin" 
+    "$HOME/.nimble/bin"
+  ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     bat
     btop
@@ -244,11 +246,15 @@
     };
   };
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPortRanges = [
+      { from = 1714; to = 1764; } # KDE Connect
+    ];
+    allowedUDPPortRanges = [
+      { from = 1714; to = 1764; } # KDE Connect
+    ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -256,6 +262,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "unstable"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 
 }
