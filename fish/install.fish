@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/env fish
 
 set -l FISH_DIR "$HOME/.config/fish"
 mkdir -p $FISH_DIR/{completions,conf.d,functions}
