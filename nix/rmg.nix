@@ -2,11 +2,11 @@
 
 let
   pname = "rmg";
-  version = "0.5.0";
+  version = "0.5.1";
   name = "${pname}-${version}";
   src = fetchurl {
-    url = "https://github.com/Rosalie241/RMG/releases/download/v0.5.0/RMG-Portable-Linux64-v${version}.AppImage";
-    sha256 = "3c9e391b4e086486f8b643f3594abc086d87b9c4c6ad303e542e4bdb7c3c442a";
+    url = "https://github.com/Rosalie241/RMG/releases/download/v${version}/RMG-Portable-Linux64-v${version}.AppImage";
+    sha256 = "7ccd8893276e723cd181a825a7da311ba869eb697907a7130c7a40b03d970af5";
   };
   appimageContents = appimageTools.extractType2 { inherit name version src; };
 in
