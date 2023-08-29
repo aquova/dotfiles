@@ -15,10 +15,6 @@
 
   networking.hostName = "nyx"; # Define your hostname.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Enable networking
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -87,12 +83,16 @@
   users.users.aquova = {
     isNormalUser = true;
     description = "Austin Bricker";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ 
+      "libvirtd"
+      "networkmanager" 
+      "wheel" 
+    ];
     packages = with pkgs; [
       # General
       discord
-      element-desktop
       gimp
+      haruna
       libreoffice-qt
       mpv
       obsidian
@@ -100,11 +100,14 @@
       teams-for-linux
 
       # Development
+      cargo
       gcc
       love
       luajit
       nim-unwrapped-2
       nimble-unwrapped
+      python311
+      rustc
       vscodium
       zellij
 
@@ -172,6 +175,7 @@
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
   programs.steam.enable = true; # Required for "glXChooseVisual failed" bug.
+  programs.dconf.enable = true; # Required for virt-manager
 
   xdg = {
     portal = {
@@ -208,7 +212,6 @@
     rsync
     podman
     podman-compose
-    python311
     tailscale
     tldr
     unzip
@@ -239,6 +242,7 @@
 
   # Set up Podman
   virtualisation = {
+    libvirtd.enable = true;
     podman = {
       enable = true;
       dockerCompat = true;
