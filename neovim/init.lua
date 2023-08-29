@@ -232,8 +232,8 @@ else
     nnomap("]c", ":Gitsigns next_hunk<CR>")
     nnomap("[c", ":Gitsigns prev_hunk<CR>")
 
-    nnomap("<C-t>", ":ToggleTerm<CR>")
-    tnomap("<C-t>", "<C-\\><C-N>:ToggleTerm<CR>")
+    nnomap("<C-`>", ":ToggleTerm<CR>")
+    tnomap("<C-`>", "<C-\\><C-N>:ToggleTerm<CR>")
 
     nnomap("<leader>t", ":NvimTreeToggle<CR>")
 
