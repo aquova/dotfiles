@@ -38,21 +38,24 @@
   };
 
   # Replace sudo with doas
-  security.doas.enable = true;
   security.sudo.enable = false;
-  security.doas.extraRules = [{
-    users = ["aquova"];
-    keepEnv = true;
-    persist = true;
-  }];
+  security.doas = {
+    enable = true;
+    extraRules = [{
+      users = ["aquova"];
+      keepEnv = true;
+      persist = true;
+    }];
+  };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.displayManager.defaultSession = "plasmawayland";
+  services.xserver = {
+    enable = true;
+    desktopManager.plasma5.enable = true;
+    displayManager = {
+      sddm.enable = true;
+      defaultSession = "plasmawayland";
+    };
+  };
 
   # Configure keymap in X11
   services.xserver = {
@@ -73,10 +76,6 @@
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -98,11 +97,11 @@
       obsidian
       signal-desktop
       teams-for-linux
+      thunderbird
 
       # Development
       cargo
       gcc
-      love
       luajit
       nim-unwrapped-2
       nimble-unwrapped
@@ -115,6 +114,7 @@
       bitwarden
       filelight
       foot
+      libsForQt5.kcalc
       libsForQt5.kdeconnect-kde
       krename
       mullvad-vpn
@@ -177,14 +177,12 @@
   programs.steam.enable = true; # Required for "glXChooseVisual failed" bug.
   programs.dconf.enable = true; # Required for virt-manager
 
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-	libsForQt5.xdg-desktop-portal-kde
-        xdg-desktop-portal-wlr
-      ];
-    };
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      libsForQt5.xdg-desktop-portal-kde
+      xdg-desktop-portal-wlr
+    ];
   };
 
   environment.sessionVariables.PATH = [ 
@@ -219,14 +217,6 @@
     wl-clipboard
     zip
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
   services.syncthing = {
