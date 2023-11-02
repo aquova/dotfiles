@@ -8,9 +8,16 @@ cp config.fish $FISH_DIR
 cp fish_user_key_bindings.fish $FISH_DIR/functions
 
 # Install plugins
-# TODO: If I ever use another plugin, make this a general loop
-cd fzf.fish
-cp completions/* $FISH_DIR/completions
-cp conf.d/* $FISH_DIR/conf.d
-cp functions/* $FISH_DIR/functions
-
+for plugin in (ls -d */)
+    pushd $plugin
+    if test -e "completions"
+        cp completions/* $FISH_DIR/completions
+    end
+    if test -e "conf.d"
+        cp conf.d/* $FISH_DIR/conf.d
+    end
+    if test -e "functions"
+        cp functions/* $FISH_DIR/functions
+    end
+    popd
+end
