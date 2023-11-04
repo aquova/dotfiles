@@ -86,6 +86,14 @@ if not vim.g.vscode then
     })
     lsp.setup()
 
+    require("mason").setup()
+    require("mason-lspconfig").setup({
+        ensure_installed = {},
+        handlers = {
+            lsp.default_setup,
+        },
+    })
+
     local cmp = require('cmp')
     cmp.setup({
         mapping = {
