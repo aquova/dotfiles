@@ -111,6 +111,14 @@ if not vim.g.vscode then
     }
     require('onedark').load()
 
+    require('telescope').setup({
+        pickers = {
+            find_files = {
+                find_command = { "rg", "--files", "--no-ignore", "--glob", "!**/.git/*" },
+            },
+        }
+    })
+
     require("toggleterm").setup{
         direction = 'float'
     }
