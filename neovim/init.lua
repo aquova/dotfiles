@@ -130,7 +130,6 @@ set.backspace = "2"
 set.breakindent = true
 set.cursorline = true
 set.conceallevel = 0
-set.diffopt = "vertical"
 set.encoding = "utf-8"
 set.expandtab = true
 set.foldlevel = 99
