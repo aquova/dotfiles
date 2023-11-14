@@ -10,7 +10,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
-    {'alaviss/nim.nvim', cond = not vim.g.vscode},
     {'alvan/vim-closetag'},
     {'akinsho/toggleterm.nvim', cond = not vim.g.vscode},
     {'chentoast/marks.nvim', cond = not vim.g.vscode},
@@ -102,9 +101,7 @@ if not vim.g.vscode then
         }
     })
 
-    require("marks").setup{
-        builtin_marks = { ".", "<", ">", "^", "'" }
-    }
+    require("marks").setup()
 
     require('onedark').setup {
         style = 'darker'
