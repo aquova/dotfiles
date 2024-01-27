@@ -1,5 +1,5 @@
 # NixOS Configuration
-# aquova, 2023
+# aquova, 2023-2024
 
 { config, pkgs, ... }:
 
@@ -17,7 +17,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -47,14 +46,16 @@
       persist = true;
     }];
   };
+  security.polkit.enable = true;
 
   services.xserver = {
     enable = true;
-    desktopManager.plasma5.enable = true;
-    displayManager = {
-      sddm.enable = true;
-      defaultSession = "plasmawayland";
-    };
+    displayManager.sddm.enable = true;
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
   };
 
   # Configure keymap in X11
@@ -63,18 +64,18 @@
     xkbVariant = "";
   };
 
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+   enable = true;
+   powerOnBoot = false;
+  };
 
   # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
 
@@ -83,89 +84,8 @@
     isNormalUser = true;
     description = "Austin Bricker";
     extraGroups = [ 
-      "libvirtd"
       "networkmanager" 
       "wheel" 
-    ];
-    packages = with pkgs; [
-      # General
-      discord
-      gimp
-      haruna
-      libreoffice-qt
-      mpv
-      obsidian
-      signal-desktop
-      teams-for-linux
-      thunderbird
-
-      # Development
-      cargo
-      gcc
-      luajit
-      nim-unwrapped-2
-      nimble-unwrapped
-      python311
-      rustc
-      vscodium
-      zellij
-
-      # Utilities
-      bitwarden
-      filelight
-      foot
-      libsForQt5.kcalc
-      libsForQt5.kdeconnect-kde
-      krename
-      mullvad-vpn
-      (callPackage ./mqtt-explorer.nix {})
-      obs-studio
-      okteta
-      partition-manager
-      python311Packages.mkdocs
-      python311Packages.mkdocs-material
-      qbittorrent
-      qpwgraph
-      syncthing
-      syncthingtray
-      ventoy
-      virt-manager
-      yt-dlp
-
-      # Gaming
-      heroic
-      mangohud
-      prismlauncher
-      runelite
-      steam
-
-      # Emulators
-      ares
-      bsnes-hd
-      cemu
-      citra-canary
-      dolphin-emu
-      duckstation
-      flycast
-      kega-fusion
-      mednaffe
-      mednafen
-      melonDS
-      mgba
-      pcsx2
-      ppsspp-sdl-wayland
-      punes
-      (callPackage ./rmg.nix {})
-      rpcs3
-      ryujinx
-      sameboy
-      xemu
-      yuzu-mainline
-
-      # Theming
-      bibata-cursors
-      nerdfonts
-      papirus-icon-theme
     ];
   };
 
@@ -175,23 +95,46 @@
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
   programs.steam.enable = true; # Required for "glXChooseVisual failed" bug.
-  programs.dconf.enable = true; # Required for virt-manager
 
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      libsForQt5.xdg-desktop-portal-kde
-      xdg-desktop-portal-wlr
+      xdg-desktop-portal-hyprland
     ];
   };
 
   environment.sessionVariables.PATH = [ 
     "$HOME/.local/bin" 
-    "$HOME/.nimble/bin"
   ];
+
+  environment.variables = {
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+  };
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    # General
+    dolphin
+    filelight
+    firefox
+    foot
+    gwenview
+    libsForQt5.kcalc
+    krename
+    mpv
+    neovim
+    okular
+    partition-manager
+    signal-desktop
+
+    # Development
+    cargo
+    gcc
+    nim
+    python311
+    rustc
+
+    # CLI Utilities
     bat
     btop
     difftastic
@@ -199,26 +142,54 @@
     doas
     fd
     ffmpeg
-    firefox
     fzf
     git
     htop
     ncdu
     neofetch
-    neovim
     ripgrep
-    rsync
     podman
     podman-compose
+    syncthing
+    syncthingtray
     tailscale
     tldr
+    tmux
     unzip
     wget
     wl-clipboard
+    yt-dlp
     zip
+
+    # Gaming
+    heroic
+    mangohud
+    steam
+
+    # Hyprland tools
+    brightnessctl
+    dunst
+    hyprshot
+    hyprpaper
+    nwg-look
+    pamixer
+    playerctl
+    waybar
+    wofi
+
+    # Theming
+    bibata-cursors
+    libsForQt5.breeze-qt5
+    papirus-icon-theme
+    libsForQt5.qt5ct
+    qt6Packages.qt6ct
   ];
 
-  # List services that you want to enable:
+  fonts.packages = with pkgs; [
+    hack-font
+    nerdfonts
+  ];
+
   services.syncthing = {
     enable = true;
     user = "aquova";
@@ -227,27 +198,15 @@
   };
 
   services.openssh.enable = true;
-  # services.printing.enable = true;
   services.tailscale.enable = true;
+  services.tlp.enable = true;
+  powerManagement.powertop.enable = true;
+  # services.printing.enable = true;
 
-  # Set up Podman
-  virtualisation = {
-    libvirtd.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
-  };
-
-  networking.firewall = {
+  virtualisation.podman = {
     enable = true;
-    allowedTCPPortRanges = [
-      { from = 1714; to = 1764; } # KDE Connect
-    ];
-    allowedUDPPortRanges = [
-      { from = 1714; to = 1764; } # KDE Connect
-    ];
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
   };
 
   # This value determines the NixOS release from which the default
