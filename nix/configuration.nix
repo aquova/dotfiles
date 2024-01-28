@@ -6,12 +6,14 @@
 {
   imports =
     [
+      <nixos-hardware/framework/13-inch/11th-gen-intel>
       ./hardware-configuration.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nyx"; # Define your hostname.
 
@@ -50,7 +52,10 @@
 
   services.xserver = {
     enable = true;
-    displayManager.sddm.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      theme = "chili";
+    };
   };
 
   programs.hyprland = {
@@ -103,12 +108,11 @@
     ];
   };
 
-  environment.sessionVariables.PATH = [ 
-    "$HOME/.local/bin" 
-  ];
-
-  environment.variables = {
+  environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt5ct";
+    PATH = [ 
+      "$HOME/.local/bin" 
+    ];
   };
 
   # List packages installed in system profile.
@@ -150,6 +154,7 @@
     ripgrep
     podman
     podman-compose
+    powertop
     syncthing
     syncthingtray
     tailscale
@@ -183,6 +188,7 @@
     papirus-icon-theme
     libsForQt5.qt5ct
     qt6Packages.qt6ct
+    sddm-chili-theme
   ];
 
   fonts.packages = with pkgs; [
@@ -199,9 +205,13 @@
 
   services.openssh.enable = true;
   services.tailscale.enable = true;
+  services.fprintd.enable = true;
+  services.fstrim.enable = true;
+
+  # Laptop battery life improvements
   services.tlp.enable = true;
+  services.auto-cpufreq.enable = true;
   powerManagement.powertop.enable = true;
-  # services.printing.enable = true;
 
   virtualisation.podman = {
     enable = true;
