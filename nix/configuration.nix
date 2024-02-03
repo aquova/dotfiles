@@ -52,9 +52,8 @@
 
   services.xserver = {
     enable = true;
-    displayManager.sddm = {
+    displayManager.gdm = {
       enable = true;
-      theme = "chili";
     };
   };
 
@@ -112,12 +111,17 @@
     QT_QPA_PLATFORMTHEME = "qt5ct";
     PATH = [ 
       "$HOME/.local/bin" 
+      "$HOME/.local/share/nvim/mason/bin"
     ];
   };
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     # General
+    libsForQt5.ark
+    # If you want different theme, need to add to ~/.config/kdeglobals
+    # [Colors:View]
+    # BackgroundNormal=#2E2E2E
     dolphin
     filelight
     firefox
@@ -126,17 +130,21 @@
     libsForQt5.kcalc
     krename
     mpv
+    mullvad-vpn
     neovim
+    newsflash
     okular
     partition-manager
+    qbittorrent
     signal-desktop
+    tokodon
+    webcord
 
     # Development
-    cargo
     gcc
     nim
     python311
-    rustc
+    rustup
 
     # CLI Utilities
     bat
@@ -149,12 +157,14 @@
     fzf
     git
     htop
+    libsForQt5.kio # Needed for smb support, maybe
     ncdu
     neofetch
     ripgrep
     podman
     podman-compose
     powertop
+    samba
     syncthing
     syncthingtray
     tailscale
@@ -180,6 +190,7 @@
     pamixer
     playerctl
     waybar
+    wlogout
     wofi
 
     # Theming
@@ -188,7 +199,6 @@
     papirus-icon-theme
     libsForQt5.qt5ct
     qt6Packages.qt6ct
-    sddm-chili-theme
   ];
 
   fonts.packages = with pkgs; [
@@ -203,8 +213,10 @@
     configDir = "/home/aquova/.config/syncthing";
   };
 
+  services.gnome.gnome-keyring.enable = true;
   services.openssh.enable = true;
   services.tailscale.enable = true;
+  services.mullvad-vpn.enable = true;
   services.fprintd.enable = true;
   services.fstrim.enable = true;
 

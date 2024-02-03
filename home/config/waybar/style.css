@@ -51,6 +51,9 @@ window#waybar {
 #disk {
 	color: #b58900;
 }
+#power {
+    color: #f38ba8;
+}
 
 #clock,
 #pulseaudio,
