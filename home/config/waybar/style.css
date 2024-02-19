@@ -48,11 +48,20 @@ window#waybar {
 #battery {
 	color: #859900;
 }
+#battery.warning {
+    color: #ffb347;
+}
+#battery.critical {
+    color: #ff6961;
+}
 #disk {
 	color: #b58900;
 }
-#power {
+#custom-power {
     color: #f38ba8;
+}
+#custom-arch {
+    color: #1793D1;
 }
 
 #clock,
