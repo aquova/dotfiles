@@ -4,6 +4,10 @@ set fish_key_bindings fish_user_key_bindings
 
 set fish_greeting ""
 
+if status is-interactive
+    atuin init fish | source
+end
+
 function fish_prompt
     echo -s (set_color cyan; whoami) \
     (set_color magenta)@ \
