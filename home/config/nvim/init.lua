@@ -198,6 +198,7 @@ if vim.g.vscode then
 else
     nnomap("J", ":bp<CR>")
     nnomap("K", ":bn<CR>")
+    nnomap("gd", "<C-]>")
     nnomap("gJ", "J<CR>")
     nnomap("gK", "K<CR>")
     nnomap("L", "L<bar>zz<CR>")
