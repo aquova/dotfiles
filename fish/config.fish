@@ -19,12 +19,20 @@ function fish_prompt
     (set_color normal)'$ '
 end
 
-function la
-    ls -a $argv
+if type -q eza
+    alias ls="eza"
+    alias la="eza -a"
+    alias lh="eza -l --icons"
+else
+    alias la="ls -a"
+    alias lh="ls -lh"
 end
 
-function lh
-    ls -lh $argv
+alias tmuxa="tmux a -t"
+
+function cs
+    cd $argv
+    ls
 end
 
 # From here: https://github.com/fish-shell/fish-shell/releases/tag/3.6.0
@@ -44,11 +52,3 @@ function gitsha
     git rev-parse HEAD
 end
 
-function tmuxa
-    tmux a -t $argv
-end
-
-function cs
-    cd $argv
-    ls
-end
