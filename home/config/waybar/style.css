@@ -1,22 +1,20 @@
 * {
-	font-size: 16px;
-	font-family: monospace;
-    background: #1a1a1a;
+    border: none;
+    border-radius: 0px;
+    font-family: monospace;
+    font-size: 16px;
+    min-height: 10px;
 }
 
 window#waybar {
-	background: #292b2e;
-	color: #fdf6e3;
+    background: rgba(0, 0, 0, 0);
 }
 
-#custom-right-arrow-dark,
-#custom-left-arrow-dark {
-	color: #1a1a1a;
-}
-#custom-right-arrow-light,
-#custom-left-arrow-light {
-	color: #292b2e;
-	background: #1a1a1a;
+tooltip {
+    background: #11111b;
+    color: #cdd6f4;
+    border-radius: 7px;
+    border-width: 0px;
 }
 
 #workspaces button {
@@ -36,42 +34,71 @@ window#waybar {
 	padding: 0 3px;
 }
 
+#workspaces,
+#custom-notifications,
+#custom-power,
+#custom-arch,
+#clock,
+#backlight,
+#battery,
+#pulseaudio,
+#bluetooth,
+#network,
+#custom-left,
+#custom-right,
+#backlight {
+    color: #cdd6f4;
+    background: #11111b;
+    opacity: 1;
+    margin: 4px 0px 4px 0px;
+}
+
+#custom-notifications,
+#custom-power,
+#backlight,
+#battery,
+#pulseaudio,
+#bluetooth,
+#network {
+    padding: 0 10px;
+}
+
+#workspaces,
+#taskbar {
+    padding: 0px;
+}
+
+#custom-right {
+    border-radius: 0px 21px 21px 0px;
+    margin-right: 5px;
+    padding-right: 3px;
+}
+
+#custom-left {
+    border-radius: 21px 0px 0px 21px;
+    margin-left: 5px;
+    padding-left: 3px;
+}
+
 #pulseaudio {
 	color: #268bd2;
 }
 #backlight {
 	color: #2aa198;
 }
-#cpu {
-	color: #6c71c4;
-}
 #battery {
 	color: #859900;
 }
+#custom-notifications,
 #battery.warning {
     color: #ffb347;
 }
 #battery.critical {
     color: #ff6961;
 }
-#disk {
-	color: #b58900;
-}
 #custom-power {
     color: #f38ba8;
 }
 #custom-arch {
     color: #1793D1;
-}
-
-#clock,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#disk,
-#bluetooth,
-#network,
-#backlight {
-	padding: 0 10px;
 }
