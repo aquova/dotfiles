@@ -22,7 +22,7 @@ end
 if type -q eza
     alias ls="eza"
     alias la="eza -a"
-    alias lh="eza -l --icons"
+    alias lh="eza -l -g --icons"
 else
     alias la="ls -a"
     alias lh="ls -lh"
