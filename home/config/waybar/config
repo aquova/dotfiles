@@ -33,11 +33,9 @@
         "all-outputs": true,
 		"format": "{icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "active": ""
+            "active": "",
+            "default": "",
+            "empty": "",
         },
         "persistent-workspaces": {
             "1": [],
@@ -65,7 +63,7 @@
 	"pulseaudio": {
 		"format": "{icon} {volume:2}%",
 		"format-bluetooth": "{icon}  {volume}%",
-		"format-muted": "MUTE",
+		"format-muted": "",
 		"format-icons": {
 			"headphones": "",
 			"default": [
@@ -108,7 +106,7 @@
 		"path": "/"
 	},
     "network": {
-        "format-wifi": " ",
+        "format-wifi": "",
         "format-ethernet": "",
         "format-disconnected": "×",
         "tooltip-format": "{ifname}",

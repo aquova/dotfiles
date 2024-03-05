@@ -17,25 +17,8 @@ tooltip {
     border-width: 0px;
 }
 
-#workspaces button {
-	padding: 0 2px;
-	color: #fdf6e3;
-}
-#workspaces button.focused {
-	color: #268bd2;
-}
-#workspaces button:hover {
-	box-shadow: inherit;
-	text-shadow: inherit;
-}
-#workspaces button:hover {
-	background: #1a1a1a;
-	border: #1a1a1a;
-	padding: 0 3px;
-}
-
 #workspaces,
-#custom-notifications,
+#custom-notification,
 #custom-power,
 #custom-arch,
 #clock,
@@ -46,14 +29,17 @@ tooltip {
 #network,
 #custom-left,
 #custom-right,
+#tray,
 #backlight {
     color: #cdd6f4;
     background: #11111b;
     opacity: 1;
     margin: 4px 0px 4px 0px;
+    border-top: 2px solid #301934;
+    border-bottom: 2px solid #301934;
 }
 
-#custom-notifications,
+#custom-notification,
 #custom-power,
 #backlight,
 #battery,
@@ -69,15 +55,17 @@ tooltip {
 }
 
 #custom-right {
-    border-radius: 0px 21px 21px 0px;
-    margin-right: 5px;
-    padding-right: 3px;
+    border-radius: 0px 7px 7px 0px;
+    border-top: 2px solid #301934;
+    border-right: 2px solid #301934;
+    border-bottom: 2px solid #301934;
 }
 
 #custom-left {
-    border-radius: 21px 0px 0px 21px;
-    margin-left: 5px;
-    padding-left: 3px;
+    border-radius: 7px 0px 0px 7px;
+    border-top: 2px solid #301934;
+    border-left: 2px solid #301934;
+    border-bottom: 2px solid #301934;
 }
 
 #pulseaudio {
