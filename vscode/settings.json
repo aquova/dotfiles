@@ -1,5 +1,5 @@
 // Austin Bricker VSCode Settings
-// 2018-2023
+// 2018-2024
 {
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
@@ -53,4 +53,9 @@
     "terminal.integrated.cursorStyle": "underline",
     "terminal.integrated.defaultProfile.windows": "Git Bash",
     "vscode-neovim.neovimExecutablePaths.win32": "C:\\Program Files\\nvim-win64\\bin\\nvim.exe",
+    "vscode-neovim.compositeKeys": {
+        "jk": {
+            "command": "vscode-neovim.escape"
+        }
+    }
 }

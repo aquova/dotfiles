@@ -196,6 +196,7 @@ if vim.g.vscode then
     nnomap("u", "<Cmd>call VSCodeNotify('undo')<CR>")
     nnomap("<C-r>", "<Cmd>call VSCodeNotify('redo')<CR>")
 else
+    inomap("jk", "<esc>")
     nnomap("J", ":bp<CR>")
     nnomap("K", ":bn<CR>")
     nnomap("gd", "<C-]>")
@@ -206,8 +207,6 @@ else
     nnomap("H", "H<bar>zz<CR>")
     vnomap("H", "H<bar>zz<CR>")
 end
-
-inomap("jk", "<esc>")
 
 nnomap("<leader><space>", ":noh<CR>")
 
