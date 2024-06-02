@@ -4,7 +4,7 @@ set fish_key_bindings fish_user_key_bindings
 
 set fish_greeting ""
 
-if status is-interactive
+if status is-interactive; and type -q atuin
     atuin init fish | source
 end
 
@@ -19,14 +19,8 @@ function fish_prompt
     (set_color normal)'$ '
 end
 
-if type -q eza
-    alias ls="eza"
-    alias la="eza -a"
-    alias lh="eza -l -g --icons"
-else
-    alias la="ls -a"
-    alias lh="ls -lh"
-end
+alias la="ls -a"
+alias lh="ls -lh"
 
 alias tmuxa="tmux a -t"
 
