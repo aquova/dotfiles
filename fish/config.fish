@@ -19,6 +19,7 @@ function fish_prompt
     (set_color normal)'$ '
 end
 
+alias ls="lsd"
 alias la="ls -a"
 alias lh="ls -lh"
 
