@@ -157,6 +157,14 @@ syntax enable
 filetype indent on
 ]])
 
+-- Figure out how to limit this to Windows
+-- if not vim.g.vscode then
+--     vim.cmd([[
+--     let &shell = '"C:\Program Files\Git\bin\bash.exe"'
+--     let &shellcmdflag = '-s'
+--     ]])
+-- end
+
 function map(mode, shortcut, cmd)
     vim.api.nvim_set_keymap(mode, shortcut, cmd, { noremap = true, silent = true })
 end
@@ -190,10 +198,6 @@ if vim.g.vscode then
     -- gt/gT also performs this by default
     nnomap("[b", "<Cmd>call VSCodeNotify('workbench.action.previousEditor')<CR>")
     nnomap("]b", "<Cmd>call VSCodeNotify('workbench.action.nextEditor')<CR>")
-
-    -- Neovim's undo will not mark a file as clean when all changes are undone. Override with built-in VSCode implementation
-    nnomap("u", "<Cmd>call VSCodeNotify('undo')<CR>")
-    nnomap("<C-r>", "<Cmd>call VSCodeNotify('redo')<CR>")
 else
     inomap("jk", "<esc>")
     nnomap("[b", ":bp<CR>")
@@ -203,12 +207,14 @@ else
     vnomap("L", "L<bar>zz<CR>")
     nnomap("H", "H<bar>zz<CR>")
     vnomap("H", "H<bar>zz<CR>")
+
+    -- This is useful in VSCode, but not if Copilot is present
+    nnomap("<tab>", "%")
+    vnomap("<tab>", "%")
+
 end
 
 nnomap("<leader><space>", ":noh<CR>")
-
-nnomap("<tab>", "%")
-vnomap("<tab>", "%")
 
 nnomap("Y", "y$")
 vnomap("Y", "y$")
