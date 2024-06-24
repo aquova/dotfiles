@@ -1,5 +1,5 @@
 -- Vimars init.lua
--- Austin Bricker, 2017-2023
+-- Austin Bricker, 2017-2024
 
 -- Setup lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -188,20 +188,17 @@ vnomap("E", "$")
 
 if vim.g.vscode then
     -- gt/gT also performs this by default
-    nnomap("J", "<Cmd>call VSCodeNotify('workbench.action.previousEditor')<CR>")
-    nnomap("K", "<Cmd>call VSCodeNotify('workbench.action.nextEditor')<CR>")
-    nnomap("gJ", "<Cmd>call VSCodeNotify('editor.action.joinLines')<CR>")
+    nnomap("[b", "<Cmd>call VSCodeNotify('workbench.action.previousEditor')<CR>")
+    nnomap("]b", "<Cmd>call VSCodeNotify('workbench.action.nextEditor')<CR>")
 
     -- Neovim's undo will not mark a file as clean when all changes are undone. Override with built-in VSCode implementation
     nnomap("u", "<Cmd>call VSCodeNotify('undo')<CR>")
     nnomap("<C-r>", "<Cmd>call VSCodeNotify('redo')<CR>")
 else
     inomap("jk", "<esc>")
-    nnomap("J", ":bp<CR>")
-    nnomap("K", ":bn<CR>")
+    nnomap("[b", ":bp<CR>")
+    nnomap("]b", ":bn<CR>")
     nnomap("gd", "<C-]>")
-    nnomap("gJ", "J<CR>")
-    nnomap("gK", "K<CR>")
     nnomap("L", "L<bar>zz<CR>")
     vnomap("L", "L<bar>zz<CR>")
     nnomap("H", "H<bar>zz<CR>")
