@@ -16,7 +16,6 @@ require("lazy").setup({
     {'kyazdani42/nvim-tree.lua', cond = not vim.g.vscode, dependencies = {
         'kyazdani42/nvim-web-devicons',
     }},
-    {'lewis6991/gitsigns.nvim', cond = not vim.g.vscode},
     {'lukas-reineke/indent-blankline.nvim', cond = not vim.g.vscode},
     {'navarasu/onedark.nvim', cond = not vim.g.vscode},
     {'nvim-lualine/lualine.nvim', cond = not vim.g.vscode},
@@ -27,6 +26,7 @@ require("lazy").setup({
     {'aznhe21/hop.nvim', branch = 'fix-some-bugs'},
     {'romgrk/barbar.nvim', cond = not vim.g.vscode, dependencies = {
         'kyazdani42/nvim-web-devicons',
+        'lewis6991/gitsigns.nvim', -- gitsigns also used outside of barbar
     }},
     {'sheerun/vim-polyglot', cond = not vim.g.vscode},
     {'sindrets/diffview.nvim', cond = not vim.g.vscode},
@@ -47,12 +47,20 @@ require("lazy").setup({
 require("hop").setup()
 
 if not vim.g.vscode then
-    require("barbar").setup{
-        insert_at_end = true,
-    }
     require("diffview").setup()
     require("gitsigns").setup()
     require("nvim-tree").setup()
+
+    require("barbar").setup{
+        insert_at_end = true,
+        icons = {
+            gitsigns = {
+                added = {enabled = true, icon = '+'},
+                changed = {enabled = true, icon = '~'},
+                deleted = {enabled = true, icon = '-'},
+            },
+        }
+    }
 
     require("bufferline").setup{
         auto_hide = true,
@@ -200,8 +208,6 @@ if vim.g.vscode then
     nnomap("]b", "<Cmd>call VSCodeNotify('workbench.action.nextEditor')<CR>")
 else
     inomap("jk", "<esc>")
-    nnomap("[b", ":bp<CR>")
-    nnomap("]b", ":bn<CR>")
     nnomap("gd", "<C-]>")
     nnomap("L", "L<bar>zz<CR>")
     vnomap("L", "L<bar>zz<CR>")
@@ -237,9 +243,14 @@ if vim.g.vscode then
     nnomap("<leader>g", "<Cmd>call VSCodeNotify('git.revertSelectedRanges')<CR>")
 
     nnomap("<leader>t", "<Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>")
+
 else
     nnomap("<leader>b", ":Gitsigns toggle_current_line_blame<CR>")
     nnomap("<leader>g", ":Gitsigns reset_hunk<CR>")
+
+    -- Need to use barbar's buffer switching API
+    nnomap("[b", "<Cmd>BufferPrevious<CR>")
+    nnomap("]b", "<Cmd>BufferNext<CR>")
 
     nnomap("[e", ":lua vim.diagnostic.goto_prev()<CR>")
     nnomap("]e", ":lua vim.diagnostic.goto_next()<CR>")
