@@ -202,6 +202,9 @@ vnomap("B", "^")
 nnomap("E", "$")
 vnomap("E", "$")
 
+nnomap("<tab>", "%")
+vnomap("<tab>", "%")
+
 if vim.g.vscode then
     -- gt/gT also performs this by default
     nnomap("[b", "<Cmd>call VSCodeNotify('workbench.action.previousEditor')<CR>")
@@ -213,11 +216,6 @@ else
     vnomap("L", "L<bar>zz<CR>")
     nnomap("H", "H<bar>zz<CR>")
     vnomap("H", "H<bar>zz<CR>")
-
-    -- This is useful in VSCode, but not if Copilot is present
-    nnomap("<tab>", "%")
-    vnomap("<tab>", "%")
-
 end
 
 nnomap("<leader><space>", ":noh<CR>")
