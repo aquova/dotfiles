@@ -270,6 +270,7 @@ else
     nnomap("<leader>d", ":lua DiffviewToggle()<CR>")
     nnomap("<leader>z", ":Telescope spell_suggest<CR>")
     nnomap("<leader>m", ":Telescope man_pages<CR>")
+    nnomap("<leader>u", ":UndotreeToggle<CR>")
 end
 
 nnomap("<leader><leader>w", ":HopWordAC<CR>")
