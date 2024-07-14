@@ -17,6 +17,7 @@ require("lazy").setup({
         'kyazdani42/nvim-web-devicons',
     }},
     {'lukas-reineke/indent-blankline.nvim', cond = not vim.g.vscode},
+    {'mbbill/undotree', cond = not vim.g.vscode},
     {'navarasu/onedark.nvim', cond = not vim.g.vscode},
     {'nvim-lualine/lualine.nvim', cond = not vim.g.vscode},
     {'nvim-telescope/telescope.nvim', cond = not vim.g.vscode, dependencies = {
