@@ -86,18 +86,20 @@
     ];
     packages = with pkgs; [
       # General
-      # discord
       # gimp
+      jellyfin-media-player
       libreoffice-qt
       mpv
+      openscad
+      proton-pass
       signal-desktop
-      teams-for-linux
+      vesktop
 
       # Development
       cargo
       gcc
       luajit
-      # python311
+      python3
       rustc
 
       # Utilities
@@ -106,7 +108,7 @@
       libsForQt5.kcalc
       krename
       mullvad-vpn
-      # (callPackage ./mqtt-explorer.nix {})
+      (callPackage ./mqtt-explorer.nix {})
       obs-studio
       okteta
       partition-manager
@@ -115,6 +117,7 @@
       syncthing
       virt-manager
       yt-dlp
+      zathura
 
       # Gaming
       heroic
@@ -126,10 +129,10 @@
       ares
       bsnes-hd
       cemu
-      # citra-canary
       dolphin-emu
       duckstation
       flycast
+      lime3ds
       kega-fusion
       mednaffe
       mednafen
@@ -138,7 +141,7 @@
       pcsx2
       ppsspp-sdl-wayland
       punes
-      # (callPackage ./rmg.nix {})
+      (callPackage ./rmg.nix {})
       # rpcs3
       ryujinx
       sameboy
