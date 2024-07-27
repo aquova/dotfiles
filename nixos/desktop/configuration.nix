@@ -176,6 +176,7 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    atuin
     bat
     btop
     difftastic
