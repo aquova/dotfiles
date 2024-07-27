@@ -5,7 +5,7 @@ set fish_key_bindings fish_user_key_bindings
 set fish_greeting ""
 
 if status is-interactive; and type -q atuin
-    atuin init fish | source
+    atuin init fish --disable-up-arrow | source
 end
 
 function fish_prompt
@@ -19,9 +19,7 @@ function fish_prompt
     (set_color normal)'$ '
 end
 
-if command -v lsd > /dev/null
-    alias ls="lsd"
-end
+alias ls="lsd"
 alias la="ls -a"
 alias lh="ls -lh"
 
