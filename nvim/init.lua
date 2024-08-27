@@ -68,6 +68,41 @@ if not vim.g.vscode then
         insert_at_end = true,
     }
 
+    local cmp = require('cmp')
+    cmp.setup({
+        sources = {
+            { name = "nvim_lsp" },
+        },
+        snippet = {
+            expand = function(args)
+                require("luasnip").lsp_expand(args.body)
+            end,
+        },
+        mapping = {
+            ['<CR>'] = cmp.mapping.confirm({select = true}),
+            ['<TAB>'] = cmp.mapping(cmp.mapping.select_next_item()),
+        }
+    })
+
+    local lsp = require("lsp-zero")
+    local lsp_attach = function(client, bufnr)
+        lsp.default_keymaps({buffer = bufnr})
+    end
+    lsp.extend_lspconfig({
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+        lsp_attach = lsp_attach,
+        float_border = "rounded",
+        sign_text = true,
+    })
+
+    require("mason").setup()
+    require("mason-lspconfig").setup({
+        ensure_installed = {},
+        handlers = {
+            lsp.default_setup,
+        },
+    })
+
     require("lualine").setup{
         options = {
             icons_enabled = true,
@@ -85,30 +120,6 @@ if not vim.g.vscode then
         tabline = {},
         extensions = {},
     }
-
-    local lsp = require("lsp-zero").preset({
-        name = 'minimal',
-        set_lsp_keymaps = true,
-        manage_nvim_cmp = true,
-        suggest_lsp_servers = false,
-    })
-    lsp.setup()
-
-    require("mason").setup()
-    require("mason-lspconfig").setup({
-        ensure_installed = {},
-        handlers = {
-            lsp.default_setup,
-        },
-    })
-
-    local cmp = require('cmp')
-    cmp.setup({
-        mapping = {
-            ['<CR>'] = cmp.mapping.confirm({select = true}),
-            ['<TAB>'] = cmp.mapping(cmp.mapping.select_next_item()),
-        }
-    })
 
     require("marks").setup()
 
