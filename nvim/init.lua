@@ -31,6 +31,10 @@ require("lazy").setup({
     }},
     {'sheerun/vim-polyglot', cond = not vim.g.vscode},
     {'sindrets/diffview.nvim', cond = not vim.g.vscode},
+    {'SmiteshP/nvim-navbuddy', cond = not vim.g.vscode, opts = {lsp = {auto_attach = true}}, dependencies = {
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim",
+    }},
     {'tpope/vim-commentary'},
     {'tpope/vim-repeat'},
     {'tpope/vim-surround'},
@@ -278,6 +282,7 @@ else
     nnomap("<C-S-f>",   ":Telescope grep_string<CR>")
     nnomap("<C-p>",     ":Telescope find_files<CR>")
     nnomap("<C-S-p>",   ":BufferPick<CR>")
+    nnomap("<C-n>",     ":Navbuddy<CR>")
     nnomap("<leader>d", ":lua DiffviewToggle()<CR>")
     nnomap("<leader>z", ":Telescope spell_suggest<CR>")
     nnomap("<leader>m", ":Telescope man_pages<CR>")
