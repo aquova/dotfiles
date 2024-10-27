@@ -23,6 +23,7 @@ require("lazy").setup({
     {'nvim-telescope/telescope.nvim', cond = not vim.g.vscode, dependencies = {
         'nvim-lua/plenary.nvim',
     }},
+    {'nvim-treesitter/nvim-treesitter', cond = not vim.g.vscode},
     -- {'phaazon/hop.nvim'},
     {'aznhe21/hop.nvim', branch = 'fix-some-bugs'},
     {'romgrk/barbar.nvim', cond = not vim.g.vscode, dependencies = {
@@ -143,6 +144,18 @@ if not vim.g.vscode then
     require("toggleterm").setup{
         direction = 'float'
     }
+
+    require("nvim-treesitter.configs").setup{
+        highlight = {
+            enable = true,
+        },
+        indent = {
+            enable = true,
+        },
+    }
+    -- Needed for Treesitter-supported folding
+    vim.wo.foldmethod = 'expr'
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 end
 
 local set = vim.opt
