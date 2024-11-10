@@ -128,9 +128,6 @@ if not vim.g.vscode then
 
     require("marks").setup()
 
-    require('onedark').setup {
-        style = 'darker'
-    }
     require('onedark').load()
 
     require('telescope').setup({
