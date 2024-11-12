@@ -8,10 +8,6 @@ if status is-interactive; and type -q atuin
     atuin init fish --disable-up-arrow | source
 end
 
-if type -q vivid
-    export LS_COLORS=$(vivid generate one-dark)
-end
-
 function fish_prompt
     echo -s (set_color cyan; whoami) \
     (set_color magenta)@ \
