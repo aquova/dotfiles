@@ -67,6 +67,7 @@ if not vim.g.vscode then
         }
     }
 
+    -- Used as part of barbar
     require("bufferline").setup{
         auto_hide = true,
         insert_at_end = true,
@@ -87,6 +88,8 @@ if not vim.g.vscode then
             ['<TAB>'] = cmp.mapping(cmp.mapping.select_next_item()),
         }
     })
+
+    require("ibl").setup()
 
     local lsp = require("lsp-zero")
     local lsp_attach = function(client, bufnr)
