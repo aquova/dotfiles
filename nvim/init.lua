@@ -31,6 +31,7 @@ require("lazy").setup({
         'lewis6991/gitsigns.nvim', -- gitsigns also used outside of barbar
     }},
     {'sindrets/diffview.nvim', cond = not vim.g.vscode},
+    -- Note: Navbuddy only works if language LSP is installed
     {'SmiteshP/nvim-navbuddy', cond = not vim.g.vscode, opts = {lsp = {auto_attach = true}}, dependencies = {
             "SmiteshP/nvim-navic",
             "MunifTanjim/nui.nvim",
