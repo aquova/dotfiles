@@ -1,5 +1,5 @@
 -- Vimars init.lua
--- Austin Bricker, 2017-2024
+-- Austin Bricker, 2017-2025
 
 -- Setup lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -18,7 +18,8 @@ require("lazy").setup({
     }},
     {'lukas-reineke/indent-blankline.nvim', cond = not vim.g.vscode},
     {'mbbill/undotree', cond = not vim.g.vscode},
-    {'navarasu/onedark.nvim', cond = not vim.g.vscode},
+    -- {'navarasu/onedark.nvim', cond = not vim.g.vscode},
+    {'Mofiqul/dracula.nvim', cond = not vim.g.vscode},
     {'nvim-lualine/lualine.nvim', cond = not vim.g.vscode},
     {'nvim-telescope/telescope.nvim', cond = not vim.g.vscode, dependencies = {
         'nvim-lua/plenary.nvim',
@@ -35,6 +36,7 @@ require("lazy").setup({
             "SmiteshP/nvim-navic",
             "MunifTanjim/nui.nvim",
     }},
+    {'stevearc/oil.nvim', cond = not vim.g.vscode},
     {'tpope/vim-commentary'},
     {'tpope/vim-repeat'},
     {'tpope/vim-surround'},
@@ -115,6 +117,7 @@ if not vim.g.vscode then
             icons_enabled = true,
             section_separators = '',
             component_separators = '',
+            theme = 'dracula',
         },
         sections = {
             lualine_a = {'mode'},
@@ -130,7 +133,13 @@ if not vim.g.vscode then
 
     require("marks").setup()
 
-    require('onedark').load()
+    require('oil').setup()
+    -- require('onedark').load()
+    require('dracula').setup({
+        colors = {
+            bg = "#282A37", -- Increased by one, to avoid bg being transparent w/ matching kitty theme
+        },
+    })
 
     require('telescope').setup({
         pickers = {
@@ -190,6 +199,7 @@ vim.g.mapleader = ","
 
 vim.cmd([[
 syntax enable
+colorscheme dracula
 filetype indent on
 ]])
 
