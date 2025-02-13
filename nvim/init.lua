@@ -16,17 +16,15 @@ require("lazy").setup({
     {'kyazdani42/nvim-tree.lua', cond = not vim.g.vscode, dependencies = {
         'kyazdani42/nvim-web-devicons',
     }},
+    {'linux-cultist/venv-selector.nvim', branch = "regexp", cond = not vim.g.vscode},
     {'lukas-reineke/indent-blankline.nvim', cond = not vim.g.vscode},
     {'mbbill/undotree', cond = not vim.g.vscode},
-    -- {'navarasu/onedark.nvim', cond = not vim.g.vscode},
-    {'Mofiqul/dracula.nvim', cond = not vim.g.vscode},
+    {'navarasu/onedark.nvim', cond = not vim.g.vscode},
     {'nvim-lualine/lualine.nvim', cond = not vim.g.vscode},
     {'nvim-telescope/telescope.nvim', cond = not vim.g.vscode, dependencies = {
         'nvim-lua/plenary.nvim',
     }},
     {'nvim-treesitter/nvim-treesitter', cond = not vim.g.vscode},
-    -- {'phaazon/hop.nvim'},
-    {'aznhe21/hop.nvim', branch = 'fix-some-bugs'},
     {'romgrk/barbar.nvim', cond = not vim.g.vscode, dependencies = {
         'kyazdani42/nvim-web-devicons',
         'lewis6991/gitsigns.nvim', -- gitsigns also used outside of barbar
@@ -36,6 +34,7 @@ require("lazy").setup({
             "SmiteshP/nvim-navic",
             "MunifTanjim/nui.nvim",
     }},
+    {'smoka7/hop.nvim'},
     {'stevearc/oil.nvim', cond = not vim.g.vscode},
     {'tpope/vim-commentary'},
     {'tpope/vim-repeat'},
@@ -112,12 +111,22 @@ if not vim.g.vscode then
         },
     })
 
+    -- This is only used to remove the "Undefined global `vim`" errors that appear in this file
+    require('lspconfig').lua_ls.setup({
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = {'vim'}
+                }
+            }
+        }
+    })
+
     require("lualine").setup{
         options = {
             icons_enabled = true,
             section_separators = '',
             component_separators = '',
-            theme = 'dracula',
         },
         sections = {
             lualine_a = {'mode'},
@@ -134,12 +143,7 @@ if not vim.g.vscode then
     require("marks").setup()
 
     require('oil').setup()
-    -- require('onedark').load()
-    require('dracula').setup({
-        colors = {
-            bg = "#282A37", -- Increased by one, to avoid bg being transparent w/ matching kitty theme
-        },
-    })
+    require('onedark').load()
 
     require('telescope').setup({
         pickers = {
@@ -152,6 +156,8 @@ if not vim.g.vscode then
     require("toggleterm").setup{
         direction = 'float'
     }
+
+    require("venv-selector").setup()
 
     require("nvim-treesitter.configs").setup{
         highlight = {
@@ -199,7 +205,6 @@ vim.g.mapleader = ","
 
 vim.cmd([[
 syntax enable
-colorscheme dracula
 filetype indent on
 ]])
 
@@ -301,7 +306,6 @@ else
     nnomap("<leader>t", ":NvimTreeToggle<CR>")
 
     nnomap("<C-f>",     ":Telescope live_grep<CR>")
-    nnomap("<C-S-f>",   ":Telescope grep_string<CR>")
     nnomap("<C-p>",     ":Telescope find_files<CR>")
     nnomap("<C-S-p>",   ":BufferPick<CR>")
     nnomap("<C-n>",     ":Navbuddy<CR>")

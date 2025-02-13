@@ -11,7 +11,7 @@ end
 function fish_prompt
     echo -s (set_color cyan; whoami) \
     (set_color magenta)@ \
-    (set_color cyan; prompt_hostname) \
+    (set_color cyan; hostname) \
     (set_color green)\[(date +%T)\] \
     (set_color normal): \
     (set_color yellow; pwd) \
