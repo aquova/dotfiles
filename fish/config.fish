@@ -2,6 +2,11 @@ set -gx EDITOR nvim
 set -gx TERM xterm-256color
 set fish_key_bindings fish_user_key_bindings
 
+set fish_cursor_default underscore
+set fish_cursor_insert underscore
+set fish_cursor_replace block
+set fish_cursor_visual block
+
 set fish_greeting ""
 
 if status is-interactive; and type -q atuin
@@ -24,8 +29,14 @@ if command -v lsd > /dev/null
 end
 alias la="ls -a"
 alias lh="ls -lh"
-
 alias tmuxa="tmux a -t"
+alias gd="git diff"
+alias gsh="git show --ext-diff"
+alias gst="git status"
+alias gl="git log"
+alias gcl="git checkout -- ."
+alias gitsha="git rev-parse HEAD"
+alias gittree="git log --graph --pretty=oneline --abbrev-commit"
 
 function cs
     cd $argv
@@ -40,12 +51,3 @@ abbr --add dotdot --regex '^\.\.+$' --function multicd
 
 function last_history_item; echo $history[1]; end
 abbr -a !! --position anywhere --function last_history_item
-
-function gittree
-    git log --graph --pretty=oneline --abbrev-commit
-end
-
-function gitsha
-    git rev-parse HEAD
-end
-
