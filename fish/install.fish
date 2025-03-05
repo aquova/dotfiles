@@ -5,7 +5,6 @@ mkdir -p $FISH_DIR/{completions,conf.d,functions}
 git submodule update --init
 
 ln -s (realpath config.fish) $FISH_DIR/config.fish
-ln -s (realpath fish_user_key_bindings.fish) $FISH_DIR/functions/fish_user_key_bindings.fish
 
 # Install plugins
 for plugin in (ls -d */)

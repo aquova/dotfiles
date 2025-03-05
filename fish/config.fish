@@ -1,7 +1,8 @@
 set -gx EDITOR nvim
 set -gx TERM xterm-256color
-set fish_key_bindings fish_user_key_bindings
 
+set -g fish_key_bindings fish_vi_key_bindings
+bind -M insert -m default jk backward-char force-repaint
 set fish_cursor_default underscore
 set fish_cursor_insert underscore
 set fish_cursor_replace block
@@ -30,13 +31,17 @@ end
 alias la="ls -a"
 alias lh="ls -lh"
 alias tmuxa="tmux a -t"
-alias gd="git diff"
-alias gsh="git show --ext-diff"
-alias gst="git status"
-alias gl="git log"
-alias gcl="git checkout -- ."
-alias gitsha="git rev-parse HEAD"
-alias gittree="git log --graph --pretty=oneline --abbrev-commit"
+
+abbr -a ga git add
+abbr -a gco git commit
+abbr -a gcl git checkout -- .
+abbr -a gd git diff
+abbr -a gl git log
+abbr -a gp git pull
+abbr -a gsh git show --ext-diff
+abbr -a gst git status
+abbr -a gitsha git rev-parse HEAD
+abbr -a gittree git log --graph --pretty=oneline --abbrev-commit
 
 function cs
     cd $argv
