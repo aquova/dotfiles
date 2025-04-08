@@ -38,7 +38,6 @@ require("lazy").setup({
     }},
     {'smoka7/hop.nvim'},
     {'stevearc/oil.nvim', cond = not vim.g.vscode},
-    {'toppair/peek.nvim', cond = not vim.g.vscode, event = "VeryLazy", build = "deno task --quiet build:fast"},
     {'tpope/vim-commentary'},
     {'tpope/vim-repeat'},
     {'tpope/vim-surround'},
@@ -146,12 +145,6 @@ if not vim.g.vscode then
         tabline = {},
         extensions = {},
     }
-
-    require("peek").setup({
-        auto_load = false
-    })
-    vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-    vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
 
     require('telescope').setup({
         pickers = {
@@ -380,13 +373,15 @@ nnomap("<leader><leader>/", ":HopPattern<CR>")
 
 vim.g.closetag_filetypes = 'html, php'
 
--- TODO: Figure out if this can be done with just Lua
-vim.cmd([[
-augroup highlight_yank
-autocmd!
-au TextYankPost * silent! lua require'vim.highlight'.on_yank({hlgroup="IncSearch", timeout=1000})
-augroup END
-]])
+-- Highlight text when yanked
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('highlight_yank', {}),
+  desc = 'Hightlight selection on yank',
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 500 }
+  end,
+})
 
 if not vim.g.vscode then
     -- Strip trailing whitespace

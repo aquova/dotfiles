@@ -33,6 +33,7 @@ alias lh="ls -lh"
 alias tmuxa="tmux a -t"
 
 abbr -a ga git add
+abbr -a gb git branch
 abbr -a gco git commit
 abbr -a gcl git checkout -- .
 abbr -a gd git diff
@@ -43,10 +44,12 @@ abbr -a gst git status
 abbr -a gitsha git rev-parse HEAD
 abbr -a gittree git log --graph --pretty=oneline --abbrev-commit
 
-function cs
-    cd $argv
-    ls
-end
+abbr -c ssh em $USER@emerald
+abbr -c ssh sa $USER@sapphire
+abbr -c ssh ru $USER@ruby
+abbr -c ssh to $USER@topaz
+abbr -c ssh pe $USER@pearl
+abbr -c ssh am deck@amethyst
 
 # From here: https://github.com/fish-shell/fish-shell/releases/tag/3.6.0
 function multicd
@@ -56,3 +59,16 @@ abbr --add dotdot --regex '^\.\.+$' --function multicd
 
 function last_history_item; echo $history[1]; end
 abbr -a !! --position anywhere --function last_history_item
+
+function tere
+    set --local result (command tere $argv)
+    [ -n "$result" ] && cd -- "$result"
+end
+
+# uv
+fish_add_path "/home/aquova/.local/bin"
+
+# Needs to be at the end of the file (apparently)
+if command -v zoxide > /dev/null
+    zoxide init fish | source
+end
